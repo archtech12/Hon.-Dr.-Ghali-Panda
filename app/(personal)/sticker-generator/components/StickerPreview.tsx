@@ -11,6 +11,9 @@ import { MinimalTemplate } from './templates/MinimalTemplate'
 import { BadgeTemplate } from './templates/BadgeTemplate'
 import { TypeTemplate } from './templates/TypeTemplate'
 import { GeometricTemplate } from './templates/GeometricTemplate'
+import { ClassicTemplateV2 } from './templates/ClassicTemplateV2'
+import { BadgeTemplateV2 } from './templates/BadgeTemplateV2'
+import { GeometricTemplateV2 } from './templates/GeometricTemplateV2'
 
 interface StickerPreviewProps {
   data: StickerData
@@ -26,6 +29,9 @@ export const StickerPreview = forwardRef<HTMLDivElement, StickerPreviewProps>(({
     badge: BadgeTemplate,
     type: TypeTemplate,
     geometric: GeometricTemplate,
+    classicV2: ClassicTemplateV2,
+    badgeV2: BadgeTemplateV2,
+    geometricV2: GeometricTemplateV2,
   }
 
   const SelectedTemplate = TemplateMap[data.templateId]

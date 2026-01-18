@@ -1,5 +1,5 @@
-export type TemplateId = 'classic' | 'modern' | 'youth' | 'print' | 'minimal' | 'badge' | 'type' | 'geometric'
-export type AspectRatio = 'square' | 'portrait' | 'story' | 'landscape'
+export type TemplateId = 'classic' | 'modern' | 'youth' | 'print' | 'minimal' | 'badge' | 'type' | 'geometric' | 'classicV2' | 'badgeV2' | 'geometricV2'
+export type AspectRatio = 'square' | 'portrait' | 'story' | 'landscape' | 'print'
 
 export interface StickerData {
   supporterName: string

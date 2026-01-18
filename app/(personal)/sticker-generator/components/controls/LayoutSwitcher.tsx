@@ -15,6 +15,9 @@ export const LayoutSwitcher = ({ currentTemplate, onSelect }: LayoutSwitcherProp
     { id: 'badge', name: 'Verified', desc: 'Official Supporter ID' },
     { id: 'type', name: 'Loud', desc: 'Big Typography & Impact' },
     { id: 'geometric', name: 'Shapes', desc: 'Dynamic Structure' },
+    { id: 'classicV2', name: 'Classic PRO', desc: 'Updated Polished Look' },
+    { id: 'badgeV2', name: 'Verified 2.0', desc: 'Modern & Clean' },
+    { id: 'geometricV2', name: 'Shapes 2.0', desc: 'Designer Edition' },
   ]
 
   return (
@@ -23,11 +26,10 @@ export const LayoutSwitcher = ({ currentTemplate, onSelect }: LayoutSwitcherProp
         <button
           key={t.id}
           onClick={() => onSelect(t.id)}
-          className={`relative p-3 rounded-xl border-2 text-left transition-all group ${
-            currentTemplate === t.id
+          className={`relative p-3 rounded-xl border-2 text-left transition-all group ${currentTemplate === t.id
               ? 'border-green-500 bg-green-50 shadow-sm'
               : 'border-gray-100 hover:border-gray-200 bg-white'
-          }`}
+            }`}
         >
           <div className="flex justify-between items-start">
             <div>
@@ -38,7 +40,7 @@ export const LayoutSwitcher = ({ currentTemplate, onSelect }: LayoutSwitcherProp
             </div>
             {currentTemplate === t.id && (
               <span className="bg-green-500 text-white rounded-full p-1 text-[10px]">
-                 ✓
+                ✓
               </span>
             )}
           </div>

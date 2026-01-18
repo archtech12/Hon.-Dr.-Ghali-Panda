@@ -16,24 +16,25 @@ const RATIOS: Record<AspectRatio, number> = {
   portrait: 4 / 5,
   story: 9 / 16,
   landscape: 1.91 / 1, // Facebook/Link preview standard
+  print: 1 / 1,
 }
 
 export const StickerCanvas = forwardRef<HTMLDivElement, StickerCanvasProps>(
   ({ children, aspectRatio, className = '', scale = 1 }, ref) => {
     const ratio = RATIOS[aspectRatio]
-    
+
     return (
-      <div 
+      <div
         className={`relative w-full overflow-hidden shadow-2xl rounded-sm bg-neutral-900 ${className}`}
         style={{ aspectRatio: `${ratio}` }}
       >
-        <div 
+        <div
           ref={ref}
           className="absolute inset-0 w-full h-full"
           data-sticker-root
         >
-            {children}
-            <Watermark />
+          {children}
+          <Watermark />
         </div>
       </div>
     )
