@@ -12,6 +12,7 @@ export default function StickerGeneratorPage() {
   const { data, updateField } = useStickerConfig()
   const previewRef = useRef<HTMLDivElement>(null)
   const [isDownloading, setIsDownloading] = useState(false)
+  const [isSharing, setIsSharing] = useState(false)
 
   const handleDownload = async () => {
     if (!previewRef.current) return
@@ -37,6 +38,53 @@ export default function StickerGeneratorPage() {
         alert('Could not generate sticker. Please try again.')
     } finally {
         setIsDownloading(false)
+    }
+  }
+
+  const handleShare = async () => {
+    if (!previewRef.current) return
+    
+    setIsSharing(true)
+    try {
+        const scale = 4
+        const canvas = await html2canvas(previewRef.current, {
+            scale: scale,
+            backgroundColor: null,
+            useCORS: true,
+            logging: false,
+        })
+        
+        canvas.toBlob(async (blob) => {
+            if (!blob) {
+                alert('Could not generate sticker for sharing.')
+                setIsSharing(false)
+                return
+            }
+
+            const file = new File([blob], `ghali-panda-sticker-${data.templateId}.png`, { type: 'image/png' })
+
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'Hon. Ghali Panda Sticker',
+                        text: 'Check out my support sticker for Hon. Dr. Ghali Tijjani Panda!',
+                        files: [file]
+                    })
+                } catch (err) {
+                     if ((err as Error).name !== 'AbortError') {
+                        console.error('Share failed', err)
+                        alert('Sharing failed. You can download the sticker instead.')
+                     }
+                }
+            } else {
+                alert('Sharing is not supported on this browser. Please use the Download button.')
+            }
+            setIsSharing(false)
+        }, 'image/png', 1.0)
+    } catch (e) {
+        console.error('Share generation failed', e)
+        alert('Could not generate sticker. Please try again.')
+        setIsSharing(false)
     }
   }
 
@@ -87,12 +135,12 @@ export default function StickerGeneratorPage() {
                         </div>
                     </div>
 
-                    <div className="mt-6 flex justify-center">
+                    <div className="mt-6 flex justify-center gap-3">
                         <button
                             onClick={handleDownload}
-                            disabled={isDownloading || !data.supporterName}
+                            disabled={isDownloading || isSharing || !data.supporterName}
                             className={`
-                                relative overflow-hidden group px-8 py-4 rounded-xl font-bold text-white shadow-xl transition-all hover:-translate-y-1
+                                relative overflow-hidden group px-6 py-4 rounded-xl font-bold text-white shadow-xl transition-all hover:-translate-y-1
                                 ${!data.supporterName ? 'bg-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600'}
                             `}
                         >
@@ -102,7 +150,27 @@ export default function StickerGeneratorPage() {
                                 ) : (
                                     <>
                                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-                                        Download Sticker
+                                        Download
+                                    </>
+                                )}
+                            </span>
+                        </button>
+
+                        <button
+                            onClick={handleShare}
+                            disabled={isDownloading || isSharing || !data.supporterName}
+                            className={`
+                                relative overflow-hidden group px-6 py-4 rounded-xl font-bold text-white shadow-xl transition-all hover:-translate-y-1
+                                ${!data.supporterName ? 'bg-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600'}
+                            `}
+                        >
+                            <span className="relative z-10 flex items-center gap-2">
+                                {isSharing ? (
+                                    <>Sharing...</>
+                                ) : (
+                                    <>
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
+                                        Share
                                     </>
                                 )}
                             </span>
