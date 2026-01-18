@@ -1,0 +1,47 @@
+export const news = [
+    {
+        _id: '1',
+        title: 'Strong Opposition to Anti-Masses Tax Reform Bills',
+        content: '<p>Hon. Dr. Ghali Mustapha Tijjani Panda has taken a strong stance against the proposed Tax Reform Bills at the National Assembly, describing them as "capitalistic, ill-timed, and anti-masses." In a recent interview and House debate, he argued that increasing the tax burden on ordinary Nigerians during a period of economic hardship is unjust. He vowed to vote against any policy that further impoverishes his constituents in Gaya, Ajingi, and Albasu.</p>',
+        category: 'Legislative',
+        imageUrl: '/assets/ghaliphoto.jpg',
+        publishDate: '2024-11-28T10:00:00Z',
+        excerpt: 'Hon. Panda rejects new tax bills, citing economic hardship for ordinary Nigerians.',
+    },
+    {
+        _id: '2',
+        title: 'Launch of Solar-Powered Boreholes in Ukays and Kademi',
+        content: '<p>Hon. Dr. Ghali Panda commissioned new solar-powered boreholes in Ukays, Makyandawa, Stadium, Kademi, Ataus, and Harunawa-B in Gaya LGA. This project ensures that thousands of residents now have sustainable access to clean and potable water, addressing critical water scarcity in these rural communities.</p>',
+        category: 'Infrastructure',
+        imageUrl: '/assets/images/gallery/1-Water-Empowerment/solar-borehole-asayaya-gafasa-gaya-dec2024-1.jpg',
+        publishDate: '2024-12-05T10:00:00Z',
+        excerpt: 'Clean water for Gaya: Commissioning solar boreholes in multiple communities.',
+    },
+    {
+        _id: '3',
+        title: 'Ramadan Relief: 18,600 Bags of Grains Distributed',
+        content: '<p>In the spirit of compassion, Hon. Ghali Panda flagged off a massive Ramadan Relief program in Gaya. The initiative saw the distribution of 18,600 bags of grains and N20 million in cash support to 1,000 vulnerable youths and families across Gaya, Ajingi, and Albasu, providing much-needed succour during the holy month.</p>',
+        category: 'Empowerment',
+        imageUrl: '/assets/foodstup.jpg',
+        publishDate: '2024-03-15T09:30:00Z',
+        excerpt: 'Massive Ramadan support: 18,600 bags of grains and cash support for constituents.',
+    },
+    {
+        _id: '4',
+        title: 'Youth Empowerment: Motorcycles for Self-Reliance',
+        content: '<p>Continuing his empowerment drive, Hon. Ghali Panda distributed 21 brand new motorcycles to youths across the constituency (10 in Gaya, 5 in Ajingi, 6 in Albasu). This initiative aims to foster self-reliance and create sustainable livelihoods for the beneficiaries.</p>',
+        category: 'Empowerment',
+        imageUrl: '/assets/images/gallery/4-Youth-Women-Empowerment/motorcycle-empowerment-21-units-dec2024-1.jpg',
+        publishDate: '2024-12-26T11:00:00Z',
+        excerpt: '21 motorcycles distributed to youths in Gaya, Ajingi, and Albasu.',
+    },
+    {
+        _id: '5',
+        title: 'Education Support: Nursing Scholarships Awarded',
+        content: '<p>Investing in the future of healthcare, Hon. Dr. Ghali has awarded full scholarships to 30 nursing students from the constituency. The N2.25 Million scholarship fund covers registration and tuition fees, ensuring that talented youths can pursue their medical careers and serve their communities.</p>',
+        category: 'Education',
+        imageUrl: '/assets/female-scholarship.jpg',
+        publishDate: '2025-08-07T14:00:00Z',
+        excerpt: '30 nursing students receive full scholarships to build our future healthcare workforce.',
+    }
+];

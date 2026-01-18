@@ -1,0 +1,266 @@
+'use client'
+
+import {useState, useEffect} from 'react'
+
+interface ContactInfo {
+  phone: string;
+  email: string;
+  officeAddress: string;
+  officeHours: string;
+  socialMedia: {
+    facebook: string;
+    twitter: string;
+    instagram: string;
+  };
+}
+
+// ... (imports same)
+// ... interface ContactInfo same
+
+export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  })
+  
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [submitError, setSubmitError] = useState('')
+  const [contactInfo, setContactInfo] = useState<ContactInfo | null>(null)
+
+  useEffect(() => {
+    // In a real application, this would fetch from the API
+    // For now, we'll use hardcoded data
+    setContactInfo({
+      phone: "+234 803 123 4567", // Professional Placeholder
+      email: "info@hon-ghali-panda.com",
+      officeAddress: "Constituency Office\nGaya, Kano State, Nigeria",
+      officeHours: "Monday - Friday: 9:00 AM - 5:00 PM\nSaturday: 10:00 AM - 2:00 PM",
+      socialMedia: {
+        facebook: "https://facebook.com/HonDrGhaliMustaphaTijjani",
+        twitter: "https://twitter.com/hon_ghalipanda",
+        instagram: "https://instagram.com/hon_ghalipanda"
+      }
+    })
+  }, [])
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const {name, value} = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitError('')
+    setSubmitSuccess(false)
+    
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1500))
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      })
+      
+      setSubmitSuccess(true)
+    } catch (error) {
+      setSubmitError('Failed to send message. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  return (
+    <div className="w-full">
+      <section className="bg-red-900/90 dark:bg-red-900/95 py-12 sm:py-16 text-center text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter">Get In Touch</h1>
+          <p className="mt-4 text-base sm:text-lg text-red-100">Have questions or want to connect? Reach out through the form below or use the contact details.</p>
+        </div>
+      </section>
+      
+      <section className="py-16 md:py-20 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md">
+              <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Send a Message</h2>
+              
+              {submitSuccess && (
+                <div className="mb-6 p-4 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 rounded-lg">
+                  Thank you for your message! I'll get back to you soon.
+                </div>
+              )}
+              
+              {submitError && (
+                <div className="mb-6 p-4 bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200 rounded-lg">
+                  {submitError}
+                </div>
+              )}
+              
+              <form onSubmit={handleSubmit}>
+                <div className="mb-4">
+                  <label htmlFor="name" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 dark:bg-gray-700 dark:text-white"
+                    placeholder="Your full name"
+                  />
+                </div>
+                
+                <div className="mb-4">
+                  <label htmlFor="email" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 dark:bg-gray-700 dark:text-white"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+                
+                <div className="mb-4">
+                  <label htmlFor="subject" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 dark:bg-gray-700 dark:text-white"
+                    placeholder="What is this regarding?"
+                  />
+                </div>
+                
+                <div className="mb-6">
+                  <label htmlFor="message" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={5}
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 dark:bg-gray-700 dark:text-white"
+                    placeholder="Your message here..."
+                  ></textarea>
+                </div>
+                
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`w-full bg-red-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-red-800 transition-colors ${
+                    isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                  }`}
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
+              </form>
+            </div>
+            
+            {/* Contact Information */}
+            <div>
+              <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Contact Information</h2>
+              
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <div className="bg-red-100 dark:bg-red-900/50 p-3 rounded-full mr-4">
+                    <span className="material-symbols-outlined text-red-700 dark:text-red-400">phone</span>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 dark:text-white">Phone</h3>
+                    <p className="text-gray-600 dark:text-gray-400">{contactInfo?.phone || '+234 812 345 6789'}</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="bg-red-100 dark:bg-red-900/50 p-3 rounded-full mr-4">
+                    <span className="material-symbols-outlined text-red-700 dark:text-red-400">email</span>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 dark:text-white">Email</h3>
+                    <p className="text-gray-600 dark:text-gray-400">{contactInfo?.email || 'info@hon-ghali-panda.com'}</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="bg-red-100 dark:bg-red-900/50 p-3 rounded-full mr-4">
+                    <span className="material-symbols-outlined text-red-700 dark:text-red-400">location_on</span>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 dark:text-white">Office</h3>
+                    <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line">{contactInfo?.officeAddress || 'Constituency Office\nGaya, Kano State, Nigeria'}</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="bg-red-100 dark:bg-red-900/50 p-3 rounded-full mr-4">
+                    <span className="material-symbols-outlined text-red-700 dark:text-red-400">schedule</span>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 dark:text-white">Office Hours</h3>
+                    <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line">{contactInfo?.officeHours || 'Monday - Friday: 9:00 AM - 5:00 PM\nSaturday: 10:00 AM - 2:00 PM'}</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Map Placeholder */}
+              <div className="mt-10">
+                <h3 className="font-bold text-gray-900 dark:text-white mb-4">Office Location</h3>
+                <div className="w-full h-64 rounded-xl overflow-hidden border-2 border-red-100 shadow-md">
+                   <iframe 
+                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124586.35775432342!2d9.0333!3d11.8500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x11ae80d197607415%3A0x6731671847524953!2sGaya%2C%20Kano!5e0!3m2!1sen!2sng!4v1716000000000!5m2!1sen!2sng"
+                     width="100%" 
+                     height="100%" 
+                     style={{border:0}} 
+                     allowFullScreen={true} 
+                     loading="lazy" 
+                     referrerPolicy="no-referrer-when-downgrade"
+                   ></iframe>
+                </div>
+              </div>
+              
+              {/* Social Media Links */}
+              <div className="mt-10">
+                <h3 className="font-bold text-gray-900 dark:text-white mb-4">Connect With Me</h3>
+                <div className="flex space-x-4">
+                  <a href={contactInfo?.socialMedia?.facebook || '#'} target="_blank" rel="noopener noreferrer" className="bg-red-700 text-white p-3 rounded-full hover:bg-red-800 transition-colors">
+                    <span className="material-symbols-outlined">facebook</span>
+                  </a>
+                  <a href={contactInfo?.socialMedia?.twitter || '#'} target="_blank" rel="noopener noreferrer" className="bg-red-700 text-white p-3 rounded-full hover:bg-red-800 transition-colors">
+                    <span className="material-symbols-outlined">rss_feed</span>
+                  </a>
+                  <a href={contactInfo?.socialMedia?.instagram || '#'} target="_blank" rel="noopener noreferrer" className="bg-red-700 text-white p-3 rounded-full hover:bg-red-800 transition-colors">
+                    <span className="material-symbols-outlined">photo_camera</span>
+                  </a>
+                  <a href="#" className="bg-red-700 text-white p-3 rounded-full hover:bg-red-800 transition-colors">
+                    <span className="material-symbols-outlined">share</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
