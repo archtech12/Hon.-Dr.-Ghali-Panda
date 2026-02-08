@@ -8,12 +8,12 @@ const getProjects = async (req, res) => {
   try {
     // Check if database is connected
     if (mongoose.connection.readyState !== 1) {
-      return res.status(503).json({ 
-        message: 'Database connection unavailable', 
-        error: 'Service temporarily unavailable due to database connection issues' 
+      return res.status(503).json({
+        message: 'Database connection unavailable',
+        error: 'Service temporarily unavailable due to database connection issues'
       });
     }
-    
+
     const projects = await Project.find().sort({ priority: -1, createdAt: -1 });
     res.json(projects);
   } catch (error) {
@@ -29,18 +29,18 @@ const getProjectById = async (req, res) => {
   try {
     // Check if database is connected
     if (mongoose.connection.readyState !== 1) {
-      return res.status(503).json({ 
-        message: 'Database connection unavailable', 
-        error: 'Service temporarily unavailable due to database connection issues' 
+      return res.status(503).json({
+        message: 'Database connection unavailable',
+        error: 'Service temporarily unavailable due to database connection issues'
       });
     }
-    
+
     const project = await Project.findById(req.params.id);
-    
+
     if (!project) {
       return res.status(404).json({ message: 'Project not found' });
     }
-    
+
     res.json(project);
   } catch (error) {
     console.error('Get project error:', error);
@@ -55,40 +55,49 @@ const createProject = async (req, res) => {
   try {
     // Check if database is connected
     if (mongoose.connection.readyState !== 1) {
-      return res.status(503).json({ 
-        message: 'Database connection unavailable', 
-        error: 'Service temporarily unavailable due to database connection issues' 
+      return res.status(503).json({
+        message: 'Database connection unavailable',
+        error: 'Service temporarily unavailable due to database connection issues'
       });
     }
-    
-    const {
-      title,
+
+    title,
+      titleHA,
       description,
       category,
       imageUrl,
+      images,
       videoEmbedLink,
       status,
       year,
+      date,
+      impact,
+      location,
       priority
-    } = req.body;
+  } = req.body;
 
-    const project = new Project({
-      title,
-      description,
-      category,
-      imageUrl,
-      videoEmbedLink,
-      status,
-      year,
-      priority
-    });
+  const project = new Project({
+    title,
+    titleHA,
+    description,
+    category,
+    imageUrl,
+    images: images || (imageUrl ? [imageUrl] : []),
+    videoEmbedLink,
+    status,
+    year,
+    date,
+    impact,
+    location,
+    priority
+  });
 
-    const createdProject = await project.save();
-    res.status(201).json(createdProject);
-  } catch (error) {
-    console.error('Create project error:', error);
-    res.status(500).json({ message: 'Server error' });
-  }
+  const createdProject = await project.save();
+  res.status(201).json(createdProject);
+} catch (error) {
+  console.error('Create project error:', error);
+  res.status(500).json({ message: 'Server error' });
+}
 };
 
 // @desc    Update project
@@ -98,20 +107,25 @@ const updateProject = async (req, res) => {
   try {
     // Check if database is connected
     if (mongoose.connection.readyState !== 1) {
-      return res.status(503).json({ 
-        message: 'Database connection unavailable', 
-        error: 'Service temporarily unavailable due to database connection issues' 
+      return res.status(503).json({
+        message: 'Database connection unavailable',
+        error: 'Service temporarily unavailable due to database connection issues'
       });
     }
-    
+
     const {
       title,
+      titleHA,
       description,
       category,
       imageUrl,
+      images,
       videoEmbedLink,
       status,
       year,
+      date,
+      impact,
+      location,
       priority
     } = req.body;
 
@@ -119,12 +133,17 @@ const updateProject = async (req, res) => {
       req.params.id,
       {
         title,
+        titleHA,
         description,
         category,
         imageUrl,
+        images,
         videoEmbedLink,
         status,
         year,
+        date,
+        impact,
+        location,
         priority
       },
       {
@@ -151,12 +170,12 @@ const deleteProject = async (req, res) => {
   try {
     // Check if database is connected
     if (mongoose.connection.readyState !== 1) {
-      return res.status(503).json({ 
-        message: 'Database connection unavailable', 
-        error: 'Service temporarily unavailable due to database connection issues' 
+      return res.status(503).json({
+        message: 'Database connection unavailable',
+        error: 'Service temporarily unavailable due to database connection issues'
       });
     }
-    
+
     const project = await Project.findById(req.params.id);
 
     if (!project) {

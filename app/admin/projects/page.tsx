@@ -3,14 +3,16 @@
 import {useState, useEffect} from 'react'
 import {useRouter} from 'next/navigation'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+const API_URL = process.env.NEXT_PUBLIC_API_URL || ''
 
 interface Project {
   _id: string
   title: string
+  titleHA: string
   description: string
   category: string
   imageUrl?: string
+  images: string[]
   videoEmbedLink?: string
   status: string
   year: string
@@ -25,9 +27,12 @@ export default function ProjectsManager() {
   const [editingProject, setEditingProject] = useState<Project | null>(null)
 
   const [title, setTitle] = useState('')
+  const [titleHA, setTitleHA] = useState('')
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState('Education')
   const [imageUrl, setImageUrl] = useState('')
+  const [images, setImages] = useState<string[]>([])
+  const [newImageUrl, setNewImageUrl] = useState('')
   const [videoEmbedLink, setVideoEmbedLink] = useState('')
   const [imageFile, setImageFile] = useState<File | null>(null)
   const [imagePreview, setImagePreview] = useState<string | null>(null)
@@ -109,9 +114,14 @@ export default function ProjectsManager() {
 
     try {
       // Upload image to Cloudinary if file is selected
-      let finalImageUrl = imageUrl
+      let currentImages = [...images];
       if (imageFile) {
-        finalImageUrl = await uploadImageToCloudinary(imageFile)
+        const uploadedUrl = await uploadImageToCloudinary(imageFile);
+        currentImages.push(uploadedUrl);
+      }
+      // If legacy imageUrl exists and not in images, add it
+      if (imageUrl && !currentImages.includes(imageUrl)) {
+        currentImages.unshift(imageUrl);
       }
 
       const token = localStorage.getItem('adminToken')
@@ -123,9 +133,11 @@ export default function ProjectsManager() {
         },
         body: JSON.stringify({
           title,
+          titleHA,
           description,
           category,
-          imageUrl: finalImageUrl,
+          imageUrl: currentImages[0] || '', // Legacy support
+          images: currentImages,
           videoEmbedLink,
           status,
           year,
@@ -154,12 +166,12 @@ export default function ProjectsManager() {
 
     try {
       // Upload image to Cloudinary if a new file is selected
-      // Otherwise, keep the existing image URL
-      let finalImageUrl = imageUrl
+      let currentImages = [...images];
       if (imageFile) {
-        finalImageUrl = await uploadImageToCloudinary(imageFile)
+        const uploadedUrl = await uploadImageToCloudinary(imageFile);
+        currentImages.push(uploadedUrl);
       }
-
+      
       const token = localStorage.getItem('adminToken')
       const response = await fetch(`${API_URL}/api/projects/${editingProject._id}`, {
         method: 'PUT',
@@ -169,9 +181,11 @@ export default function ProjectsManager() {
         },
         body: JSON.stringify({
           title,
+          titleHA,
           description,
           category,
-          imageUrl: finalImageUrl,
+          imageUrl: currentImages[0] || '', // Legacy support
+          images: currentImages,
           videoEmbedLink,
           status,
           year,
@@ -219,9 +233,11 @@ export default function ProjectsManager() {
 
   const resetForm = () => {
     setTitle('')
+    setTitleHA('')
     setDescription('')
     setCategory('Education')
     setImageUrl('')
+    setImages([])
     setVideoEmbedLink('')
     setImageFile(null)
     setImagePreview(null)
@@ -233,13 +249,15 @@ export default function ProjectsManager() {
   const startEditing = (project: Project) => {
     setEditingProject(project)
     setTitle(project.title)
+    setTitleHA(project.titleHA || '')
     setDescription(project.description)
     setCategory(project.category)
     setImageUrl(project.imageUrl || '')
+    setImages(project.images || (project.imageUrl ? [project.imageUrl] : []))
     setVideoEmbedLink(project.videoEmbedLink || '')
     setImageFile(null)
     // Only show preview if there's an existing image URL
-    setImagePreview(project.imageUrl || null)
+    setImagePreview(null)
     setStatus(project.status)
     setYear(project.year)
     setPriority(project.priority || 0)
@@ -298,6 +316,17 @@ export default function ProjectsManager() {
               </div>
 
               <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Hausa Title</label>
+                <input
+                  type="text"
+                  value={titleHA}
+                  onChange={(e) => setTitleHA(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
+                  placeholder="Hausa title"
+                />
+              </div>
+
+              <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
                 <select
                   value={category}
@@ -351,26 +380,73 @@ export default function ProjectsManager() {
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Image</label>
-                {imagePreview && (
-                  <div className="mb-2">
-                    <img
-                      src={imagePreview}
-                      alt="Preview"
-                      className="w-32 h-32 object-cover rounded-md border border-gray-300"
-                    />
+
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium text-gray-700 mb-1">Project Gallery</label>
+                
+                {/* Image Grid */}
+                {images.length > 0 && (
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                    {images.map((img, index) => (
+                      <div key={index} className="relative group rounded-lg overflow-hidden border border-gray-200 aspect-square">
+                        <img src={img} alt={`Gallery ${index}`} className="w-full h-full object-cover" />
+                        <button
+                          type="button"
+                          onClick={() => setImages(images.filter((_, i) => i !== index))}
+                          className="absolute top-1 right-1 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          <span className="material-symbols-outlined text-sm">close</span>
+                        </button>
+                      </div>
+                    ))}
                   </div>
                 )}
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
-                />
-                <p className="text-xs text-gray-500 mt-1">
-                  Choose an image file to upload to Cloudinary
-                </p>
+
+                <div className="flex gap-2 items-end">
+                  <div className="flex-1">
+                    <label className="block text-xs text-gray-500 mb-1">Add Image URL</label>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        value={newImageUrl}
+                        onChange={(e) => setNewImageUrl(e.target.value)}
+                        className="flex-1 px-3 py-2 border border-gray-300 rounded-md text-sm"
+                        placeholder="https://..."
+                      />
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (newImageUrl) {
+                            setImages([...images, newImageUrl]);
+                            setNewImageUrl('');
+                          }
+                        }}
+                        className="px-3 py-2 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200"
+                      >
+                        Add
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div className="flex-1">
+                     <label className="block text-xs text-gray-500 mb-1">Or Upload New</label>
+                     <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                      className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100"
+                    />
+                  </div>
+                </div>
+                {imagePreview && (
+                   <div className="mt-2 p-2 bg-green-50 rounded border border-green-100 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                         <img src={imagePreview} className="w-10 h-10 object-cover rounded" />
+                         <span className="text-sm text-green-700">Ready to upload on save</span>
+                      </div>
+                      <button type="button" onClick={() => {setImageFile(null); setImagePreview(null)}} className="text-red-500 text-sm">Cancel</button>
+                   </div>
+                )}
               </div>
 
               <div>

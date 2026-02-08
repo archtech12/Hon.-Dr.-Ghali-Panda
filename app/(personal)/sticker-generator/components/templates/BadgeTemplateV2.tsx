@@ -5,7 +5,7 @@ export const BadgeTemplateV2 = ({ data }: TemplateProps) => {
     const { supporterName, supporterPhoto, customMessage } = data
 
     return (
-        <div className="w-full h-full bg-slate-100 font-sans flex items-center justify-center p-8 relative overflow-hidden">
+        <div className="w-full h-full bg-slate-100 font-sans flex items-center justify-center p-4 relative overflow-hidden">
             {/* Background noise/texture */}
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px]"></div>
 
@@ -26,14 +26,14 @@ export const BadgeTemplateV2 = ({ data }: TemplateProps) => {
                     </div>
 
                     <div className="text-right text-white/90 relative z-10">
-                        <p className="text-[10px] font-mono opacity-70">ID: 2027-GP-V2</p>
+                        <p className="text-[10px] font-mono opacity-70">ID: 2027-HASH-V2</p>
                         <p className="font-bold uppercase tracking-widest text-xs mt-0.5">Verified</p>
                     </div>
                 </div>
 
                 {/* Photo Section - Floating */}
-                <div className="relative -mt-16 px-6 z-20 flex justify-between items-end">
-                    <div className="w-36 h-36 rounded-2xl border-[6px] border-white shadow-xl bg-gray-100 overflow-hidden relative group">
+                <div className="relative -mt-[15%] px-6 z-20 flex justify-between items-end">
+                    <div className="w-[35%] aspect-square rounded-2xl border-[6px] border-white shadow-xl bg-gray-100 overflow-hidden relative group">
                         {supporterPhoto ? (
                             <img src={supporterPhoto} className="w-full h-full object-cover" />
                         ) : (
@@ -45,14 +45,14 @@ export const BadgeTemplateV2 = ({ data }: TemplateProps) => {
 
                     {/* Badge Moved to Corner/Side */}
                     <div className="mb-2">
-                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 border-4 border-white shadow-lg">
-                            <span className="text-3xl font-black">✓</span>
+                        <div className="w-[15%] min-w-[50px] aspect-square bg-green-100 rounded-full flex items-center justify-center text-green-600 border-4 border-white shadow-lg">
+                            <span className="text-[clamp(1.2rem,3vw,1.8rem)] font-black">✓</span>
                         </div>
                     </div>
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 px-6 pt-4 pb-6 flex flex-col">
+                <div className="flex-1 px-4 pt-2 pb-4 flex flex-col">
                     <div className="mb-4">
                         <h2 className="text-slate-900 font-black uppercase text-[clamp(1.5rem,5vw,2.5rem)] leading-none tracking-tight mb-1">
                             {supporterName || 'YOUR NAME'}
@@ -62,13 +62,13 @@ export const BadgeTemplateV2 = ({ data }: TemplateProps) => {
                         </p>
                     </div>
 
-                    <div className="mt-auto bg-slate-50 rounded-2xl p-4 border border-slate-100 flex items-center gap-4 group hover:bg-slate-100 transition-colors">
-                        <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-green-500 shadow-sm flex-shrink-0 grayscale group-hover:grayscale-0 transition-all">
+                    <div className="mt-auto bg-slate-50 rounded-2xl p-3 border border-slate-100 flex items-center gap-4 group hover:bg-slate-100 transition-colors">
+                        <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-green-500 shadow-sm flex-shrink-0 transition-all">
                             <CandidatePortrait className="w-full h-full" />
                         </div>
                         <div className="flex-1 min-w-0">
                             <p className="text-[10px] text-gray-400 uppercase font-bold tracking-wider mb-0.5">Endorsing Candidate</p>
-                            <p className="text-sm font-black text-slate-800 leading-tight truncate">HON. DR. GHALI PANDA</p>
+                            <p className="text-sm font-black text-slate-800 leading-tight truncate">HON. HASSAN SHEHU HUSSAIN</p>
                         </div>
                     </div>
 

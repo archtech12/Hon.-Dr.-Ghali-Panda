@@ -5,50 +5,47 @@ import { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Hon. Dr. Ghali Mustapha Tijjani Panda - Member, House of Representatives',
-    template: '%s | Hon. Ghali Panda',
+    default: 'Hon. Hassan Shehu Hussain (Hon. HASH) - Member, House of Representatives',
+    template: '%s | Hon. HASH',
   },
-  description:
-    'Official website of Hon. Dr. Ghali Mustapha Tijjani Panda - Member representing Gaya, Ajingi, and Albasu Federal Constituency. Champion of Community Development and Kwankwasiyya Principles.',
+  description: 'Official website of Hon. Hassan Shehu Hussain (Hon. HASH), Member representing Nasarawa Federal Constituency in the House of Representatives under the All Progressives Congress (APC).',
   keywords: [
-    'Ghali Mustapha Tijjani',
-    'Ghali Panda',
-    'Ajingi',
-    'Albasu',
-    'Gaya',
+    'Hassan Shehu Hussain',
+    'Hon. HASH',
+    'Nasarawa',
+    'Kano',
     'House of Representatives',
     'Nigeria Politics',
     'Community Development',
     'NNPP',
-    'Kwankwasiyya',
   ],
-  authors: [{ name: 'Hon. Dr. Ghali Mustapha Tijjani Panda' }],
-  creator: 'Ghali Panda Media Team',
-  publisher: 'Ghali Panda Media',
+  authors: [{ name: 'Hon. Hassan Shehu Hussain' }],
+  creator: 'Hon. HASH Media Team',
+  publisher: 'Hon. HASH Media',
   openGraph: {
     type: 'website',
     locale: 'en_NG',
-    url: 'https://hon-ghali-panda.com',
-    siteName: 'Hon. Ghali Panda Official',
-    title: 'Hon. Dr. Ghali Mustapha Tijjani Panda - Service to Humanity',
+    url: 'https://hassan-shehu-hussain.com',
+    siteName: 'Hon. HASH Official',
+    title: 'Hon. Hassan Shehu Hussain - Service to Humanity',
     description:
-      'Celebrating the impactful service of Hon. Dr. Ghali Panda in Gaya, Ajingi, and Albasu. Empowering communities through dedicated leadership.',
+      'Celebrating the impactful service of Hon. Hassan Shehu Hussain in Nasarawa Federal Constituency. Empowering communities through dedicated leadership.',
     images: [
       {
         url: '/ghaliphoto.jpg',
         width: 1200,
         height: 630,
-        alt: 'Hon. Dr. Ghali Mustapha Tijjani Panda',
+        alt: 'Hon. Hassan Shehu Hussain',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hon. Ghali Panda - Service to Humanity',
+    title: 'Hon. HASH - Service to Humanity',
     description:
-      'Championing development in Gaya, Ajingi, and Albasu. Member, House of Representatives.',
+      'Championing development in Nasarawa Federal Constituency. Member, House of Representatives.',
     images: ['/ghaliphoto.jpg'],
-    creator: '@GhaliPanda',
+    creator: '@HonHASH',
   },
   robots: {
     index: true,
@@ -63,9 +60,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/assets/favicon.ico' },
-      { url: '/assets/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/assets/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.ico' },
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
     ],
     apple: [
       { url: '/assets/apple-touch-icon.png' },
@@ -110,9 +106,11 @@ const mono = IBM_Plex_Mono({
   weight: ['500', '700'],
 })
 
+import { ThemeProvider } from '@/components/ThemeProvider'
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${mono.variable} ${sans.variable} ${serif.variable}`}>
+    <html lang="en" className={`${mono.variable} ${sans.variable} ${serif.variable}`} suppressHydrationWarning>
       <head>
         <link
           rel="stylesheet"
@@ -125,7 +123,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <meta name="theme-color" content="#b91c1c" />
       </head>
       <body>
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
         <Script
           id="adsbygoogle-init"
           strategy="afterInteractive"

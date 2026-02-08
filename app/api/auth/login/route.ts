@@ -29,7 +29,7 @@ async function connectDB() {
   }
 
   try {
-    console.log('Connecting to MongoDB...')
+    console.log('Connecting to MongoDB...', MONGODB_URI)
     await mongoose.connect(MONGODB_URI, {
       serverSelectionTimeoutMS: 5000, // 5s timeout
     })
@@ -67,6 +67,7 @@ export async function POST(request: Request) {
     console.log(`Searching for user: ${normalizedEmail}`)
 
     const user = await User.findOne({ email: normalizedEmail })
+    console.log('User found in DB:', user ? user.email : 'No user found');
 
     if (!user) {
       console.log('User not found')

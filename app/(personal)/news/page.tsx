@@ -1,9 +1,9 @@
 'use client'
 
-import {useState} from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { news } from '@/lib/news'
+import { news } from '@/lib/news' // Using local data
 
 interface NewsItem {
   _id: string
@@ -14,14 +14,14 @@ interface NewsItem {
   publishDate: string
 }
 
-
 // ... (imports same)
 export default function NewsPage() {
-  // Use static data directly
-  // const [news, setNews] = useState<NewsItem[]>([])
-  const loading = false
+  // Using imported local data instead of state fetch
+  const loading = false;
 
-  // useEffect removed as we are using static data
+  // useEffect(() => {
+  //   fetchNews logic removed
+  // }, [])
 
   const getCategoryColor = (category: string) => {
     const colors: {[key: string]: string} = {
@@ -41,14 +41,14 @@ export default function NewsPage() {
 
   return (
     <div className="w-full">
-      <section className="bg-red-900/90 dark:bg-red-900/95 py-12 sm:py-16 text-center text-white">
+      <section className="bg-green-900/90 dark:bg-green-900/95 py-12 sm:py-16 text-center text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter">
             Latest News & Updates
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-red-100">
+          <p className="mt-4 text-base sm:text-lg text-green-100">
             Stay informed about the latest developments, initiatives, and community updates from
-            Hon. Dr. Ghali Mustapha Tijjani Panda's office.
+            Hon. Hassan Shehu Hussain's office.
           </p>
         </div>
       </section>
@@ -57,7 +57,7 @@ export default function NewsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {loading ? (
             <div className="text-center py-12">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-red-700"></div>
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-700"></div>
               <p className="mt-4 text-gray-600 dark:text-gray-400">Loading news...</p>
             </div>
           ) : news.length === 0 ? (
@@ -112,7 +112,7 @@ export default function NewsPage() {
                     />
                     <Link
                       href={`/news/${article._id}`} // Note: Ideally this should link to a details page, or just be removed if no details page exists yet. For now keeping structure.
-                      className="text-red-700 dark:text-gold-400 font-medium hover:text-red-800 dark:hover:text-gold-300 transition-colors flex items-center"
+                      className="text-green-700 dark:text-gold-400 font-medium hover:text-green-800 dark:hover:text-gold-300 transition-colors flex items-center"
                     >
                       Read More{' '}
                       <span className="material-symbols-outlined ml-1">arrow_forward</span>
@@ -129,7 +129,7 @@ export default function NewsPage() {
               Featured Videos
             </h2>
             <p className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
-              Watch highlights and coverage of Hon. Dr. Ghali Panda's work and political journey
+               Watch highlights and coverage of Hon. HASH's work and political journey
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -180,7 +180,7 @@ export default function NewsPage() {
           {/* Pagination */}
           <div className="mt-12 flex justify-center">
             <nav className="flex items-center space-x-2">
-              <button className="px-3 py-2 rounded-md bg-red-700 text-white cursor-default">
+              <button className="px-3 py-2 rounded-md bg-green-700 text-white cursor-default">
                 1
               </button>
               <button

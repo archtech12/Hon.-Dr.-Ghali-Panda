@@ -95,7 +95,7 @@ export default function AdminLogin() {
               <span className="text-yellow-300">Administrator</span>
             </h1>
             <p className="text-xl text-green-100 leading-relaxed">
-              Access the Hon. Dr. Ghali Campaign Dashboard
+              Access the Hon. Hassan Shehu Hussain Campaign Dashboard
             </p>
           </div>
 
@@ -301,7 +301,7 @@ export default function AdminLogin() {
                 <div className="space-y-1 text-xs text-gray-700">
                   <p className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-xs">mail</span>
-                    <strong>Email:</strong> admin@ghalipanda.gov.ng
+                    <strong>Email:</strong> admin@honhash.gov.ng
                   </p>
                   <p className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-xs">key</span>
@@ -314,7 +314,7 @@ export default function AdminLogin() {
 
           {/* Footer */}
           <div className="text-center text-xs text-gray-500 space-y-1">
-            <p>© 2024 Hon. Dr. Ghali Mustapha Tijjani Phanda</p>
+            <p>© 2026 Hon. Hassan Shehu Hussain</p>
             <p>Secure Campaign Management System</p>
           </div>
         </div>

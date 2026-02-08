@@ -21,9 +21,9 @@ export const ClassicTemplate = ({ data }: TemplateProps) => {
            <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent z-10" />
            <div className="absolute bottom-4 left-4 z-20">
              <h1 className="text-white font-black text-[clamp(1.2rem,4vw,3rem)] leading-none uppercase drop-shadow-md">
-               Hon. Dr.<br />
-               <span className="text-yellow-400">Ghali</span><br />
-               Panda
+               Hon. Hassan<br />
+               <span className="text-yellow-400">Shehu</span><br />
+               Hussain
              </h1>
            </div>
         </div>
@@ -56,7 +56,7 @@ export const ClassicTemplate = ({ data }: TemplateProps) => {
       
       {/* Disclaimer / Footer */}
       <div className="bg-black py-1 px-2 flex justify-between items-center text-[10px] text-gray-400">
-        <span>NNPP - Gaya / Ajingi / Albasu</span>
+        <span>APC - Nasarawa Federal Constituency</span>
         <span>2027</span>
       </div>
     </div>

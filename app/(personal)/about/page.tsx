@@ -1,9 +1,7 @@
 'use client'
 
-import {useState, useEffect} from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import {getAboutContent} from '../../../services/api'
 
 interface AboutData {
   title: string
@@ -11,48 +9,21 @@ interface AboutData {
 }
 
 export default function AboutPage() {
-  const [aboutData, setAboutData] = useState<AboutData | null>(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const fetchAboutData = async () => {
-      try {
-        const data = await getAboutContent()
-        setAboutData(data)
-      } catch (error) {
-        console.error('Failed to fetch about data:', error)
-        // Fallback to hardcoded data if API fails
-        setAboutData({
-          title: 'About Hon. Dr. Ghali Mustapha Tijjani Panda',
-          content: `<p>Dr. Ghali Mustapha Tijjani Panda was born on June 13, 1980, in Kano State. A dedicated advocate for community development and participatory leadership, Dr. Ghali entered national public service in 2023 when he was elected to represent the Gaya, Ajingi, and Albasu Federal Constituency in the House of Representatives on the platform of the New Nigeria Peoples Party (NNPP).</p>
-                  <p>His tenure is anchored in empowering youth, women, and families across his constituency—delivering vital support such as food aid, education infrastructure, water provision, and economic-opportunity programmes. With a strong commitment to transparent access and service, Dr. Ghali brings scholastic insight (including doctoral level study) together with boots-on-the-ground community engagement to fulfil his vision of leadership "by the people, for the people."</p>
-                  <p>Off the chamber floor, Dr. Ghali believes in harnessing the power of collective effort: his work builds on family values, indigenous heritage and the aspiration of a better future for Kano's communities. His story is one of service, integrity and hope.</p>`,
-        })
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchAboutData()
-  }, [])
-
-  if (loading) {
-    return (
-      <div className="w-full py-16 text-center">
-        <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-700"></div>
-        <p className="mt-4 text-gray-600">Loading...</p>
-      </div>
-    )
+  const aboutData = {
+    title: 'About Hon. Hassan Shehu Hussain',
+    content: `<p>Hon. Hassan Shehu Hussain (popularly known as Hon. HASH) is the Member representing Nasarawa Federal Constituency in the House of Representatives under the platform of the All Progressives Congress (APC).</p>
+            <p>A committed leader and grassroots politician, Hon. HASH has dedicated his tenure to transforming lives through impactful projects in Infrastructure, Education, Health, and Empowerment. His vision is built on the principles of service to humanity and participatory governance.</p>
+            <p>Since his inauguration, he has spearheaded numerous development initiatives across the 11 wards of Nasarawa Federal Constituency, including Gama, Tudun Wada, Hotoro South, Tudun Murtala, Gawuna, Ladanai, Hotoro Arewa, Dakata, Tinshama, and others.</p>`,
   }
 
   return (
     <div className="w-full">
-      <section className="bg-red-900/90 dark:bg-red-900/95 py-12 sm:py-16 text-center text-white">
+      <section className="bg-green-900/90 dark:bg-green-900/95 py-12 sm:py-16 text-center text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter">
-            {aboutData?.title || 'About Hon. Dr. Ghali Mustapha Tijjani Panda'}
+            {aboutData.title}
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-red-100">
+          <p className="mt-4 text-base sm:text-lg text-green-100">
             Dedicated advocate for community development and participatory leadership
           </p>
         </div>
@@ -67,7 +38,7 @@ export default function AboutPage() {
               </h2>
               <div
                 className="prose prose-lg max-w-none text-gray-700 dark:text-gray-300"
-                dangerouslySetInnerHTML={{__html: aboutData?.content || ''}}
+                dangerouslySetInnerHTML={{__html: aboutData.content}}
               />
 
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
@@ -86,8 +57,8 @@ export default function AboutPage() {
               <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 sticky top-24">
                 <div className="mb-4 relative w-full h-64">
                   <Image
-                    src="/ghaliphoto.jpg"
-                    alt="Hon. Dr. Ghali Mustapha Tijjani Panda"
+                    src="/assets/images/gallery/0-Portraits-Official/potraitn.jpg"
+                    alt="Hon. Hassan Shehu Hussain"
                     fill
                     className="object-cover rounded-lg"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -109,7 +80,7 @@ export default function AboutPage() {
                       location_on
                     </span>
                     <span>
-                      <strong>Constituency:</strong> Gaya, Ajingi & Albasu Federal Constituency
+                      <strong>Constituency:</strong> Nasarawa Federal Constituency
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -123,19 +94,19 @@ export default function AboutPage() {
                   <li className="flex items-start">
                     <span className="material-symbols-outlined text-gold-400 mr-2">groups</span>
                     <span>
-                      <strong>Party:</strong> New Nigeria Peoples Party (NNPP)
+                      <strong>Party:</strong> All Progressives Congress (APC)
                     </span>
                   </li>
                   <li className="flex items-start">
                     <span className="material-symbols-outlined text-gold-400 mr-2">cake</span>
                     <span>
-                      <strong>Born:</strong> June 13, 1980
+                      <strong>Born:</strong> [Date of Birth]
                     </span>
                   </li>
                   <li className="flex items-start">
                     <span className="material-symbols-outlined text-gold-400 mr-2">school</span>
                     <span>
-                      <strong>Education:</strong> Doctoral Level Study
+                      <strong>Education:</strong> [Educational Qualification]
                     </span>
                   </li>
                 </ul>
@@ -143,7 +114,7 @@ export default function AboutPage() {
                 <div className="mt-8">
                   <Link
                     href="/contact"
-                    className="inline-block w-full text-center bg-red-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-red-800 transition duration-300"
+                    className="inline-block w-full text-center bg-green-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-800 transition duration-300"
                   >
                     Get In Touch
                   </Link>
@@ -164,8 +135,8 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-red-50 dark:bg-gray-700 p-6 rounded-xl">
-              <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center mb-4">
+            <div className="bg-green-50 dark:bg-gray-700 p-6 rounded-xl">
+              <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center mb-4">
                 <span className="material-symbols-outlined text-white">school</span>
               </div>
               <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
@@ -176,8 +147,8 @@ export default function AboutPage() {
                 underserved communities.
               </p>
             </div>
-            <div className="bg-red-50 dark:bg-gray-700 p-6 rounded-xl">
-              <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center mb-4">
+            <div className="bg-green-50 dark:bg-gray-700 p-6 rounded-xl">
+              <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center mb-4">
                 <span className="material-symbols-outlined text-white">water_drop</span>
               </div>
               <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
@@ -187,8 +158,8 @@ export default function AboutPage() {
                 Provision of solar-powered boreholes and support for rural healthcare facilities.
               </p>
             </div>
-            <div className="bg-red-50 dark:bg-gray-700 p-6 rounded-xl">
-              <div className="w-12 h-12 bg-red-700 rounded-full flex items-center justify-center mb-4">
+            <div className="bg-green-50 dark:bg-gray-700 p-6 rounded-xl">
+              <div className="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center mb-4">
                 <span className="material-symbols-outlined text-white">home</span>
               </div>
               <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">

@@ -46,7 +46,7 @@ export default function ContactEditor() {
               type="email"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
               placeholder="Enter email address"
-              defaultValue="info@ghalipanda.gov.ng"
+              defaultValue="info@honhash.gov.ng"
             />
           </div>
           
@@ -76,7 +76,7 @@ export default function ContactEditor() {
               type="text"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
               placeholder="Facebook URL"
-              defaultValue="https://facebook.com/ghalipanda"
+              defaultValue="https://facebook.com/honhash"
             />
           </div>
           
@@ -88,7 +88,7 @@ export default function ContactEditor() {
               type="text"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
               placeholder="Twitter URL"
-              defaultValue="https://twitter.com/ghalipanda"
+              defaultValue="https://twitter.com/honhash"
             />
           </div>
           
@@ -100,7 +100,7 @@ export default function ContactEditor() {
               type="text"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
               placeholder="Instagram URL"
-              defaultValue="https://instagram.com/ghalipanda"
+              defaultValue="https://instagram.com/honhash"
             />
           </div>
         </div>

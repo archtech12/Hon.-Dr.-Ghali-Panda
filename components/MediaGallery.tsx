@@ -3,7 +3,7 @@
 import {useState} from 'react'
 
 interface MediaItem {
-  id: number
+  id: string | number
   type: 'image' | 'video'
   src: string
   title: string
@@ -32,9 +32,9 @@ export function MediaGallery({items}: MediaGalleryProps) {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 md:px-8">
-        <h2 className="text-3xl font-bold text-center mb-4 text-red-800">Media Gallery</h2>
+        <h2 className="text-3xl font-bold text-center mb-4 text-green-800">Media Gallery</h2>
         <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-          Explore photos and moments from community events, programs, and initiatives in Gaya, Ajingi, and Albasu.
+          Explore photos and moments from community events, programs, and initiatives in Nasarawa Federal Constituency.
         </p>
 
         {/* Filter Buttons */}
@@ -43,8 +43,8 @@ export function MediaGallery({items}: MediaGalleryProps) {
             onClick={() => setFilter('all')}
             className={`px-6 py-2 rounded-full font-medium transition-colors ${
               filter === 'all'
-                ? 'bg-red-700 text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-red-100'
+                ? 'bg-green-700 text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-green-100'
             }`}
           >
             All Media
@@ -53,8 +53,8 @@ export function MediaGallery({items}: MediaGalleryProps) {
             onClick={() => setFilter('image')}
             className={`px-6 py-2 rounded-full font-medium transition-colors ${
               filter === 'image'
-                ? 'bg-red-700 text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-red-100'
+                ? 'bg-green-700 text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-green-100'
             }`}
           >
             Photos
@@ -63,8 +63,8 @@ export function MediaGallery({items}: MediaGalleryProps) {
             onClick={() => setFilter('video')}
             className={`px-6 py-2 rounded-full font-medium transition-colors ${
               filter === 'video'
-                ? 'bg-red-700 text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-red-100'
+                ? 'bg-green-700 text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-green-100'
             }`}
           >
             Videos
@@ -84,14 +84,14 @@ export function MediaGallery({items}: MediaGalleryProps) {
                   <img src={item.src} alt={item.title} className="w-full h-full object-cover" />
                 ) : (
                   <div className="bg-gray-800 w-full h-full flex items-center justify-center">
-                    <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center">
+                    <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center">
                       <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                       </svg>
                     </div>
                   </div>
                 )}
-                <div className="absolute top-4 right-4 bg-red-700 text-white text-xs font-bold px-2 py-1 rounded">
+                <div className="absolute top-4 right-4 bg-green-700 text-white text-xs font-bold px-2 py-1 rounded">
                   {item.type === 'image' ? 'Photo' : 'Video'}
                 </div>
               </div>
@@ -115,7 +115,7 @@ export function MediaGallery({items}: MediaGalleryProps) {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="p-4 border-b flex justify-between items-center">
-                <h3 className="text-xl font-bold text-red-800">{selectedItem.title}</h3>
+                <h3 className="text-xl font-bold text-green-800">{selectedItem.title}</h3>
                 <button onClick={closeModal} className="text-gray-500 hover:text-gray-700">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
@@ -137,7 +137,7 @@ export function MediaGallery({items}: MediaGalleryProps) {
                     />
                   ) : (
                     <div className="bg-gray-800 w-full h-full flex items-center justify-center">
-                      <div className="w-24 h-24 bg-red-500 rounded-full flex items-center justify-center">
+                      <div className="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center">
                         <svg
                           className="w-12 h-12 text-white"
                           fill="currentColor"
@@ -155,7 +155,7 @@ export function MediaGallery({items}: MediaGalleryProps) {
               <div className="p-4 border-t text-right">
                 <button
                   onClick={closeModal}
-                  className="bg-red-700 text-white font-bold py-2 px-6 rounded-lg hover:bg-red-800 transition-colors"
+                  className="bg-green-700 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-800 transition-colors"
                 >
                   Close
                 </button>
@@ -175,8 +175,7 @@ export const mediaData: MediaItem[] = [
     type: 'image',
     src: '/assets/solar construction.jpg',
     title: 'Solar Borehole Commissioning',
-    description:
-      'Providing free access to clean water in Ukays, Makyandawa, and Kademi communities provided by Hon. Ghali Panda.',
+    description: 'Providing free access to clean water in Gama, Tudun Wada, and Hotoro communities provided by Hon. HASH.',
     date: 'December 5, 2024',
   },
   {
@@ -184,7 +183,7 @@ export const mediaData: MediaItem[] = [
     type: 'image',
     src: '/assets/motorcycles-21.jpg',
     title: 'Youth Empowerment',
-    description: 'Empowering 21 youths with motorcycles to start their own logistics businesses in Gaya.',
+    description: 'Empowering 21 youths with motorcycles to start their own logistics businesses in Nasarawa.',
     date: 'December 26, 2024',
   },
   {
@@ -200,7 +199,7 @@ export const mediaData: MediaItem[] = [
     type: 'image',
     src: '/assets/ghaliphoto.jpg',
     title: 'Legislative Duty',
-    description: 'Hon. Dr. Ghali Panda engaging with colleagues at the National Assembly.',
+    description: 'Hon. Hassan Shehu Hussain engaging with colleagues at the National Assembly.',
     date: '2024',
   },
   {
@@ -216,7 +215,7 @@ export const mediaData: MediaItem[] = [
     type: 'image',
     src: '/assets/fertilizer-1800.jpg',
     title: 'Agricultural Support',
-    description: 'Flagging off the distribution of 1,800 bags of fertilizer to farmers in Albasu.',
+    description: 'Flagging off the distribution of 1,800 bags of fertilizer to farmers in Nasarawa.',
     date: 'August 10, 2025',
   },
 ]

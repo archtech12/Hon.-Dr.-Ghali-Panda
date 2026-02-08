@@ -25,7 +25,7 @@ export const GeometricTemplateV2 = ({ data }: TemplateProps) => {
                             <CandidatePortrait className="w-full h-full opacity-90 object-cover" />
                         </div>
                         <div className="absolute -bottom-3 -left-3 bg-yellow-400 text-black font-black text-xs px-2 py-1 uppercase tracking-widest shadow-md">
-                            Hon. Dr. Ghali
+                            Hon. HASH
                         </div>
                     </div>
                 </div>
@@ -40,15 +40,15 @@ export const GeometricTemplateV2 = ({ data }: TemplateProps) => {
                 </div>
 
                 {/* Bottom Area: Supporter */}
-                <div className="mt-auto pt-8 flex items-end justify-between">
-                    <div className="text-left flex-1 pr-4">
-                        <p className="text-green-400 font-bold uppercase text-xs tracking-[0.2em] mb-1">Endorsed By</p>
+                <div className="mt-auto pt-8 flex items-end justify-between gap-4 mb-6">
+                    <div className="text-left flex-1 min-w-0">
+                        <p className="text-green-400 font-bold uppercase text-[clamp(0.6rem,1.5vw,0.8rem)] tracking-[0.2em] mb-1">Endorsed By</p>
                         <p className="text-white font-black text-[clamp(1.5rem,4vw,2.5rem)] uppercase leading-none drop-shadow-lg truncate">
                             {supporterName || 'Your Name'}
                         </p>
                     </div>
 
-                    <div className="w-24 h-24 rounded-full border-[3px] border-yellow-400 p-1 bg-white/5 backdrop-blur-sm shadow-2xl flex-shrink-0">
+                    <div className="w-[35%] aspect-square rounded-full border-[3px] border-yellow-400 p-1 bg-white/5 backdrop-blur-sm shadow-2xl flex-shrink-0">
                         {supporterPhoto ? (
                             <img src={supporterPhoto} className="w-full h-full rounded-full object-cover" />
                         ) : (

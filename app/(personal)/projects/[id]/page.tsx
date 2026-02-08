@@ -1,4 +1,4 @@
-import { projects2025 } from '@/lib/projects'
+// import { projects2025 } from '@/lib/projects' // Removed
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -10,22 +10,32 @@ interface Props {
   }>
 }
 
+async function getProject(id: string) {
+  try {
+    const res = await fetch(`http://localhost:5000/api/projects/${id}`, { cache: 'no-store' })
+    if (!res.ok) return null
+    const data = await res.json()
+    return data.data || data
+  } catch (error) {
+    return null
+  }
+}
+
 // 1. Generate Metadata for Social Sharing (Server-Side)
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params
-  const projectId = parseInt(id)
-  const project = projects2025.find(p => p.id === projectId)
+  const project = await getProject(id)
 
   if (!project) {
     return {
-      title: 'Project Not Found | Hon. Dr. Ghali Panda',
+      title: 'Project Not Found | Hon. Hassan Shehu Hussain',
     }
   }
 
-  const title = `${project.titleEN} - Hon. Dr. Ghali Panda`
-  const description = project.desc
+  const title = `${project.title} - Hon. Hassan Shehu Hussain`
+  const description = project.description
   // Use the first photo or a default fallback
-  const image = project.photos[0] || 'https://hon-ghali-panda.vercel.app/ghaliphoto.jpg' 
+  const image = (project.images && project.images[0]) || 'https://hon-hash.vercel.app/placeholder.jpg' 
 
   return {
     title: title,
@@ -35,10 +45,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: description,
       images: [
         {
-          url: image.startsWith('http') ? image : `https://hon-ghali-panda.vercel.app${image}`,
+          url: image.startsWith('http') ? image : `https://hon-hash.vercel.app${image}`,
           width: 1200,
           height: 630,
-          alt: project.titleEN,
+          alt: project.title,
         },
       ],
       type: 'article',
@@ -47,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: title,
       description: description,
-      images: [image.startsWith('http') ? image : `https://hon-ghali-panda.vercel.app${image}`],
+      images: [image.startsWith('http') ? image : `https://hon-hash.vercel.app${image}`],
     },
   }
 }
@@ -55,8 +65,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 // 2. Render the Project Details Page
 export default async function ProjectDetailsPage({ params }: Props) {
   const { id } = await params
-  const projectId = parseInt(id)
-  const project = projects2025.find(p => p.id === projectId)
+  const project = await getProject(id)
 
   if (!project) {
     notFound()
@@ -78,10 +87,10 @@ export default async function ProjectDetailsPage({ params }: Props) {
 
         {/* Hero Image */}
         <div className="relative h-64 md:h-96 w-full bg-gray-200">
-           {project.photos && project.photos.length > 0 ? (
+           {project.images && project.images.length > 0 ? (
              <Image
-               src={project.photos[0]}
-               alt={project.titleEN}
+               src={project.images[0]}
+               alt={project.title}
                fill
                className="object-cover"
                priority
@@ -108,7 +117,7 @@ export default async function ProjectDetailsPage({ params }: Props) {
 
            {/* Titles */}
            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 leading-tight">
-             {project.titleEN}
+             {project.title}
            </h1>
            <h2 className="text-xl md:text-2xl font-semibold text-gray-500 mb-8 font-serif italic">
              {project.titleHA}
@@ -119,19 +128,19 @@ export default async function ProjectDetailsPage({ params }: Props) {
 
            {/* Description */}
            <div className="prose prose-lg text-gray-600 mb-10 leading-relaxed">
-             <p>{project.desc}</p>
+             <p>{project.description}</p>
            </div>
 
            {/* Additional Photos Grid (if any) */}
-           {project.photos && project.photos.length > 1 && (
+           {project.images && project.images.length > 1 && (
              <div className="mb-12">
                <h3 className="text-lg font-bold text-gray-900 mb-4 border-l-4 border-red-500 pl-3">Gallery</h3>
                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                 {project.photos.slice(1).map((photo, idx) => (
+                 {project.images.slice(1).map((photo: string, idx: number) => (
                    <div key={idx} className="relative h-40 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
                      <Image
                        src={photo}
-                       alt={`${project.titleEN} - ${idx + 2}`}
+                       alt={`${project.title} - ${idx + 2}`}
                        fill
                        className="object-cover hover:scale-105 transition-transform duration-500"
                      />
@@ -150,14 +159,14 @@ export default async function ProjectDetailsPage({ params }: Props) {
               <div className="flex gap-3">
                  {/* Simple Share Buttons requiring JS (client-side interactive would be better, but standard links work) */}
                  <a 
-                   href={`https://wa.me/?text=${encodeURIComponent(`Check out: ${project.titleEN} - https://hon-ghali-panda.vercel.app/projects/${project.id}`)}`}
+                   href={`https://wa.me/?text=${encodeURIComponent(`Check out: ${project.title} - https://hon-hash.vercel.app/projects/${project._id}`)}`}
                    target="_blank"
                    className="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center hover:bg-green-600 transition-colors shadow-sm"
                  >
                    <i className="fab fa-whatsapp text-lg"></i>
                  </a>
                  <a 
-                   href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://hon-ghali-panda.vercel.app/projects/${project.id}`)}`}
+                   href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://hon-hash.vercel.app/projects/${project._id}`)}`}
                    target="_blank"
                    className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors shadow-sm"
                  >

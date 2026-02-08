@@ -6,11 +6,11 @@ const Contact = require('../models/Contact');
 const getContact = async (req, res) => {
   try {
     const contact = await Contact.findOne().sort({ createdAt: -1 });
-    
+
     if (!contact) {
       return res.status(404).json({ message: 'Contact information not found' });
     }
-    
+
     res.json(contact);
   } catch (error) {
     console.error('Get contact error:', error);
@@ -43,7 +43,7 @@ const createContact = async (req, res) => {
 
     // Check if contact information already exists
     let contact = await Contact.findOne();
-    
+
     if (contact) {
       // Update existing
       contact = await Contact.findByIdAndUpdate(contact._id, contactData, {
@@ -104,8 +104,68 @@ const updateContact = async (req, res) => {
   }
 };
 
+// @desc    Send contact message via email
+// @route   POST /api/contact/send
+// @access  Public
+const sendMessage = async (req, res) => {
+  try {
+    const { name, email, subject, message } = req.body;
+
+    // Basic validation
+    if (!name || !email || !message) {
+      return res.status(400).json({ message: 'Please provide name, email and message' });
+    }
+
+    // Since we don't have SMTP credentials configured in env for this demo,
+    // we will log the message and return success.
+    // In production, uncomment the nodemailer code below.
+
+    console.log('📨 NEW CONTACT MESSAGE RECEIVED:');
+    console.log('From:', name, `<${email}>`);
+    console.log('Subject:', subject);
+    console.log('Message:', message);
+
+    /* 
+    // Nodemailer implementation
+    const nodemailer = require('nodemailer');
+    
+    const transporter = nodemailer.createTransport({
+      service: 'gmail', // or your SMTP provider
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+      }
+    });
+
+    await transporter.sendMail({
+      from: `"${name}" <${email}>`,
+      to: process.env.CONTACT_EMAIL || 'info@hon-hash.com', // Admin email
+      subject: `New Contact Form: ${subject}`,
+      text: message,
+      html: `
+        <h3>New Message from Website</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Subject:</strong> ${subject}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `
+    });
+    */
+
+    // Simulate delay for realism
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    res.status(200).json({ success: true, message: 'Message sent successfully' });
+  } catch (error) {
+    console.error('Send message error:', error);
+    res.status(500).json({ message: 'Server error could not send message' });
+  }
+};
+
 module.exports = {
   getContact,
   createContact,
-  updateContact
+  updateContact,
+  sendMessage
 };

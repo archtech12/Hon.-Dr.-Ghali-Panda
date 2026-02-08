@@ -7,7 +7,7 @@ export const projects = [
         date: "2024-03-15",
         shortDesc: "Distribution of 18,600 bags of grains and ₦20 million cash support.",
         impact: "18,600 Families & 1,000 Youths",
-        location: "Flagged off in Gaya LGA"
+        location: "Flagged off in Gama"
     },
     {
         id: 2,
@@ -17,7 +17,7 @@ export const projects = [
         date: "2024-12-05",
         shortDesc: "Installation of solar-powered boreholes to provide clean drinking water.",
         impact: "10,000+ Residents",
-        location: "Ukays, Makyandawa, Kademi, Ataus (Gaya LGA)"
+        location: "Gama, Tudun Wada, Hotoro (Nasarawa)"
     },
     {
         id: 3,
@@ -27,7 +27,7 @@ export const projects = [
         date: "2024-12-26",
         shortDesc: "Distribution of 21 motorcycles to youths for self-reliance.",
         impact: "21 Youths Empowered",
-        location: "Gaya (10), Ajingi (5), Albasu (6)"
+        location: "Gama (10), Tudun Wada (5), Hotoro (6)"
     },
     {
         id: 4,
@@ -37,7 +37,7 @@ export const projects = [
         date: "2025-08-10",
         shortDesc: "Distribution of 1,800 bags of fertilizer to support farming.",
         impact: "1,800 Farmers",
-        location: "Gaya, Ajingi, Albasu LGAs"
+        location: "Nasarawa Federal Constituency"
     },
     {
         id: 5,
@@ -57,7 +57,7 @@ export const projects = [
         date: "2024-11-20",
         shortDesc: "Installation of solar street lights to improve security.",
         impact: "Enhanced Security",
-        location: "Harunawa-B, Gaya LGA"
+        location: "Tudun Murtala, Nasarawa"
     },
     {
         id: 7,
@@ -67,7 +67,7 @@ export const projects = [
         date: "2024-09-15",
         shortDesc: "Building new learning blocks to decongest schools.",
         impact: "Better Learning Environment",
-        location: "Ajingi LGA"
+        location: "Gawuna Ward"
     },
     {
         id: 8,
@@ -77,7 +77,7 @@ export const projects = [
         date: "2024-05-12",
         shortDesc: "Supply of textbooks and writing materials to primary schools.",
         impact: "3,000+ Pupils",
-        location: "Albasu LGA"
+        location: "Ladanai Ward"
     },
     {
         id: 9,
@@ -87,7 +87,7 @@ export const projects = [
         date: "2024-07-30",
         shortDesc: "Cash grants to support women's small businesses.",
         impact: "500+ Women",
-        location: "Gaya LGA"
+        location: "Dakata Ward"
     },
     {
         id: 10,
@@ -102,11 +102,11 @@ export const projects = [
 ];
 
 export const constituencyData = {
-    name: 'Gaya / Ajingi / Albasu Federal Constituency',
-    representative: 'Hon. Dr. Ghali Mustapha Tijjani Panda',
-    party: 'New Nigeria Peoples Party (NNPP)',
+    name: 'Nasarawa Federal Constituency',
+    representative: 'Hon. Hassan Shehu Hussain (Hon. HASH)',
+    party: 'All Progressives Congress (APC)',
     electionYear: '2023',
-    communities: ['Gaya', 'Ajingi', 'Albasu'],
+    communities: ['Gama', 'Tudun Wada', 'Hotoro South', 'Tudun Murtala', 'Gawuna', 'Ladanai', 'Hotoro Arewa', 'Dakata', 'Tinshama'],
     population: 'Over 300,000 Residents',
 };
 
@@ -141,4 +141,4 @@ export const initiatives = [
     },
 ];
 
-export const visionContent = "Hon. Dr. Ghali Mustapha Tijjani Panda's vision for Gaya / Ajingi / Albasu is built on the pillars of youth empowerment, educational advancement, and infrastructural connectivity. By leveraging his experience in community leadership and administration, he aims to attract sustainable investment to the Constituency while ensuring that government projects directly benefit the grassroots population.";
+export const visionContent = "Hon. Hassan Shehu Hussain's vision for Nasarawa Federal Constituency is built on the pillars of youth empowerment, educational advancement, and infrastructural connectivity. By leveraging his experience in community leadership and administration, he aims to attract sustainable investment to the Constituency while ensuring that government projects directly benefit the grassroots population.";

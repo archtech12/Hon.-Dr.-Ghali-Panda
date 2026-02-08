@@ -1,17 +1,19 @@
-# Ghali Political Campaign Website
+# Hon. Hassan Shehu Hussain (Hon. HASH) Campaign Website
 
 A modern political campaign website built with Next.js, React, and Tailwind CSS.
 
 ## Features
 
 - Responsive design for all devices
+- **Sticker Generator** for supporters
 - Admin dashboard for content management
 - News and project management
 - Constituency information
 - Legislative information
-- Contact forms
+- Contact forms with email integration
 - Media gallery
 - Application system with support functionality
+- Dark Mode support
 
 ## Getting Started
 
@@ -26,7 +28,7 @@ A modern political campaign website built with Next.js, React, and Tailwind CSS.
 1. Clone the repository:
    ```bash
    git clone <repository-url>
-   cd ghali-political-campaign-website
+   cd hashmeter
    ```
 
 2. Install dependencies:
@@ -51,7 +53,7 @@ A modern political campaign website built with Next.js, React, and Tailwind CSS.
 - Admin Dashboard: [http://localhost:3000/admin](http://localhost:3000/admin)
 
 Default Admin Credentials:
-- Email: admin@ghalipanda.gov.ng
+- Email: admin@honhash.com
 - Password: Admin123!
 
 ## Deployment

@@ -5,17 +5,17 @@ export const ModernTemplate = ({ data }: TemplateProps) => {
   const { supporterName, supporterPhoto, customMessage } = data
 
   return (
-    <div className="w-full h-full flex flex-col items-center bg-slate-900 font-sans relative">
+    <div className="w-full h-full flex flex-col items-center bg-gray-50 font-sans relative">
       {/* Background Graphic */}
-      <div className="absolute inset-0 z-0 opacity-30 bg-gradient-to-br from-blue-600 to-purple-800" />
-      <div className="absolute top-[-20%] right-[-20%] w-[80%] h-[80%] bg-blue-500 rounded-full blur-[100px] opacity-20 pointer-events-none" />
+      <div className="absolute inset-0 z-0 opacity-10 bg-gradient-to-br from-green-600 to-blue-200" />
+      <div className="absolute top-[-20%] right-[-20%] w-[80%] h-[80%] bg-green-500 rounded-full blur-[100px] opacity-20 pointer-events-none" />
 
       {/* Main Content Card - Floating Glass */}
       <div className="absolute inset-6 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 z-10 flex flex-col overflow-hidden shadow-2xl">
         
         {/* Top: Branding */}
         <div className="h-[15%] flex items-center justify-center border-b border-white/10">
-          <p className="text-white/80 font-bold tracking-[0.5em] text-[10px] uppercase">Gaya • Ajingi • Albasu</p>
+          <p className="text-white/80 font-bold tracking-[0.5em] text-[clamp(0.5rem,1.5vw,0.8rem)] uppercase">Nasarawa • Federal • Constituency</p>
         </div>
 
         {/* Middle: Photos */}
@@ -23,7 +23,7 @@ export const ModernTemplate = ({ data }: TemplateProps) => {
           <div className="flex-1 h-full relative rounded-2xl overflow-hidden shadow-inner">
              <CandidatePortrait className="w-full h-full" />
              <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
-                <span className="text-white text-[10px] font-bold uppercase">Hon. Ghali</span>
+                <span className="text-white text-[clamp(0.6rem,2vw,1rem)] font-bold uppercase">Hon. HASH</span>
              </div>
           </div>
           <div className="flex-1 h-full relative rounded-2xl overflow-hidden shadow-inner bg-black/20">
@@ -35,7 +35,7 @@ export const ModernTemplate = ({ data }: TemplateProps) => {
                 </div>
              )}
              <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
-                <span className="text-white text-[10px] font-bold uppercase">{supporterName || 'Supporter'}</span>
+                <span className="text-white text-[clamp(0.6rem,2vw,1rem)] font-bold uppercase truncate block">{supporterName || 'Supporter'}</span>
              </div>
           </div>
         </div>

@@ -17,9 +17,17 @@ const volunteerTypes = [
 ]
 
 const constituencies = [
-  'Gaya',
-  'Ajingi',
-  'Albasu',
+  'Gama',
+  'Tudun Wada',
+  'Hotoro South',
+  'Tudun Murtala',
+  'Gawuna',
+  'Ladanai',
+  'Hotoro Arewa',
+  'Dakata',
+  'Tinshama',
+  'Karawa',
+  'Gwagwarwa',
 ]
 const availabilities = ['Full Time', 'Part Time', 'Weekends Only', 'Flexible']
 const educationLevels = [
@@ -108,7 +116,7 @@ export default function VolunteerPage() {
 
       if (response.ok) {
         alert(
-          '🎉 Registration Successful!\n\nThank you for joining Team Ghali! We will contact you soon with next steps.',
+          '🎉 Registration Successful!\n\nThank you for joining Team HASH! We will contact you soon with next steps.',
         )
         router.push('/')
       } else {
@@ -117,7 +125,7 @@ export default function VolunteerPage() {
     } catch (error) {
       // alert('❌ Network error. Please check your connection and try again.')
        // Simulate success for now as API might not be running
-       alert('🎉 Registration Successful!\n\nThank you for joining Team Ghali! We will contact you soon.')
+       alert('🎉 Registration Successful!\n\nThank you for joining Team HASH! We will contact you soon.')
        router.push('/')
     } finally {
       setIsSubmitting(false)
@@ -128,22 +136,21 @@ export default function VolunteerPage() {
   const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 1))
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-red-50 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50 py-12 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="inline-block px-6 py-3 bg-gradient-to-r from-red-600 to-red-800 rounded-full shadow-lg mb-4">
+          <div className="inline-block px-6 py-3 bg-gradient-to-r from-green-600 to-green-800 rounded-full shadow-lg mb-4">
             <span className="text-white font-bold flex items-center gap-2">
               <span className="text-2xl">🤝</span>
-              JOIN TEAM GHALI
+              JOIN TEAM HASH
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
             Volunteer Registration
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Be part of the movement! Register to volunteer and help build a better future for Ajingi
-            / Albasu / Gaya Constituency
+            Be part of the movement! Register to volunteer and help build a better future for Nasarawa Federal Constituency
           </p>
         </div>
 
@@ -155,7 +162,7 @@ export default function VolunteerPage() {
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all ${
                     currentStep >= step
-                      ? 'bg-red-600 text-white shadow-lg scale-110'
+                      ? 'bg-green-600 text-white shadow-lg scale-110'
                       : 'bg-gray-200 text-gray-500'
                   }`}
                 >
@@ -164,7 +171,7 @@ export default function VolunteerPage() {
                 {step < 4 && (
                   <div
                     className={`flex-1 h-1 mx-2 transition-all ${
-                      currentStep > step ? 'bg-red-600' : 'bg-gray-200'
+                      currentStep > step ? 'bg-green-600' : 'bg-gray-200'
                     }`}
                   />
                 )}
@@ -202,7 +209,7 @@ export default function VolunteerPage() {
                     required
                     value={formData.fullName}
                     onChange={(e) => updateFormData('fullName', e.target.value)}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
                     placeholder="e.g., Musa Ibrahim"
                   />
                 </div>
@@ -216,7 +223,7 @@ export default function VolunteerPage() {
                     required
                     value={formData.email}
                     onChange={(e) => updateFormData('email', e.target.value)}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
                     placeholder="musa@example.com"
                   />
                 </div>
@@ -309,7 +316,7 @@ export default function VolunteerPage() {
                     type="text"
                     value={formData.address.street}
                     onChange={(e) => updateFormData('address.street', e.target.value)}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
                     placeholder="e.g., 123 Main Street"
                   />
                 </div>
@@ -432,8 +439,8 @@ export default function VolunteerPage() {
                       onClick={() => updateFormData('volunteerType', type.value)}
                       className={`p-4 rounded-xl border-2 transition-all text-left ${
                         formData.volunteerType === type.value
-                          ? 'border-red-500 bg-red-50 shadow-lg'
-                          : 'border-gray-200 hover:border-red-300'
+                          ? 'border-green-500 bg-green-50 shadow-lg'
+                          : 'border-gray-200 hover:border-green-300'
                       }`}
                     >
                       <div className="flex items-start gap-3">
@@ -460,7 +467,7 @@ export default function VolunteerPage() {
                       onClick={() => updateFormData('availability', avail)}
                       className={`py-3 px-4 rounded-lg font-medium transition-all ${
                         formData.availability === avail
-                          ? 'bg-red-600 text-white shadow-lg'
+                          ? 'bg-green-600 text-white shadow-lg'
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                       }`}
                     >
@@ -472,15 +479,15 @@ export default function VolunteerPage() {
 
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Why do you want to volunteer for Hon. Dr. Ghali Mustapha Tijjani Panda? *
+                  Why do you want to volunteer for Hon. Hassan Shehu Hussain? *
                 </label>
                 <textarea
                   required
                   value={formData.motivation}
                   onChange={(e) => updateFormData('motivation', e.target.value)}
                   rows={4}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
-                  placeholder="Tell us what motivates you to support Hon. Dr. Ghali Mustapha Tijjani Panda..."
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                  placeholder="Tell us what motivates you to support Hon. Hassan Shehu Hussain..."
                 />
               </div>
 
@@ -590,7 +597,7 @@ export default function VolunteerPage() {
                     required
                     checked={formData.dataConsent}
                     onChange={(e) => updateFormData('dataConsent', e.target.checked)}
-                    className="mt-1 w-5 h-5 text-red-600 rounded focus:ring-red-500"
+                    className="mt-1 w-5 h-5 text-green-600 rounded focus:ring-green-500"
                   />
                   <span className="text-sm text-gray-700">
                     <strong>I consent</strong> to the collection and use of my personal data for
@@ -611,8 +618,8 @@ export default function VolunteerPage() {
                 </label>
               </div>
 
-              <div className="bg-red-100 border-2 border-red-500 rounded-xl p-6 text-center">
-                <p className="text-lg font-bold text-red-900 mb-2">🎉 You're Almost There!</p>
+              <div className="bg-green-100 border-2 border-green-500 rounded-xl p-6 text-center">
+                <p className="text-lg font-bold text-green-900 mb-2">🎉 You're Almost There!</p>
                 <p className="text-gray-700">
                   Click submit to complete your volunteer registration. We'll contact you within 48
                   hours.
@@ -640,7 +647,7 @@ export default function VolunteerPage() {
               <button
                 type="button"
                 onClick={nextStep}
-                className="px-8 py-3 bg-gradient-to-r from-red-600 to-red-800 text-white rounded-xl font-bold hover:from-red-700 hover:to-red-900 transition-all shadow-lg"
+                className="px-8 py-3 bg-gradient-to-r from-green-600 to-green-800 text-white rounded-xl font-bold hover:from-green-700 hover:to-green-900 transition-all shadow-lg"
               >
                 Next →
               </button>
@@ -651,7 +658,7 @@ export default function VolunteerPage() {
                 className={`px-8 py-3 rounded-xl font-bold transition-all shadow-lg ${
                   isSubmitting || !formData.dataConsent
                     ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-red-600 to-red-800 text-white hover:from-red-700 hover:to-red-900'
+                    : 'bg-gradient-to-r from-green-600 to-green-800 text-white hover:from-green-700 hover:to-green-900'
                 }`}
               >
                 {isSubmitting ? 'Submitting...' : '✓ Submit Registration'}

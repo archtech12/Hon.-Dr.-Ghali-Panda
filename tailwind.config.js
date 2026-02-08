@@ -1,4 +1,4 @@
-const {theme} = require('@sanity/demo/tailwind')
+const { theme } = require('@sanity/demo/tailwind')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -7,6 +7,7 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './styles/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class',
   theme: {
     ...theme,
     // Overriding fontFamily to use @next/font loaded families

@@ -2,27 +2,56 @@
 
 import Image from 'next/image'
 
-import { projects2025 } from '@/lib/projects'
+// import { projects2025 } from '@/lib/projects' // Removed
+import { useState, useEffect } from 'react'
 
-const galleryItems = projects2025.map(project => ({
-  id: project.id,
-  title: project.titleEN,
-  category: project.category,
-  image: project.photos[0],
-  description: project.desc
-}))
+interface GalleryItem {
+  id: string
+  title: string
+  category: string
+  image: string
+  description: string
+}
 
 export default function GalleryPage() {
+  const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetchGallery() {
+      try {
+        const res = await fetch('/api/projects')
+        const data = await res.json()
+        const projects = data.data || data || []
+        
+        const items = projects
+          .filter((p: any) => p.images && p.images.length > 0)
+          .map((p: any) => ({
+            id: p._id,
+            title: p.title,
+            category: p.category,
+            image: p.images[0],
+            description: p.description
+          }))
+        setGalleryItems(items)
+      } catch (error) {
+        console.error('Failed to fetch gallery:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchGallery()
+  }, [])
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="bg-red-900/90 dark:bg-red-900/95 py-12 sm:py-16 text-center text-white">
+      <section className="bg-green-900/90 dark:bg-green-900/95 py-12 sm:py-16 text-center text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter">
             Media Gallery
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-red-100">
-            Capturing the impact of our interventions across Gaya, Ajingi, and Albasu.
+          <p className="mt-4 text-base sm:text-lg text-green-100">
+            Capturing the impact of our interventions across Nasarawa Federal Constituency.
           </p>
         </div>
       </section>
@@ -46,14 +75,14 @@ export default function GalleryPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                     <div className="p-4 w-full">
-                      <span className="inline-block px-2 py-1 bg-red-600 text-white text-xs font-bold rounded-sm mb-2">
+                      <span className="inline-block px-2 py-1 bg-green-600 text-white text-xs font-bold rounded-sm mb-2">
                         {item.category}
                       </span>
                     </div>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-red-700 transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-green-700 transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm">

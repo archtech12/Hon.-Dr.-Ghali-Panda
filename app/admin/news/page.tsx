@@ -18,7 +18,7 @@ interface NewsItem {
   updatedAt: string
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+const API_URL = process.env.NEXT_PUBLIC_API_URL || ''
 
 export default function NewsManager() {
   const [newsItems, setNewsItems] = useState<NewsItem[]>([])
@@ -32,7 +32,7 @@ export default function NewsManager() {
   const [content, setContent] = useState('')
   const [imageUrl, setImageUrl] = useState('')
   const [category, setCategory] = useState<string>('Announcement')
-  const [author, setAuthor] = useState('Hon. Dr. Ghali Mustapha Tijjani Phanda')
+  const [author, setAuthor] = useState('Hon. Hassan Shehu Hussain (Hon. HASH)')
   const [published, setPublished] = useState(false)
 
   const router = useRouter()
@@ -193,7 +193,7 @@ export default function NewsManager() {
     setContent('')
     setImageUrl('')
     setCategory('Announcement')
-    setAuthor('Hon. Dr. Ghali Mustapha Tijjani Phanda')
+    setAuthor('Hon. Hassan Shehu Hussain (Hon. HASH)')
     setPublished(false)
   }
 

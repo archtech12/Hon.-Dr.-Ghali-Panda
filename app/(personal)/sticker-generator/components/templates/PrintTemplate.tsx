@@ -9,11 +9,11 @@ export const PrintTemplate = ({ data }: TemplateProps) => {
       {/* Header */}
       <div className="h-[12%] flex items-center justify-between px-4 border-b-4 border-green-700 bg-green-50">
          <div className="flex flex-col">
-            <span className="text-green-800 font-extrabold text-[clamp(1rem,3vw,1.5rem)] leading-none uppercase">NNPP</span>
-            <span className="text-green-600 font-bold text-[0.6rem] uppercase tracking-wider">New Nigeria People's Party</span>
+            <span className="text-green-800 font-extrabold text-[clamp(1rem,3vw,1.5rem)] leading-none uppercase">APC</span>
+            <span className="text-green-600 font-bold text-[0.6rem] uppercase tracking-wider">All Progressives Congress</span>
          </div>
          <div className="text-right">
-             <span className="block text-black font-bold uppercase text-[0.7rem] leading-tight">Gaya • Ajingi • Albasu</span>
+             <span className="block text-black font-bold uppercase text-[0.7rem] leading-tight">Nasarawa • Federal • Constituency</span>
          </div>
       </div>
 
@@ -22,7 +22,7 @@ export const PrintTemplate = ({ data }: TemplateProps) => {
          <div className="w-1/2 p-4 flex flex-col items-center justify-center border-r-2 border-dashed border-green-200">
             <div className="w-full aspect-[3/4] bg-gray-100 border border-gray-300 flex items-center justify-center mb-3 p-1">
                {supporterPhoto ? (
-                  <img src={supporterPhoto} className="w-full h-full object-cover filter grayscale contrast-110" />
+                  <img src={supporterPhoto} className="w-full h-full object-cover" />
                ) : (
                   <div className="text-center text-gray-400 p-4">
                      <span className="block mb-2 text-2xl">📸</span>
@@ -42,7 +42,7 @@ export const PrintTemplate = ({ data }: TemplateProps) => {
                <CandidatePortrait className="w-full h-full" />
             </div>
              <h2 className="font-black text-[clamp(1.2rem,4vw,2rem)] leading-none uppercase mb-2">
-                Dr. Ghali<br/>Panda
+                Hon. HASH<br/>(Hassan Shehu)
              </h2>
              <p className="text-green-100 italic font-medium text-[clamp(0.8rem,2vw,1rem)]">"{customMessage}"</p>
          </div>

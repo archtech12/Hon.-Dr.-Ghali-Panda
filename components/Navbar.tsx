@@ -2,6 +2,7 @@
 
 import {useState} from 'react'
 import Link from 'next/link'
+import { ThemeToggle } from './ThemeToggle'
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -15,7 +16,7 @@ export function Navbar() {
   }
 
   return (
-    <header className="flex items-center justify-between whitespace-nowrap bg-red-700 text-white px-4 sm:px-6 md:px-8 lg:px-16 py-3 sm:py-4 shadow-lg sticky top-0 z-50">
+    <header className="flex items-center justify-between whitespace-nowrap bg-green-700 text-white px-4 sm:px-6 md:px-8 lg:px-16 py-3 sm:py-4 shadow-lg sticky top-0 z-50">
       <div className="flex items-center gap-2 sm:gap-3">
         <div className="size-7 sm:size-8 text-white flex-shrink-0">
           <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -23,75 +24,76 @@ export function Navbar() {
           </svg>
         </div>
         <h2 className="text-white text-base sm:text-lg lg:text-xl font-bold tracking-tight">
-          Hon. Dr. Ghali Panda
+          Hon. HASH
         </h2>
       </div>
 
       {/* Desktop Navigation */}
       <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
         <Link
-          className="text-white hover:text-red-200 text-sm font-medium transition-colors relative group"
+          className="text-white hover:text-green-200 text-sm font-medium transition-colors relative group"
           href="/"
         >
           Home
           <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
         </Link>
         <Link
-          className="text-white hover:text-red-200 text-sm font-medium transition-colors relative group"
+          className="text-white hover:text-green-200 text-sm font-medium transition-colors relative group"
           href="/about"
         >
           About
           <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
         </Link>
         <Link
-          className="text-white hover:text-red-200 text-sm font-medium transition-colors relative group"
+          className="text-white hover:text-green-200 text-sm font-medium transition-colors relative group"
           href="/constituency"
         >
           Constituency
           <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
         </Link>
         <Link
-          className="text-white hover:text-red-200 text-sm font-medium transition-colors relative group"
+          className="text-white hover:text-green-200 text-sm font-medium transition-colors relative group"
           href="/projects"
         >
           Projects
           <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
         </Link>
         <Link
-          className="text-white hover:text-red-200 text-sm font-medium transition-colors relative group"
+          className="text-white hover:text-green-200 text-sm font-medium transition-colors relative group"
           href="/legislative"
         >
           Legislative
           <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
         </Link>
         <Link
-          className="text-white hover:text-red-200 text-sm font-medium transition-colors relative group"
+          className="text-white hover:text-green-200 text-sm font-medium transition-colors relative group"
           href="/news"
         >
           News
           <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
         </Link>
         <Link
-          className="text-white hover:text-red-200 text-sm font-medium transition-colors relative group"
+          className="text-white hover:text-green-200 text-sm font-medium transition-colors relative group"
           href="/sticker-generator"
         >
           🎨 Stickers
           <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
         </Link>
         <Link
-          className="bg-white hover:bg-red-50 text-red-700 px-4 py-2.5 rounded-lg text-sm font-bold transition-all shadow-md hover:shadow-lg active:scale-95 flex items-center gap-1.5"
+          className="bg-white hover:bg-green-50 text-green-700 px-4 py-2.5 rounded-lg text-sm font-bold transition-all shadow-md hover:shadow-lg active:scale-95 flex items-center gap-1.5"
           href="/volunteer"
         >
           <i className="fa-solid fa-hand-holding-heart text-lg"></i>
           <span>Join Us</span>
         </Link>
         <Link
-          className="text-white hover:text-red-200 text-sm font-medium transition-colors relative group"
+          className="text-white hover:text-green-200 text-sm font-medium transition-colors relative group"
           href="/contact"
         >
           Contact
           <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
         </Link>
+        <ThemeToggle />
       </nav>
 
       {/* Mobile Menu Button */}
@@ -105,7 +107,7 @@ export function Navbar() {
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-red-800/98 backdrop-blur-md shadow-2xl lg:hidden z-50 border-t border-red-600 animate-slideDown">
+        <div className="absolute top-full left-0 w-full bg-green-800/98 backdrop-blur-md shadow-2xl lg:hidden z-50 border-t border-green-600 animate-slideDown">
           <nav className="flex flex-col py-2">
             <Link
               className="text-white hover:bg-white/10 active:bg-white/20 text-base font-medium px-5 py-3.5 transition-colors flex items-center gap-3 border-l-4 border-transparent hover:border-white"
@@ -165,7 +167,7 @@ export function Navbar() {
             </Link>
             <div className="px-4 py-2">
               <Link
-                className="bg-white hover:bg-red-50 active:bg-red-100 text-red-700 px-5 py-3.5 rounded-xl text-base font-bold transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2 w-full touch-manipulation"
+                className="bg-white hover:bg-green-50 active:bg-green-100 text-green-700 px-5 py-3.5 rounded-xl text-base font-bold transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2 w-full touch-manipulation"
                 href="/volunteer"
                 onClick={closeMenu}
               >
@@ -181,6 +183,10 @@ export function Navbar() {
               <i className="fa-solid fa-paper-plane text-xl w-6 text-center"></i>
               <span>Contact</span>
             </Link>
+            <div className="px-5 py-3.5 flex items-center gap-3 text-white">
+              <span className="text-base font-medium">Theme</span>
+              <ThemeToggle />
+            </div>
           </nav>
         </div>
       )}

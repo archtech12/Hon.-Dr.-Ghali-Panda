@@ -6,19 +6,40 @@ const projectSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
+  titleHA: {
+    type: String,
+    trim: true
+  },
   description: {
     type: String,
     required: true
   },
+  date: {
+    type: String,
+    trim: true
+  },
+  images: [{
+    type: String,
+    trim: true
+  }],
   category: {
     type: String,
     required: true,
-    enum: ['Education', 'Infrastructure', 'Social Welfare', 'Economic Empowerment', 'Healthcare', 'Other']
+    enum: ['Education', 'Infrastructure', 'Social Welfare', 'Economic Empowerment', 'Healthcare', 'Agriculture', 'Water', 'Empowerment', 'Youth Empowerment', 'Other', 'Security', 'Community', 'Political']
   },
   imageUrl: {
     type: String,
     trim: true
   },
+  impact: {
+    type: String,
+    trim: true
+  },
+  location: {
+    type: String,
+    trim: true
+  },
+
   videoEmbedLink: {
     type: String,
     trim: true
@@ -31,7 +52,7 @@ const projectSchema = new mongoose.Schema({
   },
   year: {
     type: String,
-    required: true
+    required: false
   },
   priority: {
     type: Number,

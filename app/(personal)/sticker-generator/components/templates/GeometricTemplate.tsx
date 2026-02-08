@@ -35,17 +35,17 @@ export const GeometricTemplate = ({ data }: TemplateProps) => {
             </div>
 
             {/* Bottom Right: Supporter */}
-            <div className="flex items-center justify-end gap-4 mt-4">
-                 <div className="text-right">
-                     <p className="text-green-300 font-bold uppercase text-xs tracking-wider">Supporter</p>
-                     <p className="text-white font-black text-xl uppercase">{supporterName || 'Name'}</p>
+            <div className="flex items-center justify-end gap-4 mt-auto mb-6">
+                 <div className="text-right flex-1 min-w-0">
+                     <p className="text-green-300 font-bold uppercase text-[clamp(0.6rem,1.5vw,0.8rem)] tracking-wider">Supporter</p>
+                     <p className="text-white font-black text-[clamp(1rem,4vw,1.8rem)] uppercase leading-tight truncate">{supporterName || 'Name'}</p>
                  </div>
-                 <div className="w-20 h-20 rounded-full border-4 border-yellow-400 overflow-hidden bg-gray-800 shadow-xl">
+                 <div className="w-[20%] aspect-square rounded-full border-4 border-yellow-400 overflow-hidden bg-gray-800 shadow-xl flex-shrink-0">
                     {supporterPhoto ? (
                         <img src={supporterPhoto} className="w-full h-full object-cover" />
                     ) : (
                         <div className="w-full h-full bg-green-700 flex items-center justify-center">
-                            <span className="text-white text-xs">PHOTO</span>
+                            <span className="text-white text-[10px]">PHOTO</span>
                         </div>
                     )}
                  </div>

@@ -1,56 +1,45 @@
 const mongoose = require('mongoose');
-const path = require('path');
-const fs = require('fs');
+require('dotenv').config({ path: '.env' }); // Load from .env specifically
 
-// Simple Mongoose User Schema for verification without importing the app's model (to isolate issues)
+const MONGODB_URI = process.env.MONGODB_URI;
+
+console.log('Checking DB:', MONGODB_URI);
+
 const userSchema = new mongoose.Schema({
-  email: String,
-  role: String,
-  password: String
-});
-const User = mongoose.models.User || mongoose.model('User', userSchema);
+  email: { type: String, lowercase: true, trim: true },
+  password: { type: String },
+  role: { type: String },
+}, { strict: false }); // Use strict false to see whatever is there
 
-async function check() {
-  let uri = 'mongodb://localhost:27017/ghali-dashboard'; // Default
+const User = mongoose.model('User', userSchema);
 
-  // Try to read .env
+async function checkUser() {
   try {
-    const envPath = path.join(__dirname, '.env');
-    if (fs.existsSync(envPath)) {
-      const envContent = fs.readFileSync(envPath, 'utf8');
-      const match = envContent.match(/MONGODB_URI=(.+)/);
-      if (match && match[1]) {
-        uri = match[1].trim().replace(/["']/g, ''); // Remove quotes if any
-        console.log('Found URI in .env:', uri);
-      }
-    }
-  } catch (e) {
-    console.log('Error reading .env, using default URI');
-  }
-
-  console.log('Connecting to:', uri);
-
-  try {
-    await mongoose.connect(uri);
-    console.log('✅ Connected to MongoDB');
+    await mongoose.connect(MONGODB_URI);
+    console.log('Connected to MongoDB');
 
     const count = await User.countDocuments();
-    console.log('User count:', count);
+    console.log(`Total users in DB: ${count}`);
 
-    const admin = await User.findOne({ email: 'admin@ghalipanda.gov.ng' });
+    const admin = await User.findOne({ email: 'admin@honhash.gov.ng' });
     if (admin) {
-      console.log('✅ Admin user found:', admin.email);
+      console.log('Admin user FOUND:');
+      console.log('ID:', admin._id);
+      console.log('Email:', admin.email);
       console.log('Role:', admin.role);
+      console.log('Password Hash:', admin.password);
     } else {
-      console.log('❌ Admin user NOT found');
+      console.log('Admin user NOT FOUND in this database.');
+      // List all users to see if there's a mismatch
+      const allUsers = await User.find({}, 'email role');
+      console.log('Existing users:', allUsers);
     }
 
+    process.exit(0);
   } catch (err) {
-    console.error('❌ Database Error:', err);
-  } finally {
-    await mongoose.disconnect();
-    process.exit();
+    console.error('Error:', err);
+    process.exit(1);
   }
 }
 
-check();
+checkUser();

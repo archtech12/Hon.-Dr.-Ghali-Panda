@@ -3,39 +3,68 @@
 import { HomePage } from '@/components/HomePage'
 import { MediaGallery } from '@/components/MediaGallery'
 import { ContactSection } from '@/components/ContactSection'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { ProjectModal } from '@/components/ProjectModal'
 
-import { projects2025 } from '@/lib/projects'
-import { news as newsData } from '@/lib/news'
+// import { projects2025 } from '@/lib/projects'
+// import { news as newsData } from '@/lib/news'
 import AdUnit from '@/components/AdUnit'
 
-export default function IndexRoute() {
-  const [news, setNews] = useState<any[]>(newsData.slice(0, 3).map(item => ({
-    _id: item._id,
-    title: item.title,
-    category: item.category,
-    imageUrl: item.imageUrl,
-    excerpt: item.excerpt,
-    createdAt: item.publishDate
-  })))
+interface Project {
+  _id: string
+  title: string
+  titleHA: string
+  description: string
+  category: string
+  images: string[]
+  date: string
+}
 
-  const [loading, setLoading] = useState(false)
+export default function IndexRoute() {
+  const [news, setNews] = useState<any[]>([])
+  const [projects, setProjects] = useState<Project[]>([])
+  const [loading, setLoading] = useState(true)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const [newsRes, projectsRes] = await Promise.all([
+          fetch('/api/news', { cache: 'no-store' }),
+          fetch('/api/projects', { cache: 'no-store' })
+        ])
+        
+        const newsData = await newsRes.json()
+        const projectsData = await projectsRes.json()
+        
+        setNews(newsData.data || newsData || [])
+        setProjects(projectsData.data || projectsData || [])
+      } catch (error) {
+        console.error('Failed to fetch data:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
+  }, [])
+
+
 
   const mockData = {
-    title: 'Hon. Dr. Ghali Mustapha Tijjani Panda',
+    title: 'Hon. Hassan Shehu Hussain (Hon. HASH)',
   }
 
   // Transform projects for Media Gallery
-  const projectGalleryItems = projects2025
-    .filter(p => p.photos && p.photos.length > 0)
+  const projectGalleryItems = projects
+    .filter(p => p.images && p.images.length > 0)
     .map(p => ({
-      id: p.id,
+      id: p._id,
       type: 'image' as const,
-      src: p.photos[0],
-      title: p.titleEN,
-      description: p.desc,
+      src: p.images[0],
+      title: p.title,
+      description: p.description,
       date: p.date
     }))
 
@@ -47,7 +76,7 @@ export default function IndexRoute() {
       <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-2 bg-red-100 text-red-700 rounded-full text-sm font-semibold mb-4">
+            <span className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">
               OUR INITIATIVES
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-gray-900">
@@ -60,44 +89,50 @@ export default function IndexRoute() {
 
           {loading ? (
             <div className="flex justify-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-700"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-700"></div>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {projects2025.slice(0, 3).map((project, index) => (
+              {projects.slice(0, 3).map((project, index) => (
                 <div
                   key={index}
-                  className="group bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 transform hover:-translate-y-2"
+                  onClick={() => setSelectedProject(project)}
+                  className="group bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 transform hover:-translate-y-2 cursor-pointer"
                 >
-                  <div className="h-48 relative overflow-hidden bg-gray-200">
-                    {project.photos && project.photos.length > 0 ? (
+                    <div className="h-48 relative overflow-hidden bg-gray-200">
+                    {project.images && project.images.length > 0 ? (
                       <Image
-                        src={project.photos[0]}
-                        alt={project.titleEN}
+                        src={project.images[0]}
+                        alt={project.title}
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-500"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-red-700"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-green-700"></div>
                     )}
-                    <div className="absolute inset-0 bg-black/20"></div>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <span className="inline-block px-3 py-1 bg-white/90 backdrop-blur-sm text-red-700 rounded-full text-xs font-semibold">
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span className="bg-white/90 backdrop-blur text-green-800 px-4 py-2 rounded-full font-bold text-sm shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                            View Details
+                        </span>
+                    </div>
+                    <div className="absolute bottom-4 left-4 right-4 translate-y-0 group-hover:translate-y-2 transition-transform duration-300">
+                      <span className="inline-block px-3 py-1 bg-white/90 backdrop-blur-sm text-green-700 rounded-full text-xs font-semibold">
                         {project.category}
                       </span>
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-700 transition-colors line-clamp-2">
-                      {project.titleEN}
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-700 transition-colors line-clamp-2">
+                      {project.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 line-clamp-3">{project.desc}</p>
+                    <p className="text-gray-600 mb-4 line-clamp-3">{project.description}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-gray-500">
                         {project.date}
                       </span>
-                      <span className="px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-700">
+                      <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700">
                         Active
                       </span>
                     </div>
@@ -110,7 +145,7 @@ export default function IndexRoute() {
           <div className="text-center mt-8 sm:mt-10 md:mt-12">
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 bg-red-700 text-white font-bold py-3.5 sm:py-4 px-6 sm:px-8 rounded-xl hover:bg-red-800 transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 sm:hover:scale-105 text-base sm:text-base touch-manipulation"
+              className="inline-flex items-center gap-2 bg-green-700 text-white font-bold py-3.5 sm:py-4 px-6 sm:px-8 rounded-xl hover:bg-green-800 transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 sm:hover:scale-105 text-base sm:text-base touch-manipulation"
             >
               <span>View All Projects</span>
               <span className="material-symbols-outlined">arrow_forward</span>
@@ -127,7 +162,7 @@ export default function IndexRoute() {
       <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-2 bg-red-100 text-red-700 rounded-full text-sm font-semibold mb-4">
+            <span className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">
               LATEST UPDATES
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-gray-900">
@@ -140,14 +175,14 @@ export default function IndexRoute() {
 
           {loading ? (
             <div className="flex justify-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-700"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-700"></div>
             </div>
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {news.map((item, index) => (
+              {news.slice(0, 3).map((item, index) => (
                 <Link key={index} href={`/news/${item._id}`} className="group">
                   <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2 h-full flex flex-col">
-                    <div className="h-56 bg-gradient-to-br from-red-500 to-red-600 relative overflow-hidden">
+                    <div className="h-56 bg-gradient-to-br from-green-500 to-green-600 relative overflow-hidden">
                       {item.imageUrl ? (
                         <img
                           src={item.imageUrl}
@@ -162,19 +197,19 @@ export default function IndexRoute() {
                         </div>
                       )}
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-red-700 rounded-full text-xs font-semibold">
+                        <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-green-700 rounded-full text-xs font-semibold">
                           {item.category || 'News'}
                         </span>
                       </div>
                     </div>
                     <div className="p-6 flex-1 flex flex-col">
-                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-700 transition-colors line-clamp-2">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-700 transition-colors line-clamp-2">
                         {item.title}
                       </h3>
                       <p className="text-gray-600 mb-4 line-clamp-3 flex-1">{item.excerpt}</p>
                       <div className="flex items-center justify-between text-sm text-gray-500">
-                        <span>{new Date(item.createdAt).toLocaleDateString()}</span>
-                        <span className="group-hover:text-red-700 transition-colors font-medium">
+                        <span>{new Date(item.createdAt || item.publishDate || Date.now()).toLocaleDateString()}</span>
+                        <span className="group-hover:text-green-700 transition-colors font-medium">
                           Read more →
                         </span>
                       </div>
@@ -188,7 +223,7 @@ export default function IndexRoute() {
           <div className="text-center mt-8 sm:mt-10 md:mt-12">
             <Link
               href="/news"
-              className="inline-flex items-center gap-2 bg-red-600 text-white font-bold py-3.5 sm:py-4 px-6 sm:px-8 rounded-xl hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 sm:hover:scale-105 text-base sm:text-base touch-manipulation"
+              className="inline-flex items-center gap-2 bg-green-600 text-white font-bold py-3.5 sm:py-4 px-6 sm:px-8 rounded-xl hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 sm:hover:scale-105 text-base sm:text-base touch-manipulation"
             >
               <span>View All News</span>
               <span className="material-symbols-outlined">arrow_forward</span>
@@ -198,17 +233,17 @@ export default function IndexRoute() {
       </section>
 
       {/* Community Impact Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-red-700 to-red-900 text-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-green-700 to-green-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-72 h-72 bg-white rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-          <div className="absolute bottom-20 right-10 w-72 h-72 bg-red-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-20 right-10 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
         </div>
         <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
               Making a Real Difference
             </h2>
-            <p className="text-red-100 text-base sm:text-lg max-w-3xl mx-auto">
+            <p className="text-green-100 text-base sm:text-lg max-w-3xl mx-auto">
               Through dedicated service and community-focused initiatives, we're creating lasting
               positive change
             </p>
@@ -216,19 +251,19 @@ export default function IndexRoute() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="text-center transform hover:scale-110 transition-transform duration-300">
               <div className="text-5xl md:text-6xl font-bold mb-2">20,000+</div>
-              <div className="text-red-200 text-sm md:text-base">Beneficiaries</div>
+              <div className="text-green-200 text-sm md:text-base">Beneficiaries</div>
             </div>
             <div className="text-center transform hover:scale-110 transition-transform duration-300">
-              <div className="text-5xl md:text-6xl font-bold mb-2">30+</div>
-              <div className="text-red-200 text-sm md:text-base">Programs Launched</div>
+              <div className="text-5xl md:text-6xl font-bold mb-2">26+</div>
+              <div className="text-green-200 text-sm md:text-base">Programs Launched</div>
             </div>
             <div className="text-center transform hover:scale-110 transition-transform duration-300">
-              <div className="text-5xl md:text-6xl font-bold mb-2">3</div>
-              <div className="text-red-200 text-sm md:text-base">LGAs Served</div>
+              <div className="text-5xl md:text-6xl font-bold mb-2">11</div>
+              <div className="text-green-200 text-sm md:text-base">Wards Served</div>
             </div>
             <div className="text-center transform hover:scale-110 transition-transform duration-300">
-              <div className="text-5xl md:text-6xl font-bold mb-2">2+</div>
-              <div className="text-red-200 text-sm md:text-base">Years of Service</div>
+              <div className="text-5xl md:text-6xl font-bold mb-2">3+</div>
+              <div className="text-green-200 text-sm md:text-base">Years of Service</div>
             </div>
           </div>
         </div>
@@ -236,6 +271,12 @@ export default function IndexRoute() {
 
       <MediaGallery items={projectGalleryItems} />
       <ContactSection />
+      
+      <ProjectModal 
+        project={selectedProject} 
+        isOpen={!!selectedProject} 
+        onClose={() => setSelectedProject(null)} 
+      />
     </div>
   )
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import {Header} from '@/components/Header'
-import {GhaliTimeline, timelineData} from '@/components/GhaliTimeline'
+import {Timeline, timelineData} from './Timeline'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -13,68 +13,196 @@ interface HomePageProps {
 // ... (Header imports)
 export function HomePage({data}: HomePageProps) {
   // Use data title or default to Ghali
-  const {title = 'Hon. Dr. Ghali Mustapha Tijjani Panda'} = data || {}
+  const {title = 'Hon. Hassan Shehu Hussain (Hon. HASH)'} = data || {}
 
   return (
     <div className="space-y-20">
       {/* Enhanced Hero Section */}
-      <section className="relative bg-gradient-to-br from-red-800 via-red-700 to-red-600 text-white overflow-hidden">
-        {/* ... (Decorative Elements same) ... */}
+      <section className="relative bg-gradient-to-br from-green-900 via-green-800 to-green-600 text-white overflow-hidden">
+        {/* Decorative Elements */}
         <div className="absolute top-0 left-0 w-full h-full opacity-10">
           <div className="absolute top-20 left-10 w-64 h-64 bg-white rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
           <div className="absolute top-40 right-10 w-64 h-64 bg-gold-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-20 left-1/2 w-64 h-64 bg-red-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+          <div className="absolute bottom-20 left-1/2 w-64 h-64 bg-green-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-24 lg:py-32 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             <div className="lg:w-1/2 mb-6 lg:mb-0 text-center lg:text-left">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight">
+              <div className="inline-block bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 mb-6 text-sm font-semibold tracking-wide uppercase animate-fade-in-up">
+                Member, House of Representatives
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight tracking-tight">
                 {title}
               </h1>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 sm:mb-6 text-red-100">
-                Serving Gaya, Ajingi & Albasu
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-medium mb-6 text-gray-200">
+                A Legacy of <span className="text-yellow-400 font-bold">Service</span> & <span className="text-green-400 font-bold">Empowerment</span>
               </h2>
-              <p className="text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0 text-red-50 leading-relaxed font-medium">
-                Dedicated Leadership | Community Empowerment | Kwankwasiyya in Action
+              <p className="text-base sm:text-lg mb-8 max-w-2xl mx-auto lg:mx-0 text-gray-100 leading-relaxed">
+                Driving sustainable development in Nasarawa Federal Constituency through tangible projects, massive empowerment offers, and inclusive representation.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
                 <Link
                   href="/projects"
-                  className="bg-white text-red-800 hover:bg-red-50 active:bg-red-100 font-bold py-3 sm:py-3.5 px-6 sm:px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center justify-center gap-2 text-base sm:text-base touch-manipulation active:scale-95 sm:hover:scale-105"
+                  className="bg-white text-green-900 hover:bg-gray-100 font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 inline-flex items-center gap-2"
                 >
-                  <span>View Projects</span>
-                  <span className="material-symbols-outlined text-xl">visibility</span>
+                  <span>Explore Projects</span>
+                  <span className="material-symbols-outlined text-xl">arrow_forward</span>
                 </Link>
                 <Link
                   href="/about"
-                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 active:bg-white/20 font-bold py-3 sm:py-3.5 px-6 sm:px-8 rounded-xl transition-all duration-300 inline-flex items-center justify-center gap-2 text-base sm:text-base touch-manipulation active:scale-95 sm:hover:scale-105"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold py-4 px-8 rounded-full transition-all duration-300 inline-flex items-center gap-2"
                 >
-                  <span>Biography</span>
+                  <span>Meet Hon. HASH</span>
                   <span className="material-symbols-outlined text-xl">person</span>
                 </Link>
               </div>
             </div>
-            <div className="lg:w-1/2 flex justify-center mt-8 lg:mt-0">
-              <div className="relative">
-                <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 sm:border-8 border-white shadow-2xl relative">
+            <div className="lg:w-1/2 flex justify-center mt-8 lg:mt-0 relative">
+              <div className="relative z-10">
+                <div className="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-8 border-white/20 shadow-2xl relative">
                   <Image
-                    src="/ghaliphoto.jpg"
-                    alt="Hon. Dr. Ghali Mustapha Tijjani Panda"
+                    src="/assets/images/gallery/0-Portraits-Official/potraitn.jpg"
+                    alt="Hon. Hassan Shehu Hussain"
                     fill
                     className="object-cover"
-                    sizes="(max-width: 640px) 224px, (max-width: 768px) 256px, 320px"
+                    sizes="(max-width: 640px) 288px, (max-width: 768px) 320px, 384px"
                     priority
                   />
                 </div>
-                <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 bg-gold-500 text-red-900 font-bold py-2 px-3 sm:py-2 sm:px-4 rounded-lg shadow-lg transform rotate-3 text-xs sm:text-sm">
-                  20,000+ Beneficiaries
+                {/* Floating Badges */}
+                <div className="absolute top-10 -right-4 bg-green-600 text-white p-4 rounded-xl shadow-lg transform rotate-6 hover:rotate-0 transition-transform cursor-default">
+                  <div className="font-bold text-2xl">26+</div>
+                  <div className="text-xs uppercase tracking-wide">Projects Delivered</div>
                 </div>
-                <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 bg-white text-red-800 font-bold py-2 px-3 sm:py-2 sm:px-4 rounded-lg shadow-lg transform -rotate-3 text-xs sm:text-sm">
-                  30+ Programs Launched
+                <div className="absolute bottom-10 -left-4 bg-yellow-500 text-black p-4 rounded-xl shadow-lg transform -rotate-6 hover:rotate-0 transition-transform cursor-default">
+                  <div className="font-bold text-2xl">1000s</div>
+                  <div className="text-xs uppercase tracking-wide">Empowered</div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEW: Latest Initiatives & Offers Section */}
+      <section className="py-8 -mt-20 relative z-20 px-4">
+        <div className="container mx-auto">
+          <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+            <div className="flex flex-col md:flex-row justify-between items-end mb-8 border-b border-gray-100 pb-4">
+              <div>
+                <span className="text-green-600 font-bold uppercase tracking-wider text-sm">Latest Opportunities</span>
+                <h2 className="text-3xl font-bold text-gray-900 mt-2">Recent Empowerment Offers</h2>
+              </div>
+              <Link href="/projects" className="text-green-700 font-semibold hover:text-green-800 flex items-center gap-1 mt-4 md:mt-0">
+                View All Opportunities <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              </Link>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Card 1: Army Offer */}
+              <div className="group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100">
+                <div className="h-48 relative bg-gray-200 overflow-hidden">
+                  <Image src="/assets/images/gallery/4-Youth-Women-Empowerment/offer-army.jpg" alt="Army Recruitment" fill className="object-contain bg-gray-900 transition-transform duration-500 group-hover:scale-105" />
+                  <div className="absolute top-4 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">Completed</div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-700 transition-colors">Nigerian Army Recruitment</h3>
+                  <p className="text-gray-600 text-sm mb-4">Facilitating secure slots for constituents in the Nigerian Army to serve the nation.</p>
+                  <Link href="/projects" className="text-sm font-bold text-green-700 hover:underline">Read More</Link>
+                </div>
+              </div>
+              
+              {/* Card 2: Poly Offer */}
+              <div className="group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100">
+                <div className="h-48 relative bg-gray-200 overflow-hidden">
+                  <Image src="/assets/images/gallery/1-Water-Empowerment/3-Lighting-Energy/offer-at-poly-kabo.jpg" alt="Polytechnic Offer" fill className="object-contain bg-gray-900 transition-transform duration-500 group-hover:scale-105" />
+                   <div className="absolute top-4 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">Completed</div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-700 transition-colors">Kano Poly Admission Offer</h3>
+                  <p className="text-gray-600 text-sm mb-4">Securing admission letters for students at Kano State Polytechnic, Kabo Campus.</p>
+                  <Link href="/projects" className="text-sm font-bold text-green-700 hover:underline">Read More</Link>
+                </div>
+              </div>
+              
+              {/* Card 3: Bikes */}
+              <div className="group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100">
+                <div className="h-48 relative bg-gray-200 overflow-hidden">
+                  <Image src="/assets/images/gallery/4-Youth-Women-Empowerment/lifan-bikes.jpg" alt="Lifan Motorcycles" fill className="object-contain bg-gray-900 transition-transform duration-500 group-hover:scale-105" />
+                   <div className="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">Empowerment</div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-700 transition-colors">Lifan Motorcycle Empowerment</h3>
+                  <p className="text-gray-600 text-sm mb-4">Distribution of brand new Lifan motorcycles to youth leaders for mobility.</p>
+                  <Link href="/projects" className="text-sm font-bold text-green-700 hover:underline">Read More</Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Transforming Communities Gallery */}
+      <section className="py-16 bg-white overflow-hidden">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-black mb-4 text-green-900">Transforming Communities</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              Visual proof of our ongoing commitment to infrastructure, healthcare, and education across Nasarawa.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px]">
+            {/* Solar/Water */}
+            <div className="relative rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/assets/images/gallery/1-Water-Empowerment/3-Lighting-Energy/solar-panels.jpg" alt="Solar Infrastructure" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="text-white font-bold text-sm">Solar Power</span>
+              </div>
+            </div>
+
+            {/* Roads - Span 2 cols */}
+            <div className="relative rounded-2xl overflow-hidden shadow-lg group col-span-2 row-span-2">
+              <Image src="/assets/images/gallery/road/hon-in-caterpilla.jpg" alt="Road Construction" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                 <span className="text-white font-bold text-xl">Road Infrastructure</span>
+              </div>
+            </div>
+
+            {/* Education */}
+            <div className="relative rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/assets/images/gallery/4-Youth-Women-Empowerment/class-seat-benches.jpg" alt="Education Support" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="text-white font-bold text-sm">Education</span>
+              </div>
+            </div>
+
+            {/* Empowerment */}
+            <div className="relative rounded-2xl overflow-hidden shadow-lg group">
+               <Image src="/assets/images/gallery/4-Youth-Women-Empowerment/sewing-machine-dinki.jpg" alt="Skills Acquisition" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="text-white font-bold text-sm">Empowerment</span>
+              </div>
+            </div>
+            
+             {/* Agriculture */}
+            <div className="relative rounded-2xl overflow-hidden shadow-lg group">
+              <Image src="/assets/images/gallery/5-Agriculture-Food-Support/rice-and-cash-ramadan.jpg" alt="Food Security" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="text-white font-bold text-sm">Food Security</span>
+              </div>
+            </div>
+
+             {/* Community */}
+            <div className="relative rounded-2xl overflow-hidden shadow-lg group col-span-2 md:col-span-1">
+              <Image src="/assets/images/gallery/7-Community-Health-Support/ginin-zawaya.jpg" alt="Community Building" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="text-white font-bold text-sm">Community Projects</span>
+              </div>
+            </div>
+
+
           </div>
         </div>
       </section>
@@ -83,87 +211,71 @@ export function HomePage({data}: HomePageProps) {
       <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-red-800">My Impact In Numbers</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Measuring the real difference we've made in our communities through dedicated service and programs.
+            <h2 className="text-3xl lg:text-4xl font-black mb-4 text-green-900">Impact In Numbers</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              Quantifying our commitment to the Nasarawa Federal Constituency through verified data.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow transform hover:-translate-y-1 duration-300">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 mb-4">
-                <svg className="w-8 h-8 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <div className="text-4xl font-bold text-red-700 mb-2">20,000+</div>
-              <div className="text-gray-600">Beneficiaries</div>
+            <div className="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition-all transform hover:-translate-y-2 duration-300 border-b-4 border-green-500">
+              <div className="text-5xl font-black text-gray-900 mb-2">1,494</div>
+              <div className="text-green-600 font-bold uppercase tracking-wide text-sm">Solar Street Lights</div>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow transform hover:-translate-y-1 duration-300">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 mb-4">
-                <svg className="w-8 h-8 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                </svg>
-              </div>
-              <div className="text-4xl font-bold text-red-700 mb-2">30+</div>
-              <div className="text-gray-600">Programs Launched</div>
+            <div className="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition-all transform hover:-translate-y-2 duration-300 border-b-4 border-green-500">
+              <div className="text-5xl font-black text-gray-900 mb-2">30+</div>
+              <div className="text-green-600 font-bold uppercase tracking-wide text-sm">Boreholes Drilled</div>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow transform hover:-translate-y-1 duration-300">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 mb-4">
-                <svg className="w-8 h-8 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div className="text-4xl font-bold text-red-700 mb-2">2+</div>
-              <div className="text-gray-600">Years of Service</div>
+            <div className="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition-all transform hover:-translate-y-2 duration-300 border-b-4 border-yellow-500">
+              <div className="text-5xl font-black text-gray-900 mb-2">317+</div>
+              <div className="text-yellow-600 font-bold uppercase tracking-wide text-sm">Scholarships Awarded</div>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow transform hover:-translate-y-1 duration-300">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 mb-4">
-                <svg className="w-8 h-8 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 104 0 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div className="text-4xl font-bold text-red-700 mb-2">3</div>
-              <div className="text-gray-600">LGAs Served</div>
+            <div className="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition-all transform hover:-translate-y-2 duration-300 border-b-4 border-blue-500">
+              <div className="text-5xl font-black text-gray-900 mb-2">26+</div>
+              <div className="text-blue-600 font-bold uppercase tracking-wide text-sm">Unique Projects</div>
             </div>
           </div>
         </div>
       </section>
       
       {/* Enhanced About Section */}
-      <section className="py-16">
+      <section className="py-16 overflow-hidden">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-10">
-            <div className="lg:w-1/3">
-              <div className="rounded-xl overflow-hidden shadow-xl transform transition-transform duration-500 hover:scale-105 relative h-80">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="w-full lg:w-5/12 relative">
+              <div className="absolute top-4 left-4 w-full h-full bg-green-100 rounded-2xl -z-10 transform -rotate-3"></div>
+              <div className="rounded-2xl overflow-hidden shadow-2xl relative h-[400px] sm:h-[450px] lg:h-[500px] w-full transform hover:scale-[1.01] transition-transform duration-500">
                 <Image
-                  src="/ghaliphoto.jpg"
-                  alt="Hon. Dr. Ghali Mustapha Tijjani Panda"
+                  src="/assets/images/gallery/0-Portraits-Official/hon-standing-on-speaker-reading-book.jpg"
+                  alt="Hon. HASH at the podium"
                   fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority
+                  unoptimized
                 />
               </div>
             </div>
-            <div className="lg:w-2/3">
-              <h2 className="text-3xl font-bold mb-6 text-red-800">About Hon. Dr. Ghali Panda</h2>
-              <p className="text-lg mb-4 text-gray-700">
-                Born on June 13, 1980, in Kano State, Dr. Ghali Mustapha Tijjani Panda is a visionary philanthropist and dedicated community leader.
+            <div className="lg:w-7/12">
+              <h4 className="text-green-600 font-bold uppercase tracking-wider mb-2">Meet Your Representative</h4>
+              <h2 className="text-4xl font-black mb-6 text-gray-900 leading-tight">Championing the People's Mandate</h2>
+              <p className="text-lg mb-6 text-gray-700 leading-relaxed">
+                Hon. Hassan Shehu Hussain (Hon. HASH) is a transformative leader representing Nasarawa Federal Constituency. Now identifying with the All Progressives Congress (APC) to further align his constituency with national development goals, he continues to set the standard for effective representation.
               </p>
-              <p className="text-lg mb-6 text-gray-700">
-                Elected in 2023 on the NNPP platform to represent the Gaya, Ajingi, and Albasu Federal Constituency, he is committed to transforming lives through education, sustainable agriculture, water provision, youth empowerment, and infrastructure development.
+              <p className="text-lg mb-8 text-gray-700 leading-relaxed">
+                 From securing employment offers in the Nigerian Army to distributing hundreds of empowering tools like motorcycles and sewing machines, his tenure is defined by <span className="font-bold text-gray-900">Direct Impact</span> and <span className="font-bold text-gray-900">Transparent Governance</span>.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/about"
-                  className="inline-block bg-red-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-red-800 transition duration-300 transform hover:scale-105"
+                  className="inline-block bg-gray-900 text-white font-bold py-4 px-8 rounded-lg hover:bg-gray-800 transition duration-300 shadow-lg"
                 >
                   Read Full Biography
                 </Link>
                 <Link
-                  href="/projects"
-                  className="inline-block bg-white border-2 border-red-700 text-red-700 font-bold py-3 px-6 rounded-lg hover:bg-red-50 transition duration-300 transform hover:scale-105"
+                  href="/contact"
+                  className="inline-block bg-white border-2 border-gray-900 text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-gray-50 transition duration-300"
                 >
-                  View Legislative Achievements
+                  Contact Constituency Office
                 </Link>
               </div>
             </div>
@@ -172,7 +284,31 @@ export function HomePage({data}: HomePageProps) {
       </section>
 
       {/* Interactive Timeline */}
-      <GhaliTimeline items={timelineData} />
+      <Timeline items={timelineData} />
+
+      {/* Sticker Generator CTA */}
+      <section className="py-24 bg-[url('/assets/images/gallery/7-Community-Health-Support/hash-project-art-hotoron-arewa-yan-dodo-flag.jpg')] bg-cover bg-center bg-no-repeat relative bg-fixed">
+        <div className="absolute inset-0 bg-green-900/90 mix-blend-multiply"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <span className="inline-block bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold px-6 py-2 rounded-full mb-6 animate-pulse">
+            Join the Movement
+          </span>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 uppercase tracking-tight text-white drop-shadow-lg">
+            Show Your Support
+          </h2>
+            {/* Sticker Gen CTA */}
+          <p className="text-lg md:text-2xl text-green-100 mb-10 max-w-3xl mx-auto font-medium">
+            Generate your personalized campaign sticker today. Be part of the progressive movement reshaping Nasarawa.
+          </p>
+          <Link
+            href="/sticker-generator"
+            className="inline-flex items-center gap-3 bg-white text-green-900 px-10 py-5 rounded-full font-black text-xl hover:bg-yellow-400 hover:text-green-900 transition-all hover:scale-105 shadow-2xl"
+          >
+            <span className="material-symbols-outlined">style</span>
+            Create Custom Sticker
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

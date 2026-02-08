@@ -13,8 +13,8 @@ export const SiteFooter = () => {
 
   return (
     <>
-        <Newsletter />
-        <footer className="bg-gradient-to-br from-red-900 via-red-800 to-red-900 text-white relative overflow-hidden">
+        {pathname === '/' && <Newsletter />}
+        <footer className="bg-gradient-to-br from-green-900 via-green-800 to-green-900 text-white relative overflow-hidden">
           {/* Decorative background */}
           <div className="absolute inset-0 opacity-5">
             <div className="absolute top-10 left-10 w-64 h-64 bg-white rounded-full mix-blend-overlay filter blur-3xl"></div>
@@ -31,7 +31,7 @@ export const SiteFooter = () => {
                     </svg>
                   </div>
                   <h2 className="text-white text-lg sm:text-xl font-bold tracking-tight">
-                    Hon. Dr. Ghali Mustapha Tijjani Panda
+                    Hon. Hassan Shehu Hussain
                   </h2>
                 </div>
                 <p className="mt-4 text-sm sm:text-base text-gray-300 leading-relaxed">
@@ -44,7 +44,7 @@ export const SiteFooter = () => {
                 </h3>
                 <ul className="mt-4 space-y-2 text-sm sm:text-base text-gray-300" role="list">
                   <li>Constituency Office</li>
-                  <li>Gaya, Ajingi, Albasu Federal Constituency</li>
+                  <li>Nasarawa Federal Constituency</li>
                   <li>Kano State, Nigeria</li>
                 </ul>
               </div>
@@ -63,9 +63,9 @@ export const SiteFooter = () => {
                     <span className="material-symbols-outlined text-gold-400 text-lg">mail</span>
                     <a
                       className="hover:text-gold-400 transition-colors"
-                      href="mailto:contact@ghalipanda.com"
+                      href="mailto:contact@honhashim.com"
                     >
-                      contact@ghalipanda.com
+                      contact@honhashim.com
                     </a>
                   </li>
                 </ul>
@@ -112,7 +112,7 @@ export const SiteFooter = () => {
                 </ul>
               </div>
             </div>
-            <div className="mt-10 pt-8 border-t border-red-700/50 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="mt-10 pt-8 border-t border-green-700/50 flex flex-col sm:flex-row items-center justify-between gap-6">
               <div className="flex space-x-4 sm:space-x-6">
                 <a
                   className="text-gray-400 hover:text-gold-400 transition-all hover:scale-110 p-2 hover:bg-white/10 rounded-full"
@@ -169,7 +169,7 @@ export const SiteFooter = () => {
                 </a>
               </div>
               <p className="text-sm sm:text-base text-gray-400 text-center sm:text-left">
-                © 2024 Hon. Dr. Ghali Mustapha Tijjani Panda. All rights reserved.
+                © 2024 Hon. Hassan Shehu Hussain (Hon. HASH). All rights reserved.
               </p>
             </div>
           </div>

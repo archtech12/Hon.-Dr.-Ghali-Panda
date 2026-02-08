@@ -23,7 +23,7 @@ export const BadgeTemplate = ({ data }: TemplateProps) => {
                    </div>
                </div>
                <div className="text-right text-white/80">
-                   <p className="text-[10px] font-mono">ID: 2027-GP</p>
+                   <p className="text-[10px] font-mono">ID: 2027-HASH</p>
                    <p className="text-[10px] font-mono">EXP: NEVER</p>
                </div>
                
@@ -32,8 +32,8 @@ export const BadgeTemplate = ({ data }: TemplateProps) => {
            </div>
 
            {/* Photo Section */}
-           <div className="relative -mt-12 flex justify-center z-10 px-6">
-                <div className="w-32 h-32 rounded-xl border-4 border-white shadow-lg bg-gray-100 overflow-hidden relative">
+           <div className="relative -mt-[15%] flex justify-center z-10 px-6">
+                <div className="w-[35%] aspect-square rounded-xl border-4 border-white shadow-lg bg-gray-100 overflow-hidden relative">
                     {supporterPhoto ? (
                         <img src={supporterPhoto} className="w-full h-full object-cover" />
                     ) : (
@@ -42,8 +42,8 @@ export const BadgeTemplate = ({ data }: TemplateProps) => {
                         </div>
                     )}
                     {/* Watermark overlay on photo */}
-                    <div className="absolute bottom-0 right-0 w-8 h-8 bg-green-500 rounded-tl-lg flex items-center justify-center text-white">
-                        <span className="text-lg">✓</span>
+                    <div className="absolute bottom-0 right-0 w-[25%] aspect-square bg-green-500 rounded-tl-lg flex items-center justify-center text-white">
+                        <span className="text-[clamp(0.8rem,2vw,1.2rem)]">✓</span>
                     </div>
                 </div>
            </div>
@@ -58,12 +58,12 @@ export const BadgeTemplate = ({ data }: TemplateProps) => {
                <div className="w-full border-t border-dashed border-gray-300 my-2"></div>
 
                <div className="flex items-center gap-3 w-full bg-slate-50 p-2 rounded-lg border border-slate-100">
-                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-green-500 flex-shrink-0">
+                    <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-green-500 flex-shrink-0">
                         <CandidatePortrait className="w-full h-full" />
                     </div>
                     <div className="text-left flex-1 min-w-0">
                         <p className="text-[10px] text-gray-500 uppercase font-bold">Endorsing</p>
-                        <p className="text-sm font-black text-slate-900 leading-tight truncate">HON. DR. GHALI PANDA</p>
+                        <p className="text-sm font-black text-slate-900 leading-tight truncate">HON. HASSAN SHEHU HUSSAIN</p>
                     </div>
                </div>
 

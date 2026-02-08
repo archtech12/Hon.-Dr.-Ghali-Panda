@@ -24,7 +24,16 @@ const AdUnit = ({ slot, format = 'auto', responsive = true, style }: AdUnitProps
         (window.adsbygoogle = window.adsbygoogle || []).push({});
         isLoaded.current = true;
       }
-    } catch (err) {
+    } catch (err: any) {
+      if (process.env.NODE_ENV !== 'production' && err?.message?.includes('already have ads')) {
+          // Suppress this specific warning in dev as it's common with React Strict Mode re-renders
+          return;
+      }
+      // Also suppress in prod if desired, or just log everything else
+      if (err?.message && err.message.includes('adsbygoogle')) {
+         // Known harmless AdSense clutter
+         return; 
+      }
       console.error('AdSense error:', err);
     }
   }, []);

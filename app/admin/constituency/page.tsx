@@ -40,42 +40,42 @@ export default function ConstituencyEditor() {
         // In a real implementation, you would fetch from your API
         // For now, we'll use the default values
         setConstituencyData({
-          name: "Gaya / Ajingi / Albasu Federal Constituency",
-          representative: "Hon. Dr. Ghali Mustapha Tijjani Phanda",
-          party: "New Nigeria Peoples Party (NNPP)",
+          name: "Nasarawa Federal Constituency",
+          representative: "Hon. Hassan Shehu Hussain (Hon. HASH)",
+          party: "All Progressives Congress (APC)",
           electionYear: "2023",
-          communities: "Gaya, Ajingi, Albasu",
-          population: "Approximately 200,000 residents"
+          communities: "Gama, Tokarawa, Gawuna, Gwagwarwa, Tudun Wada, Hotoro North, Hotoro South, Kaura Goje, Giginyu, Dakata, Kawaji",
+          population: "Approximately 600,000 residents"
         });
         
         setInitiatives([
           {
             id: 1,
-            title: "Economic Empowerment Programs",
-            description: "Initiatives to reduce import dependency and make essential goods more affordable for local communities.",
-            icon: "trending_down"
+            title: "Youth Empowerment",
+            description: "Providing skills, tools, and capital to youth for self-reliance.",
+            icon: "trending_up"
           },
           {
             id: 2,
-            title: "Infrastructure Development",
-            description: "Projects focused on improving transportation networks and addressing fuel scarcity issues.",
-            icon: "local_shipping"
+            title: "Education Support",
+            description: "Scholarships, classroom construction, and learning materials for students.",
+            icon: "school"
           },
           {
             id: 3,
-            title: "Local Manufacturing Support",
-            description: "Supporting domestic production to create jobs and reduce reliance on foreign goods.",
-            icon: "factory"
+            title: "Infrastructure Development",
+            description: "Solar street lights, boreholes, and road construction projects.",
+            icon: "build"
           },
           {
             id: 4,
-            title: "Community Health Programs",
-            description: "Free medical checkups and health education programs for underserved rural communities.",
+            title: "Community Health",
+            description: "Medical outreach and support for health centers in the constituency.",
             icon: "local_hospital"
           }
         ]);
         
-        setVisionContent("Dr. Ghali's vision for Gaya, Ajingi, and Albasu is rooted in sustainable development that creates opportunities for all residents. His approach combines grassroots community engagement with strategic policy advocacy at the federal level. By focusing on economic reforms that reduce the cost of living, improving infrastructure that connects communities to markets and services, and supporting local entrepreneurship, we aim to build a constituency that serves as a model for development across Nigeria.");
+        setVisionContent("Hon. Hassan Shehu Hussain's vision for Nasarawa Federal Constituency is built on the pillars of accessible education, economic empowerment, and infrastructural development. By leveraging legislative tools and community engagement, he aims to transform the constituency into a hub of opportunity and sustainable growth, ensuring that every resident benefits from democratic dividends.");
       } catch (err) {
         setError('Failed to load constituency content');
       } finally {

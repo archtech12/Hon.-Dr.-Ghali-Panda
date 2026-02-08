@@ -22,11 +22,15 @@ const newsSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Announcement', 'Event', 'Achievement', 'Press Release', 'Other']
+    enum: ['Announcement', 'Event', 'Achievement', 'Press Release', 'Legislative', 'Infrastructure', 'Empowerment', 'Education', 'Other']
   },
   author: {
     type: String,
-    required: true
+    default: 'Admin'
+  },
+  publishDate: {
+    type: Date,
+    default: Date.now
   },
   published: {
     type: Boolean,

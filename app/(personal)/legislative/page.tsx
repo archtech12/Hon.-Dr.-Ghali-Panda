@@ -27,7 +27,7 @@ export default function LegislativeWorkPage() {
     content: (
       <>
         <p>
-          Dr. Ghali's legislative actions are defined by a pro-people agenda. He fearlessly voices the
+          Hon. HASH's legislative actions are defined by a pro-people agenda. He fearlessly voices the
           concerns of the common man, particularly regarding economic policies that impact rural
           livelihoods. His priorities include agricultural support, infrastructural development, and
           equitable tax policies.
@@ -48,7 +48,7 @@ export default function LegislativeWorkPage() {
       {
         name: 'Motion for Rural Electrification',
         status: 'In Committee',
-        description: 'Moved a motion for urgent federal intervention to connect Gaya, Ajingi, and Albasu villages to the national grid.',
+        description: 'Moved a motion for urgent federal intervention to connect Nasarawa Federal Constituency villages to the national grid.',
         date: '2024',
       },
       {
@@ -80,7 +80,7 @@ export default function LegislativeWorkPage() {
       id: 2,
       title: 'Rural Development',
       description:
-        'Championing federal projects for rural roads, electrification, and water supply in Gaya, Ajingi, and Albasu.',
+        'Championing federal projects for rural roads, electrification, and water supply in Nasarawa Federal Constituency.',
       icon: 'landscape',
     },
     {
@@ -102,7 +102,7 @@ export default function LegislativeWorkPage() {
   if (loading) {
     return (
       <div className="w-full py-16 text-center">
-        <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-700"></div>
+        <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-700"></div>
         <p className="mt-4 text-gray-600">Loading legislative information...</p>
       </div>
     )
@@ -110,12 +110,12 @@ export default function LegislativeWorkPage() {
 
   return (
     <div className="w-full">
-      <section className="bg-red-900/90 dark:bg-red-900/95 py-12 sm:py-16 text-center text-white">
+      <section className="bg-green-900/90 dark:bg-green-900/95 py-12 sm:py-16 text-center text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter">
             {legislativeData?.title || 'Legislative Work'}
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-red-100">
+          <p className="mt-4 text-base sm:text-lg text-green-100">
             Advocating for policies that transform communities and strengthen Nigeria's economy
           </p>
         </div>
@@ -128,7 +128,7 @@ export default function LegislativeWorkPage() {
               Policy Positions
             </h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Key policy areas Hon. Dr. Ghali Mustapha Tijjani Panda championed in the House of Representatives
+              Key policy areas Hon. Hassan Shehu Hussain championed in the House of Representatives
             </p>
           </div>
 
@@ -138,8 +138,8 @@ export default function LegislativeWorkPage() {
                 key={position.id}
                 className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow"
               >
-                <div className="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center mb-4">
-                  <span className="material-symbols-outlined text-red-700 dark:text-red-400">
+                <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mb-4">
+                  <span className="material-symbols-outlined text-green-700 dark:text-green-400">
                     {position.icon}
                   </span>
                 </div>
@@ -160,7 +160,7 @@ export default function LegislativeWorkPage() {
               Recent Legislative Actions
             </h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Current bills and initiatives Hon. Dr. Ghali Mustapha Tijjani Panda worked on during
+              Current bills and initiatives Hon. Hassan Shehu Hussain worked on during
               his time in the House of Representatives
             </p>
           </div>
@@ -171,7 +171,7 @@ export default function LegislativeWorkPage() {
                 legislativeData.bills.map((bill, index) => (
                   <div
                     key={index}
-                    className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 border-l-4 border-red-700"
+                    className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 border-l-4 border-green-700"
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-3">
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -211,7 +211,7 @@ export default function LegislativeWorkPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-red-50 dark:bg-gray-900">
+      <section className="py-16 md:py-20 bg-green-50 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 md:p-12">
             <div className="max-w-4xl mx-auto text-center">
@@ -220,7 +220,7 @@ export default function LegislativeWorkPage() {
               </h2>
               <div className="prose prose-lg max-w-none text-gray-700 dark:text-gray-300 mx-auto">
                 <div>{legislativeData?.content}</div>
-                <div className="bg-red-50 dark:bg-gray-700 rounded-lg p-6 mb-6">
+                <div className="bg-green-50 dark:bg-gray-700 rounded-lg p-6 mb-6">
                   <blockquote className="text-lg italic text-gray-900 dark:text-white">
                     "When we make it easier for goods to enter Nigeria, we reduce prices for
                     everyone. This is not just about my constituency, but about creating prosperity
@@ -229,7 +229,7 @@ export default function LegislativeWorkPage() {
                 </div>
                 <Link
                   href="/contact"
-                  className="inline-block bg-red-700 text-white font-bold py-3 px-8 rounded-lg hover:bg-red-800 transition duration-300 transform hover:scale-105"
+                  className="inline-block bg-green-700 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-800 transition duration-300 transform hover:scale-105"
                 >
                   Support These Initiatives
                 </Link>

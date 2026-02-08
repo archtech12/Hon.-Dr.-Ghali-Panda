@@ -39,7 +39,7 @@ export const TextControls = ({ data, onUpdate }: TextControlsProps) => {
         
         {/* Quick Slogans */}
         <div className="flex flex-wrap gap-2 mt-2">
-            {['Together We Rise', 'Service to Humanity', 'The People\'s Choice', 'Abba Gida Gida'].map(slogan => (
+            {['Hon Go Again 2027', 'Hon Continuity 2027', 'Together We Rise', 'Service to Humanity', 'The People\'s Choice'].map(slogan => (
                 <button
                     key={slogan}
                     onClick={() => onUpdate('customMessage', slogan)}

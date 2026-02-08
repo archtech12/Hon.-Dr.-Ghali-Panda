@@ -31,7 +31,7 @@ export default function StickerGeneratorPage() {
         const image = canvas.toDataURL('image/png', 1.0)
         const link = document.createElement('a')
         link.href = image
-        link.download = `ghali-panda-sticker-${data.templateId}-${Date.now()}.png`
+        link.download = `hon-hash-sticker-${data.templateId}-${Date.now()}.png`
         link.click()
     } catch (e) {
         console.error('Download failed', e)
@@ -61,13 +61,13 @@ export default function StickerGeneratorPage() {
                 return
             }
 
-            const file = new File([blob], `ghali-panda-sticker-${data.templateId}.png`, { type: 'image/png' })
+            const file = new File([blob], `hon-hash-sticker-${data.templateId}.png`, { type: 'image/png' })
 
             if (navigator.share) {
                 try {
                     await navigator.share({
-                        title: 'Hon. Ghali Panda Sticker',
-                        text: 'Check out my support sticker for Hon. Dr. Ghali Tijjani Panda!',
+                        title: 'Hon. Hassan Shehu Hussain Sticker',
+                        text: 'Check out my support sticker for Hon. Hassan Shehu Hussain (Hon. HASH)!',
                         files: [file]
                     })
                 } catch (err) {
@@ -95,7 +95,7 @@ export default function StickerGeneratorPage() {
             <span className="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full mb-3 tracking-wider">OFFICIAL CAMPAIGN TOOL</span>
             <h1 className="text-3xl md:text-4xl font-black text-neutral-900 mb-2">Create Your Sticker</h1>
             <p className="text-neutral-500 text-sm max-w-lg mx-auto">
-                Customize your endorsement for Hon. Dr. Ghali Tijjani Panda. Select a template, add your name, and download a high-quality graphic in seconds.
+                Customize your endorsement for Hon. Hassan Shehu Hussain. Select a template, add your name, and download a high-quality graphic in seconds.
             </p>
         </header>
 

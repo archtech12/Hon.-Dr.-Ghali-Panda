@@ -9,14 +9,14 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/ghali-das
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => console.log('Connected to MongoDB'))
-.catch((err) => console.error('MongoDB connection error:', err));
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((err) => console.error('MongoDB connection error:', err));
 
 // Sample constituency data
 const sampleConstituencyData = {
   name: "Gaya / Ajingi / Albasu Federal Constituency",
   representative: "Hon. Dr. Ghali Mustapha Tijjani Phanda",
-  party: "New Nigeria Peoples Party (NNPP)",
+  party: "All Progressives Congress (APC)",
   electionYear: "2023",
   communities: ["Gaya", "Ajingi", "Albasu"],
   population: "Approximately 200,000 residents",
@@ -50,7 +50,7 @@ const seedConstituencyData = async () => {
   try {
     // Check if data already exists
     const existingData = await Constituency.findOne();
-    
+
     if (existingData) {
       console.log('Constituency data already exists. Updating...');
       await Constituency.findByIdAndUpdate(existingData._id, sampleConstituencyData);
@@ -59,7 +59,7 @@ const seedConstituencyData = async () => {
       const newData = new Constituency(sampleConstituencyData);
       await newData.save();
     }
-    
+
     console.log('Constituency data seeded successfully!');
     process.exit(0);
   } catch (error) {
