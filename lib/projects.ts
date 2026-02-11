@@ -1,315 +1,43 @@
 export const projects = [
-    // --- Employment & Offers ---
-    {
-        _id: 'offer-1',
-        title: 'Nigerian Army Recruitment Offer',
-        titleHA: 'Tayin Aikin Soja',
-        description: 'Facilitating recruitment offers and slots for constituents into the Nigerian Army to reduce unemployment and serve the nation.',
-        category: 'Empowerment',
-        images: ['/assets/images/gallery/4-Youth-Women-Empowerment/offer-army.jpg'],
-        status: 'Completed',
-        date: '2024'
-    },
-    {
-        _id: 'offer-2',
-        title: 'Kano Poly Admission Offer (Kabo)',
-        titleHA: 'Tayin Karatu a Poly Kabo',
-        description: 'Securing admission offers for students at Kano State Polytechnic (Kabo Campus) to advance their education.',
-        category: 'Education',
-        images: ['/assets/images/gallery/1-Water-Empowerment/3-Lighting-Energy/offer-at-poly-kabo.jpg'],
-        status: 'Completed',
-        date: '2024'
-    },
-    {
-        _id: 'offer-3',
-        title: 'General Empowerment Offer',
-        titleHA: 'Tayin Tallafi na Musamman',
-        description: 'Special empowerment offers distributed to youth and women groups to support their livelihoods.',
-        category: 'Empowerment',
-        images: ['/assets/images/gallery/4-Youth-Women-Empowerment/offer-to-yoth-and-women.jpg'],
-        status: 'Completed',
-        date: '2024'
-    },
-    {
-        _id: 'offer-4',
-        title: 'Security Personnel Support Offer',
-        titleHA: 'Tayin Tallafi ga Jami\'an Tsaro',
-        description: 'Offers of support and equipment to local security personnel to boost morale and operational efficiency.',
-        category: 'Security',
-        images: ['/assets/images/gallery/4-Youth-Women-Empowerment/security-offer.jpg'],
-        status: 'Completed',
-        date: '2024'
-    },
+    // 1. Water & Empowerment
+    { id: 1, category: "Water & Empowerment", date: "Jan 2024 - Ongoing", titleEN: "Repair of All Damaged Boreholes", titleHA: "Gyaran Dukkan Rijiyoyin Burtsatse", desc: "Restored clean water access by repairing damaged boreholes across Gaya, Ajingi, and Albasu LGAs, benefiting thousands.", photos: ["/assets/images/gallery/1-Water-Empowerment/borehole-repair-all-lgas-jan2024-1.jpg", "/assets/images/gallery/1-Water-Empowerment/borehole-repairall-lgas-jan2024-1.jpg"] },
+    { id: 2, category: "Water & Empowerment", date: "Dec 2024", titleEN: "20 Solar-Powered Boreholes Commissioned", titleHA: "Rijiyoyin Burtsatse na Solar 20", desc: "Sustainable solar boreholes for clean water in Asayaya Gafasa, Gaya Town, Kademi, Panda Tsohuwa, Daho, Kara Makama, and Jiyayya.", photos: ["/assets/images/gallery/1-Water-Empowerment/solar-borehole-gaya-town-gaya-dec2024-2.jpg", "/assets/images/gallery/1-Water-Empowerment/solar-borehole-asayaya-gafasa-gaya-dec2024-1.jpg"] },
+    { id: 3, category: "Water & Empowerment", date: "Pre-2023", titleEN: "Renovation of Over 100 Boreholes", titleHA: "Gyaran Rijiyoyi Sama da 100", desc: "Major pre-election borehole renovations ensuring reliable water supply across the constituency.", photos: ["/assets/images/gallery/1-Water-Empowerment/borehole-repair-all-lgasjan2024-1.jpg"] },
 
-    // --- Empowerment: Vehicles & Mobility ---
-    {
-        _id: '1',
-        title: 'Lifan Motorcycle Distribution',
-        titleHA: 'Rabon Babura Kirar Lifan',
-        description: 'Distribution of brand new Lifan motorcycles to youth leaders and supporters to enhance mobility and economic independence.',
-        category: 'Empowerment',
-        images: ['/assets/images/gallery/4-Youth-Women-Empowerment/lifan-bikes.jpg', '/assets/images/gallery/4-Youth-Women-Empowerment/babur.jpg', '/assets/images/gallery/4-Youth-Women-Empowerment/boska-mortocycle.jpg'],
-        status: 'Completed',
-        date: 'Jul 2024'
-    },
-    {
-        _id: '2',
-        title: 'Tricycle (Keke NAPEP) Empowerment',
-        titleHA: 'Tallafin Keke Napep',
-        description: 'Empowerment of constituents with tricycles (Keke NAPEP) to provide a sustainable source of income and transport services.',
-        category: 'Empowerment',
-        images: ['/assets/images/gallery/4-Youth-Women-Empowerment/tricycle.jpg'],
-        status: 'Completed',
-        date: 'Jul 2024'
-    },
-    {
-        _id: '3',
-        title: 'Vehicle Gift to Secretary',
-        titleHA: 'Kyautar Motar ga Sakatare',
-        description: 'Presentation of a vehicle to the prompt and hardworking secretary as a token of appreciation for dedicated service.',
-        category: 'Empowerment',
-        images: ['/assets/images/gallery/4-Youth-Women-Empowerment/car.jpg'],
-        status: 'Completed',
-        date: 'Jul 2024'
-    },
+    // 2. Electricity & Infrastructure
+    { id: 4, category: "Electricity & Infrastructure", date: "Dec 2024", titleEN: "Transformer Installation (500KVA)", titleHA: "Samar da Tasfoma (500KVA)", desc: "New transformers installed in Kwalele, Panda, and Albasu wards to improve electricity supply in underserved areas.", photos: ["/assets/images/gallery/2-Electricity-Infrastructure/transformer-500kva-kwalele-panda-ward-albasu-dec2024-2.jpg", "/assets/images/gallery/2-Electricity-Infrastructure/transformer-kwalele-panda-albasu-dec2024-1.jpg"] },
+    { id: 5, category: "Electricity & Infrastructure", date: "Pre-2023", titleEN: "Drainage and Culvert Reconstruction", titleHA: "Ginin Magudanan Ruwa", desc: "Rebuilt drainage and culverts in Fonda Gaya and other areas to prevent flooding and improve access roads.", photos: ["/assets/images/gallery/0-Portraits-Official/portrait-2.jpg"] }, // Placeholder updated to generic
 
-    // --- Empowerment: Skills & Trades ---
-    {
-        _id: '4',
-        title: 'Sewing Machine Distribution',
-        titleHA: 'Rabon Kekunan Dinki',
-        description: 'Massive distribution of sewing machines to women and tailors across the constituency to boost local fashion businesses.',
-        category: 'Empowerment',
-        images: ['/assets/images/gallery/4-Youth-Women-Empowerment/keken-dinki-sewing.jpg', '/assets/images/gallery/4-Youth-Women-Empowerment/sewing-machine-dinki.jpg'],
-        status: 'Completed',
-        date: 'Aug 2024'
-    },
-    {
-        _id: '5',
-        title: 'Grinding Machine Distribution',
-        titleHA: 'Rabon Injin Markade',
-        description: 'Provision of grinding machines to women groups to support small-scale food processing businesses.',
-        category: 'Empowerment',
-        images: ['/assets/images/gallery/4-Youth-Women-Empowerment/grinding.jpg', '/assets/images/gallery/4-Youth-Women-Empowerment/injin-markade-grinding-ma.jpg'],
-        status: 'Completed',
-        date: 'Aug 2024'
-    },
+    // 3. Lighting & Energy
+    { id: 6, category: "Lighting & Energy", date: "Oct-Dec 2024", titleEN: "Solar Streetlights Installation (200+)", titleHA: "Fitilun Titi na Solar Sama da 200", desc: "Solar-powered streetlights installed in Gaya (Town, DSS, INEC), Albasu (78), and Ajingi (30) for enhanced security.", photos: ["/assets/images/gallery/3-Lighting-Energy/streetlight.jpg"] },
+    { id: 7, category: "Lighting & Energy", date: "2024", titleEN: "Solar Batteries for Mosques", titleHA: "Batarin Solar na Masallatai", desc: "Provided solar batteries to Sharifawa and other mosques to support uninterrupted worship.", photos: ["/assets/images/gallery/0-Portraits-Official/portrait-1.jpg"] },
 
-    // --- Empowerment: Financial & Educational ---
-    {
-        _id: '6',
-        title: 'Computer Empowerment for Students',
-        titleHA: 'Tallafin Kwamfutoci ga Dalibai',
-        description: 'Distribution of laptops and computers to students to aid in their digital literacy and academic research.',
-        category: 'Education',
-        images: ['/assets/images/gallery/4-Youth-Women-Empowerment/computers.jpg'],
-        status: 'Completed',
-        date: 'Sep 2024'
-    },
-    {
-        _id: '7',
-        title: '₦300k Grant to TUWAQSA',
-        titleHA: 'Tallafin ₦300k ga Kungiyar Tudunwada',
-        description: 'A token of ₦300,000 presented to the Tudunwada Quarters Students Association (TUWAQSA) to support their activities.',
-        category: 'Education',
-        images: ['/assets/images/gallery/4-Youth-Women-Empowerment/token-of-three-hundred-thousand-naira-300000-presented-to-tudunwada-quarters-students-association-tuwaqsa.jpg'],
-        status: 'Completed',
-        date: '2024'
-    },
-    {
-        _id: '8',
-        title: 'Polytechnic Student Sponsorship',
-        titleHA: 'Tallafin Dalibar Poly',
-        description: 'Financial support and educational offers presented to students at Kano State Polytechnic.',
-        category: 'Education',
-        images: ['/assets/images/gallery/6-Education/tallafi-ga-dalibar-poly.jpg'],
-        status: 'Ongoing',
-        date: '2024'
-    },
-    {
-        _id: '9',
-        title: 'Classroom Furniture Donation',
-        titleHA: 'Tallafin Kujerun Makaranta',
-        description: 'Donation of seat benches to Improve the learning environment in local schools.',
-        category: 'Education',
-        images: ['/assets/images/gallery/4-Youth-Women-Empowerment/class-seat-benches.jpg'],
-        status: 'Completed',
-        date: '2024'
-    },
-    {
-        _id: '10',
-        title: 'Cash Grant to Hajiya Gaje',
-        titleHA: 'Tallafin Kudi ga Hajiya Gaje',
-        description: 'Empowerment grant of ₦100,000 presented to Hajiya Gaje Gama to boost her business.',
-        category: 'Empowerment',
-        images: ['/assets/images/gallery/4-Youth-Women-Empowerment/hajiya-gaje-100k.jpg', '/assets/images/gallery/4-Youth-Women-Empowerment/ttallafi-ga-mace.jpg'],
-        status: 'Completed',
-        date: 'May 2024'
-    },
-    {
-        _id: '11',
-        title: 'Support for Media Team',
-        titleHA: 'Tallafi ga Media Team',
-        description: 'Financial support of ₦40,000 each to members of the media team for their data and logistics.',
-        category: 'Empowerment',
-        images: ['/assets/images/gallery/4-Youth-Women-Empowerment/40k-to-medias.jpg', '/assets/images/gallery/4-Youth-Women-Empowerment/tallafin-40k-to-medias.jpg'],
-        status: 'Completed',
-        date: '2024'
-    },
+    // 4. Youth & Women Empowerment
+    { id: 8, category: "Youth & Women", date: "Dec 2024", titleEN: "Motorcycle Empowerment Program", titleHA: "Tallafin Babura", desc: "Distributed motorcycles to youths in Gaya, Ajingi, and Albasu for mobility and income generation.", photos: ["/assets/images/gallery/4-Youth-Women-Empowerment/motorcycle-empowerment-21-units-dec2024-1.jpg", "/assets/images/gallery/4-Youth-Women-Empowerment/motorcycle-handover-5units-dec2024-1.jpg"] },
+    { id: 9, category: "Youth & Women", date: "2024", titleEN: "Sewing & Grinding Machine Distribution", titleHA: "Kekunan Dinki da Injin Markade", desc: "400 Butterfly sewing machines to women, 70 grinding machines to youth, and 300 markade machines with flour.", photos: ["/assets/images/gallery/4-Youth-Women-Empowerment/butterfly-sewing-machines-400-women-2024-1.jpg", "/assets/images/gallery/4-Youth-Women-Empowerment/markade-machines-300-plus-flour-2024-1.jpg"] },
+    { id: 10, category: "Youth & Women", date: "2024-2025", titleEN: "Cash Grants to Youth", titleHA: "Tallafin Kudi ga Matasa", desc: "Over ₦26 Million in cash grants to youth groups including Kwankwasiyya and D2D organizations.", photos: ["/assets/images/gallery/4-Youth-Women-Empowerment/cash-empowerment-20m-youths-march2024-1.jpg", "/assets/images/gallery/4-Youth-Women-Empowerment/d2d-grant-1-2m-june2025-1.jpg"] },
 
-    // --- Infrastructure: Water & Power ---
-    {
-        _id: '12',
-        title: 'Solar Powered Boreholes',
-        titleHA: 'Rijiyoyin Solar',
-        description: 'Installation of advanced solar-powered boreholes to ensure 24/7 water supply regardless of electricity status.',
-        category: 'Water',
-        images: ['/assets/images/gallery/1-Water-Empowerment/rijiyoyin-burtsatse-solar.jpg'],
-        status: 'Completed',
-        date: '2024'
-    },
-    {
-        _id: '13',
-        title: 'Hand Pump Borehole Repairs',
-        titleHA: 'Gyaran Rijiyoyin Unguwa',
-        description: 'Rehabilitation of hand pump boreholes across various wards to restore water access.',
-        category: 'Water',
-        images: ['/assets/images/gallery/1-Water-Empowerment/rijiyoyin-burtsatse-1.jpg'],
-        status: 'Completed',
-        date: 'Jan 2024'
-    },
-    {
-        _id: '14',
-        title: 'Solar Street Lights',
-        titleHA: 'Fitilun Titi',
-        description: 'Extensive installation of solar street lights to light up streets and improve night-time security.',
-        category: 'Infrastructure',
-        images: ['/assets/images/gallery/1-Water-Empowerment/3-Lighting-Energy/streetlight.jpg', '/assets/images/gallery/1-Water-Empowerment/3-Lighting-Energy/streetlights.jpg'],
-        status: 'Completed',
-        date: '2024'
-    },
-    {
-        _id: '15',
-        title: 'Transformer Installation',
-        titleHA: 'Saka Tasfoma',
-        description: 'Installation of new transformers to boost electricity distribution in the constituency.',
-        category: 'Infrastructure',
-        images: ['/assets/images/gallery/2-Electricity-Infrastructure/transformer.jpg', '/assets/images/gallery/2-Electricity-Infrastructure/transformer1.jpg'],
-        status: 'Completed',
-        date: '2024'
-    },
-    {
-        _id: '16',
-        title: 'Solar Panels for Institutions',
-        titleHA: 'Saka Solar a Makarantu/Masallatai',
-        description: 'Provision of solar panels to support power needs in public institutions.',
-        category: 'Infrastructure',
-        images: ['/assets/images/gallery/1-Water-Empowerment/3-Lighting-Energy/solar-panels.jpg'],
-        status: 'Completed',
-        date: '2024'
-    },
+    // 5. Agriculture & Food Support
+    { id: 11, category: "Agriculture & Food", date: "July 2024 - Aug 2025", titleEN: "Massive Fertilizer Distribution", titleHA: "Rabon Taki", desc: "Distribution of 1,800-2,000 bags of fertilizer to boost farming productivity across the constituency.", photos: ["/assets/images/gallery/5-Agriculture-Food-Support/fertilizer-distribution-1800-bags-aug2025-1.jpg", "/assets/images/gallery/5-Agriculture-Food-Support/fertilizer-distribution-bags-2024-1.jpg"] },
+    { id: 12, category: "Agriculture & Food", date: "March 2024", titleEN: "Ramadan Relief (18,600 Bags)", titleHA: "Tallafin Azumi (Buhu 18,600)", desc: "Major distribution of 18,600 bags of grains and ₦320M in food/cash palliatives during Ramadan.", photos: ["/assets/images/gallery/4-Youth-Women-Empowerment/grains-distribution-18600-bags-ramadan-march2024-1.jpg", "/assets/images/gallery/5-Agriculture-Food-Support/palliatives-fasting-period-2024-1.jpg"] },
+    { id: 13, category: "Agriculture & Food", date: "Nov 2024", titleEN: "Food Support to Mahauta Group", titleHA: "Tallafin Abinci ga Mahauta", desc: "50 bags of maize and millet distributed to the Mahauta group to reduce hunger.", photos: ["/assets/images/gallery/4-Youth-Women-Empowerment/food-support-mahauta-group-50-bags-nov2024-1.jpg"] },
 
-    // --- Infrastructure: Roads & Buildings ---
-    {
-        _id: '17',
-        title: 'Gawuna Ward Road Project',
-        titleHA: 'Aikin Titi a Gawuna',
-        description: 'Ongoing construction work on the Gawuna Ward road to improve access.',
-        category: 'Infrastructure',
-        images: ['/assets/images/gallery/2-Electricity-Infrastructure/aikin-titin-mazabar-gawuna.jpg', '/assets/images/gallery/2-Electricity-Infrastructure/aikin-titin-mazabar-gawuna-1.jpg', '/assets/images/gallery/2-Electricity-Infrastructure/aikin-titin-mazabar-gawuna-2.jpg'],
-        status: 'In Progress',
-        date: '2024'
-    },
-    {
-        _id: '18',
-        title: 'Road Construction Inspection',
-        titleHA: 'Ziyarar Aikin Titi',
-        description: 'Hon. HASH inspecting road construction projects, ensuring quality and speed (Hon. in Caterpillar).',
-        category: 'Infrastructure',
-        images: ['/assets/images/gallery/road/hon-in-caterpilla.jpg', '/assets/images/gallery/road/kwalta.jpg', '/assets/images/gallery/road/titi.jpg'],
-        status: 'In Progress',
-        date: '2024'
-    },
-    {
-        _id: '19',
-        title: 'Yandodo Primary Health Centre',
-        titleHA: 'Asibitin Yandodo',
-        description: 'Construction of the Primary Health Care Clinic in Yandodo, Hotoro Arewa.',
-        category: 'Healthcare',
-        images: ['/assets/images/gallery/7-Community-Health-Support/hash-project-art-hotoron-arewa-yan-dodo.jpg', '/assets/images/gallery/7-Community-Health-Support/hash-project-art-hotoron-arewa-yan-dodo-flag.jpg'],
-        status: 'Completed',
-        date: 'Mar 2024'
-    },
-    {
-        _id: '20',
-        title: 'Tinshama School Expansion',
-        titleHA: 'Karin Azuzuwa a Tinshama',
-        description: 'Construction of an additional block of 3 classrooms at Tinshama Community School.',
-        category: 'Education',
-        images: ['/assets/images/gallery/6-Education/another-3-classes--tinshama-community-school-masallachin-jumaat.jpg'],
-        status: 'Completed',
-        date: '2023'
-    },
-    {
-        _id: '21',
-        title: 'Zawiya & Islamiyya Construction',
-        titleHA: 'Ginin Zawiya',
-        description: 'Ongoing construction of Zawiya and Islamiyya blocks for religious education.',
-        category: 'Education',
-        images: ['/assets/images/gallery/6-Education/zawiya-da-ajujuwa.jpg', '/assets/images/gallery/7-Community-Health-Support/ginin-zawaya.jpg', '/assets/images/gallery/7-Community-Health-Support/ginin-zawuya-karatu.jpg'],
-        status: 'In Progress',
-        date: '2024'
-    },
+    // 6. Education
+    { id: 14, category: "Education", date: "2024-2025", titleEN: "School Blocks Construction", titleHA: "Ginin Azuzuwa", desc: "New primary school blocks in Hirullahi Bataiya, Zangon Gulya, Ganuwa Toranke, and Gaya GRA.", photos: ["/assets/images/gallery/6-Education/school-block-ganuwa-toranke-ajingi-2024-1.jpg", "/assets/images/gallery/6-Education/school-block-gaya-gra-2024-1.jpg"] },
+    { id: 15, category: "Education", date: "2024-2025", titleEN: "Scholarships & Sponsorships", titleHA: "Tallafin Karatu", desc: "Sponsorships for 60 female nursing/midwifery students and financial support for KUST students.", photos: ["/assets/images/gallery/6-Education/nursing-scholarship-30-students-aug2025-1.jpg", "/assets/images/gallery/6-Education/female-scholarships-20-students-2024-1.jpg"] },
 
-    // --- Community & Social ---
-    {
-        _id: '22',
-        title: 'Orphan Sponsorship (30 Children)',
-        titleHA: 'Daukar Nauyin Marayu 30',
-        description: 'Full educational sponsorship including fees and uniforms for 30 orphans.',
-        category: 'Education',
-        images: ['/assets/images/gallery/6-Education/daukar-nauyin-yara-30.jpg', '/assets/images/gallery/6-Education/yara-30-karatu.jpg'],
-        status: 'Ongoing',
-        date: 'Nov 2023'
-    },
-    {
-        _id: '23',
-        title: 'Ramadan Relief: Rice & Cash',
-        titleHA: 'Tallafin Azumi: Shinkafa da Kudi',
-        description: 'Distribution of rice bags and monetary support to families during Ramadan.',
-        category: 'Community',
-        images: ['/assets/images/gallery/5-Agriculture-Food-Support/tallafin-bags-of-rice-ramadan.jpg', '/assets/images/gallery/5-Agriculture-Food-Support/rice-and-cash-ramadan.jpg'],
-        status: 'Completed',
-        date: 'Mar 2024'
-    },
-    {
-        _id: '24',
-        title: 'Support for Security Outfits',
-        titleHA: 'Tallafin Kayan Tsaro',
-        description: 'Providing support to local security outfits to help safeguard the community.',
-        category: 'Security',
-        images: ['/assets/images/gallery/4-Youth-Women-Empowerment/security-offer.jpg'],
-        status: 'Completed',
-        date: '2024'
-    },
-    {
-        _id: '25',
-        title: 'Official Visit to Tudun Wada',
-        titleHA: 'Ziyarar Aiki a Tudun Wada',
-        description: 'Official visit to engage with the Tudun Wada community and assess needs.',
-        category: 'Community',
-        images: ['/assets/images/gallery/0-Portraits-Official/ziyara-tudun-wada.jpg'],
-        status: 'Completed',
-        date: '2024'
-    },
-    {
-        _id: '26',
-        title: 'Meeting with Governor Abba K. Yusuf',
-        titleHA: 'Gana wa da Gwamna Abba',
-        description: 'Strategic meeting with Governor Abba Kabir Yusuf to discuss constituency development.',
-        category: 'Political',
-        images: ['/assets/images/gallery/0-Portraits-Official/hon-with-gov-abba-k.jpg'],
-        status: 'Completed',
-        date: '2024'
-    }
+    // 7. Community & Health Support
+    { id: 16, category: "Community & Health", date: "2024", titleEN: "Construction of Hospital in Faragai Ward", titleHA: "Ginin Asibiti a Mazabar Faragai", desc: "Construction of a new healthcare facility in Faragai Ward, Albasu LGA, to improve medical access for the community.", photos: ["/assets/images/gallery/7-Community-Health-Support/Hospital A mazabar Faragai, Karamar hukumar Albasu..jpg"] },
+    { id: 17, category: "Community & Health", date: "Ongoing", titleEN: "Monthly Cash Allowances", titleHA: "Alawus na Wata-Wata", desc: "Consistent monthly stipends provided to over 100 vulnerable families.", photos: ["/assets/images/gallery/0-Portraits-Official/portrait-2.jpg"] },
+
+    // 8. Legislative & Political
+    { id: 18, category: "Legislative", date: "2023-2025", titleEN: "Sponsored Bills & Motions", titleHA: "Kudirori a Majalisa", desc: "Legislative activism including bills on health/agric colleges and over 50 motions for development.", photos: ["/assets/images/gallery/0-Portraits-Official/portrait-1.jpg"] },
+    { id: 19, category: "Legislative", date: "Late 2024", titleEN: "Opposition to Tax Reform Bills", titleHA: "Kin Amincewa da Kudirin Haraji", desc: "Publicly opposed the Tax Reform Bills, advocating for the masses against ill-timed taxation.", photos: ["/assets/images/gallery/0-Portraits-Official/portrait-3.jpg"] },
+
+    // 9. Pre-Assumption & Other Initiatives
+    { id: 20, category: "Community Construction", date: "Pre-2023", titleEN: "Mosque Constructions", titleHA: "Ginin Masallatai", desc: "Renovation and construction of mosques in Gazama Wurumanga, Mangari Fulani, and other wards.", photos: ["/assets/images/gallery/0-Portraits-Official/kano%20governor.jpg"] },
+    { id: 21, category: "Infrastructure", date: "Pre-2023", titleEN: "Overhead Tanks & Culverts", titleHA: "Ginin Tankunan Ruwa", desc: "Construction of overhead tanks and culverts in Zangon Gulya and Fonda Gaya.", photos: ["/assets/images/gallery/0-Portraits-Official/portrait-.jpg"] },
+    { id: 22, category: "Community Support", date: "Pre-2023", titleEN: "Donations to Schools & Mosques", titleHA: "Tallafi ga Makarantu da Masallatai", desc: "Donated land, chairs, mats, and water pumps, plus school fees for orphans.", photos: ["/assets/images/gallery/0-Portraits-Official/portrait-2.jpg"] },
+    { id: 23, category: "Education", date: "Pre-2023", titleEN: "University Sponsorships", titleHA: "Daukar Nauyin Dalibai", desc: "Sponsorships for students at Bayero University and Al-Istiqama University.", photos: ["/assets/images/gallery/6-Education/ursing-midwifery-sponsorship-60-female-2024-1.jpg"] }, // Placeholder
+    { id: 24, category: "Empowerment", date: "2023-2025", titleEN: "Overall Empowerment & Palliatives", titleHA: "Jimillar Tallafi", desc: "Over ₦320 Million deployed in food and cash support, benefiting over 19,000 people across the constituency.", photos: ["/assets/images/gallery/5-Agriculture-Food-Support/palliatives-fasting-period-2024-1.jpg"] }
 ];

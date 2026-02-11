@@ -51,7 +51,7 @@ export default function ConstituencyPage() {
             Constituency Services
           </h1>
           <p className="mt-4 text-base sm:text-lg text-green-100">
-            Serving the people of Nasarawa Federal Constituency with dedication and integrity
+            Serving the people of Gaya, Ajingi, and Albasu Federal Constituency with dedication and integrity
           </p>
         </div>
       </section>
@@ -73,12 +73,12 @@ export default function ConstituencyPage() {
                   Our constituency is home to hundreds of thousands of residents across{' '}
                   {constituencyData.communities.length} distinct communities, each
                   with its own unique cultural heritage and economic characteristics.{' '}
-                  Hon. HASH's representation focuses on addressing the
+                  Hon. Dr. Ghali Panda's representation focuses on addressing the
                   specific needs of these communities while advocating for policies that benefit all
                   Nigerians.
                 </p>
                 <p className="mb-6">
-                  Since taking office, Hon. HASH has championed initiatives that
+                  Since taking office, Hon. Dr. Ghali Panda has championed initiatives that
                   focus on economic empowerment, infrastructure development, and improving access to
                   essential services. His legislative work emphasizes reducing dependency on
                   imports, improving transportation networks, and supporting local manufacturing to
@@ -168,7 +168,7 @@ export default function ConstituencyPage() {
               Key Initiatives
             </h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Programs and policies championed by Hon. Hassan Shehu Hussain for our
+              Programs and policies championed by Hon. Dr. Ghali Panda for our
               constituency
             </p>
           </div>

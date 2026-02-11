@@ -48,7 +48,7 @@ export default function NewsPage() {
           </h1>
           <p className="mt-4 text-base sm:text-lg text-green-100">
             Stay informed about the latest developments, initiatives, and community updates from
-            Hon. Hassan Shehu Hussain's office.
+            Hon. Dr. Ghali Panda's office.
           </p>
         </div>
       </section>
@@ -129,7 +129,7 @@ export default function NewsPage() {
               Featured Videos
             </h2>
             <p className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
-               Watch highlights and coverage of Hon. HASH's work and political journey
+               Watch highlights and coverage of Hon. Dr. Ghali Panda's work and political journey
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

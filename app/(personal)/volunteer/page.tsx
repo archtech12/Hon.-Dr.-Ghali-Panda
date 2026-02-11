@@ -17,17 +17,29 @@ const volunteerTypes = [
 ]
 
 const constituencies = [
-  'Gama',
-  'Tudun Wada',
-  'Hotoro South',
-  'Tudun Murtala',
-  'Gawuna',
-  'Ladanai',
-  'Hotoro Arewa',
-  'Dakata',
-  'Tinshama',
-  'Karawa',
-  'Gwagwarwa',
+  'Gaya Town',
+  'Gamarya',
+  'Gamoji',
+  'Kadem',
+  'Kazurawa',
+  'Maimakawa',
+  'Shagogo',
+  'Ajingi',
+  'Dundun',
+  'Gafasa',
+  'Gurdusa',
+  'Kunkurawa',
+  'Ungawar Bai',
+  'Albasu',
+  'Bataiya',
+  'Chamarana',
+  'Daho',
+  'Fanda',
+  'Faragai',
+  'Gagarame',
+  'Hungu',
+  'Saya-Saya',
+  'Tsangaya',
 ]
 const availabilities = ['Full Time', 'Part Time', 'Weekends Only', 'Flexible']
 const educationLevels = [
@@ -58,7 +70,7 @@ export default function VolunteerPage() {
       city: '',
       lga: '',
       state: 'Kano',
-      constituency: 'Gaya',
+      constituency: 'Gaya Town',
     },
     volunteerType: 'General Supporter',
     skills: [] as string[],
@@ -116,7 +128,7 @@ export default function VolunteerPage() {
 
       if (response.ok) {
         alert(
-          '🎉 Registration Successful!\n\nThank you for joining Team HASH! We will contact you soon with next steps.',
+          '🎉 Registration Successful!\n\nThank you for joining Team Ghali Panda! We will contact you soon with next steps.',
         )
         router.push('/')
       } else {
@@ -125,7 +137,7 @@ export default function VolunteerPage() {
     } catch (error) {
       // alert('❌ Network error. Please check your connection and try again.')
        // Simulate success for now as API might not be running
-       alert('🎉 Registration Successful!\n\nThank you for joining Team HASH! We will contact you soon.')
+       alert('🎉 Registration Successful!\n\nThank you for joining Team Ghali Panda! We will contact you soon.')
        router.push('/')
     } finally {
       setIsSubmitting(false)
@@ -143,14 +155,14 @@ export default function VolunteerPage() {
           <div className="inline-block px-6 py-3 bg-gradient-to-r from-green-600 to-green-800 rounded-full shadow-lg mb-4">
             <span className="text-white font-bold flex items-center gap-2">
               <span className="text-2xl">🤝</span>
-              JOIN TEAM HASH
+              JOIN TEAM GHALI PANDA
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
             Volunteer Registration
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Be part of the movement! Register to volunteer and help build a better future for Nasarawa Federal Constituency
+            Be part of the movement! Register to volunteer and help build a better future for Gaya, Ajingi, and Albasu Federal Constituency
           </p>
         </div>
 
@@ -479,7 +491,7 @@ export default function VolunteerPage() {
 
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Why do you want to volunteer for Hon. Hassan Shehu Hussain? *
+                  Why do you want to volunteer for Hon. Dr. Ghali Panda? *
                 </label>
                 <textarea
                   required
@@ -487,7 +499,7 @@ export default function VolunteerPage() {
                   onChange={(e) => updateFormData('motivation', e.target.value)}
                   rows={4}
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
-                  placeholder="Tell us what motivates you to support Hon. Hassan Shehu Hussain..."
+                  placeholder="Tell us what motivates you to support Hon. Dr. Ghali Panda..."
                 />
               </div>
 

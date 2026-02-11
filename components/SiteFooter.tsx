@@ -31,7 +31,7 @@ export const SiteFooter = () => {
                     </svg>
                   </div>
                   <h2 className="text-white text-lg sm:text-xl font-bold tracking-tight">
-                    Hon. Hassan Shehu Hussain
+                    Hon. Dr. Ghali Panda
                   </h2>
                 </div>
                 <p className="mt-4 text-sm sm:text-base text-gray-300 leading-relaxed">
@@ -44,7 +44,7 @@ export const SiteFooter = () => {
                 </h3>
                 <ul className="mt-4 space-y-2 text-sm sm:text-base text-gray-300" role="list">
                   <li>Constituency Office</li>
-                  <li>Nasarawa Federal Constituency</li>
+                  <li>Gaya, Ajingi, and Albasu Federal Constituency</li>
                   <li>Kano State, Nigeria</li>
                 </ul>
               </div>
@@ -63,9 +63,9 @@ export const SiteFooter = () => {
                     <span className="material-symbols-outlined text-gold-400 text-lg">mail</span>
                     <a
                       className="hover:text-gold-400 transition-colors"
-                      href="mailto:contact@honhashim.com"
+                      href="mailto:info@ghalipanda.com"
                     >
-                      contact@honhashim.com
+                      info@ghalipanda.com
                     </a>
                   </li>
                 </ul>
@@ -169,7 +169,7 @@ export const SiteFooter = () => {
                 </a>
               </div>
               <p className="text-sm sm:text-base text-gray-400 text-center sm:text-left">
-                © 2024 Hon. Hassan Shehu Hussain (Hon. HASH). All rights reserved.
+                © 2026 Hon. Dr. Ghali Panda. All rights reserved.
               </p>
             </div>
           </div>

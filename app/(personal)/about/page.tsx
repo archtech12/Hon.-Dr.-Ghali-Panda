@@ -10,10 +10,10 @@ interface AboutData {
 
 export default function AboutPage() {
   const aboutData = {
-    title: 'About Hon. Hassan Shehu Hussain',
-    content: `<p>Hon. Hassan Shehu Hussain (popularly known as Hon. HASH) is the Member representing Nasarawa Federal Constituency in the House of Representatives under the platform of the All Progressives Congress (APC).</p>
-            <p>A committed leader and grassroots politician, Hon. HASH has dedicated his tenure to transforming lives through impactful projects in Infrastructure, Education, Health, and Empowerment. His vision is built on the principles of service to humanity and participatory governance.</p>
-            <p>Since his inauguration, he has spearheaded numerous development initiatives across the 11 wards of Nasarawa Federal Constituency, including Gama, Tudun Wada, Hotoro South, Tudun Murtala, Gawuna, Ladanai, Hotoro Arewa, Dakata, Tinshama, and others.</p>`,
+    title: 'About Hon. Dr. Ghali Panda',
+    content: `<p>Hon. Dr. Ghali Panda is the Member representing Gaya, Ajingi, and Albasu Federal Constituency in the House of Representatives under the platform of the All Progressives Congress (APC).</p>
+            <p>A committed leader and grassroots politician, He has dedicated his tenure to transforming lives through impactful projects in Infrastructure, Education, Health, and Empowerment. His vision is built on the principles of service to humanity and participatory governance.</p>
+            <p>Since his inauguration, he has spearheaded numerous development initiatives across the wards of Gaya, Ajingi, and Albasu Federal Constituency, including Ukays, Makyandawa, Kademi, Ataus, and others.</p>`,
   }
 
   return (
@@ -57,8 +57,8 @@ export default function AboutPage() {
               <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 sticky top-24">
                 <div className="mb-4 relative w-full h-64">
                   <Image
-                    src="/assets/images/gallery/0-Portraits-Official/potraitn.jpg"
-                    alt="Hon. Hassan Shehu Hussain"
+                    src="/assets/images/gallery/0-Portraits-Official/portrait-1.jpg"
+                    alt="Hon. Dr. Ghali Panda"
                     fill
                     className="object-cover rounded-lg"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -80,7 +80,7 @@ export default function AboutPage() {
                       location_on
                     </span>
                     <span>
-                      <strong>Constituency:</strong> Nasarawa Federal Constituency
+                      <strong>Constituency:</strong> Gaya, Ajingi, and Albasu Federal Constituency
                     </span>
                   </li>
                   <li className="flex items-start">

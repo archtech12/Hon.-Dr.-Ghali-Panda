@@ -4,8 +4,8 @@ export const CandidatePortrait = ({ className = '' }: { className?: string }) =>
   return (
     <div className={`relative overflow-hidden ${className}`}>
       <img
-        src="/assets/images/gallery/0-Portraits-Official/potraitn.jpg"
-        alt="Hon. Hassan Shehu Hussain"
+        src="/assets/images/gallery/0-Portraits-Official/portrait-1.jpg"
+        alt="Hon. Dr. Ghali Panda"
         className="w-full h-full object-cover object-top"
       />
       {/* Subtle inner shadow for depth */}

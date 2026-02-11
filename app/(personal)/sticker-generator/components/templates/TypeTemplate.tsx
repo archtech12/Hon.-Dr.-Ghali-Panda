@@ -8,7 +8,7 @@ export const TypeTemplate = ({ data }: TemplateProps) => {
     <div className="w-full h-full bg-[#f2f2f2] font-sans relative overflow-hidden flex flex-col">
        {/* BIG BACKGROUND TEXT */}
        <div className="absolute top-0 left-0 w-full h-full overflow-hidden flex flex-col opacity-5 select-none pointer-events-none z-0">
-          {Array(20).fill('HON. HASH').map((text, i) => (
+          {Array(20).fill('HON. DR. GHALI PANDA').map((text, i) => (
              <span key={i} className="text-[4rem] font-black leading-[0.85] text-black whitespace-nowrap">{text}</span>
           ))}
        </div>
@@ -29,7 +29,7 @@ export const TypeTemplate = ({ data }: TemplateProps) => {
             <div className="flex-1 flex items-end gap-2 mb-4">
                 <div className="w-[45%] aspect-[3/4] bg-black relative shadow-[8px_8px_0px_#22c55e]">
                     <CandidatePortrait className="w-full h-full grayscale hover:grayscale-0 transition-all duration-500 opacity-90" />
-                    <div className="absolute bottom-2 left-2 text-white font-bold text-xs bg-black px-1">HON. HASH</div>
+                    <div className="absolute bottom-2 left-2 text-white font-bold text-xs bg-black px-1">HON. DR. GHALI PANDA</div>
                 </div>
                 <div className="flex-1 aspect-square bg-green-500 relative flex items-center justify-center overflow-hidden shadow-[8px_8px_0px_black]">
                     {supporterPhoto ? (

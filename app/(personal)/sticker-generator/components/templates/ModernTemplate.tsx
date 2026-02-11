@@ -15,7 +15,7 @@ export const ModernTemplate = ({ data }: TemplateProps) => {
         
         {/* Top: Branding */}
         <div className="h-[15%] flex items-center justify-center border-b border-white/10">
-          <p className="text-white/80 font-bold tracking-[0.5em] text-[clamp(0.5rem,1.5vw,0.8rem)] uppercase">Nasarawa • Federal • Constituency</p>
+          <p className="text-white/80 font-bold tracking-[0.5em] text-[clamp(0.5rem,1.5vw,0.8rem)] uppercase">Gaya • Ajingi • Albasu • Fed. Constituency</p>
         </div>
 
         {/* Middle: Photos */}
@@ -23,7 +23,7 @@ export const ModernTemplate = ({ data }: TemplateProps) => {
           <div className="flex-1 h-full relative rounded-2xl overflow-hidden shadow-inner">
              <CandidatePortrait className="w-full h-full" />
              <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2">
-                <span className="text-white text-[clamp(0.6rem,2vw,1rem)] font-bold uppercase">Hon. HASH</span>
+                <span className="text-white text-[clamp(0.6rem,2vw,1rem)] font-bold uppercase">Hon. Dr. Ghali Panda</span>
              </div>
           </div>
           <div className="flex-1 h-full relative rounded-2xl overflow-hidden shadow-inner bg-black/20">

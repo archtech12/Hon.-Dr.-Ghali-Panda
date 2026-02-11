@@ -5,31 +5,33 @@ import { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Hon. Hassan Shehu Hussain (Hon. HASH) - Member, House of Representatives',
-    template: '%s | Hon. HASH',
+    default: 'Hon. Dr. Ghali Panda - Member, House of Representatives',
+    template: '%s | Hon. Dr. Ghali Panda',
   },
-  description: 'Official website of Hon. Hassan Shehu Hussain (Hon. HASH), Member representing Nasarawa Federal Constituency in the House of Representatives under the All Progressives Congress (APC).',
+  description: 'Official website of Hon. Dr. Ghali Panda, Member representing Gaya, Ajingi, and Albasu Federal Constituency in the House of Representatives under the All Progressives Congress (APC).',
   keywords: [
-    'Hassan Shehu Hussain',
-    'Hon. HASH',
-    'Nasarawa',
+    'Hon. Dr. Ghali Mustapha Tijjani Panda',
+    'Hon. Dr. Ghali Panda',
+    'Gaya',
+    'Ajingi',
+    'Albasu',
     'Kano',
     'House of Representatives',
     'Nigeria Politics',
     'Community Development',
-    'NNPP',
+    'APC',
   ],
-  authors: [{ name: 'Hon. Hassan Shehu Hussain' }],
-  creator: 'Hon. HASH Media Team',
-  publisher: 'Hon. HASH Media',
+  authors: [{ name: 'Hon. Dr. Ghali Panda' }],
+  creator: 'Hon. Dr. Ghali Panda Media Team',
+  publisher: 'Hon. Dr. Ghali Panda Media',
   openGraph: {
     type: 'website',
     locale: 'en_NG',
-    url: 'https://hassan-shehu-hussain.com',
-    siteName: 'Hon. HASH Official',
-    title: 'Hon. Hassan Shehu Hussain - Service to Humanity',
+    url: 'https://ghalipanda.com',
+    siteName: 'Hon. Dr. Ghali Panda Official',
+    title: 'Hon. Dr. Ghali Panda - Service to Humanity',
     description:
-      'Celebrating the impactful service of Hon. Hassan Shehu Hussain in Nasarawa Federal Constituency. Empowering communities through dedicated leadership.',
+      'Celebrating the impactful service of Hon. Dr. Ghali Panda in Gaya, Ajingi, and Albasu Federal Constituency. Empowering communities through dedicated leadership.',
     images: [
       {
         url: '/ghaliphoto.jpg',
@@ -41,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hon. HASH - Service to Humanity',
+    title: 'Hon. Dr. Ghali Panda - Service to Humanity',
     description:
-      'Championing development in Nasarawa Federal Constituency. Member, House of Representatives.',
+      'Championing development in Gaya, Ajingi, and Albasu Federal Constituency. Member, House of Representatives.',
     images: ['/ghaliphoto.jpg'],
     creator: '@HonHASH',
   },

@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+// Connection utility for MongoDB
 
 const MONGODB_URI = process.env.MONGODB_URI;
 

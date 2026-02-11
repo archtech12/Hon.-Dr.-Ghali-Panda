@@ -25,8 +25,8 @@ export const ClassicTemplateV2 = ({ data }: TemplateProps) => {
                     <div className="absolute bottom-6 left-6 z-20">
                         <h1 className="text-white font-black text-[clamp(1.5rem,5vw,3.5rem)] leading-[0.9] uppercase drop-shadow-lg tracking-tight">
                             Hon. <br />
-                            <span className="text-yellow-400 text-[1.2em]">Hassan Shehu</span><br />
-                            Hussain
+                            <span className="text-yellow-400 text-[1.2em]">Ghali Mustapha</span><br />
+                            Tijjani Panda
                         </h1>
                     </div>
                 </div>
@@ -67,7 +67,7 @@ export const ClassicTemplateV2 = ({ data }: TemplateProps) => {
 
             {/* Disclaimer / Footer */}
             <div className="bg-black py-1.5 px-3 flex justify-between items-center text-[clamp(0.5rem,1.5vw,0.7rem)] text-gray-400 font-medium tracking-wide uppercase">
-                <span>APC - Nasarawa Federal Constituency</span>
+                <span>APC - Gaya, Ajingi, Albasu Federal Constituency</span>
                 <span>2027 Campaign</span>
             </div>
         </div>

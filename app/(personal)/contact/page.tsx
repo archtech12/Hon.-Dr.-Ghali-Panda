@@ -35,13 +35,13 @@ export default function ContactPage() {
     // For now, we'll use hardcoded data
     setContactInfo({
       phone: "+234 803 123 4567", // Professional Placeholder
-      email: "info@hon-hash.com",
-      officeAddress: "Constituency Office\nNasarawa, Kano State, Nigeria",
+      email: "info@ghalipanda.com",
+      officeAddress: "Constituency Office\nGaya, Ajingi, and Albasu, Kano State, Nigeria",
       officeHours: "Monday - Friday: 9:00 AM - 5:00 PM\nSaturday: 10:00 AM - 2:00 PM",
       socialMedia: {
-        facebook: "https://facebook.com/HonHASH",
-        twitter: "https://twitter.com/hon_hash",
-        instagram: "https://instagram.com/hon_hash"
+        facebook: "https://facebook.com/ghalipanda",
+        twitter: "https://twitter.com/ghalipanda",
+        instagram: "https://instagram.com/ghalipanda"
       }
     })
   }, [])
@@ -209,7 +209,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 dark:text-white">Email</h3>
-                    <p className="text-gray-600 dark:text-gray-400">{contactInfo?.email || 'info@hon-hash.com'}</p>
+                    <p className="text-gray-600 dark:text-gray-400">{contactInfo?.email || 'info@ghalipanda.com'}</p>
                   </div>
                 </div>
                 
@@ -219,7 +219,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 dark:text-white">Office</h3>
-                    <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line">{contactInfo?.officeAddress || 'Constituency Office\nNasarawa, Kano State, Nigeria'}</p>
+                    <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line">{contactInfo?.officeAddress || 'Constituency Office\nGaya, Ajingi, and Albasu, Kano State, Nigeria'}</p>
                   </div>
                 </div>
                 

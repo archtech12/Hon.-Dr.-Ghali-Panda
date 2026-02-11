@@ -66,8 +66,8 @@ export default function StickerGeneratorPage() {
             if (navigator.share) {
                 try {
                     await navigator.share({
-                        title: 'Hon. Hassan Shehu Hussain Sticker',
-                        text: 'Check out my support sticker for Hon. Hassan Shehu Hussain (Hon. HASH)!',
+                        title: 'Hon. Dr. Ghali Panda Sticker',
+                        text: 'Check out my support sticker for Hon. Dr. Ghali Panda (Hon. Dr. Ghali Panda)!',
                         files: [file]
                     })
                 } catch (err) {
@@ -95,7 +95,7 @@ export default function StickerGeneratorPage() {
             <span className="inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full mb-3 tracking-wider">OFFICIAL CAMPAIGN TOOL</span>
             <h1 className="text-3xl md:text-4xl font-black text-neutral-900 mb-2">Create Your Sticker</h1>
             <p className="text-neutral-500 text-sm max-w-lg mx-auto">
-                Customize your endorsement for Hon. Hassan Shehu Hussain. Select a template, add your name, and download a high-quality graphic in seconds.
+                Customize your endorsement for Hon. Dr. Ghali Panda. Select a template, add your name, and download a high-quality graphic in seconds.
             </p>
         </header>
 

@@ -63,7 +63,7 @@ export const BadgeTemplate = ({ data }: TemplateProps) => {
                     </div>
                     <div className="text-left flex-1 min-w-0">
                         <p className="text-[10px] text-gray-500 uppercase font-bold">Endorsing</p>
-                        <p className="text-sm font-black text-slate-900 leading-tight truncate">HON. HASSAN SHEHU HUSSAIN</p>
+                        <p className="text-sm font-black text-slate-900 leading-tight truncate">HON. DR. GHALI PANDA</p>
                     </div>
                </div>
 

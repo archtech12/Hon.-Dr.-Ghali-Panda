@@ -28,11 +28,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!project) {
     return {
-      title: 'Project Not Found | Hon. Hassan Shehu Hussain',
+      title: 'Project Not Found | Hon. Dr. Ghali Panda',
     }
   }
 
-  const title = `${project.title} - Hon. Hassan Shehu Hussain`
+  const title = `${project.title} - Hon. Dr. Ghali Panda`
   const description = project.description
   // Use the first photo or a default fallback
   const image = (project.images && project.images[0]) || 'https://hon-hash.vercel.app/placeholder.jpg' 

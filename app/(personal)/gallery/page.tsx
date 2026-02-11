@@ -51,7 +51,7 @@ export default function GalleryPage() {
             Media Gallery
           </h1>
           <p className="mt-4 text-base sm:text-lg text-green-100">
-            Capturing the impact of our interventions across Nasarawa Federal Constituency.
+            Capturing the impact of our interventions across Gaya, Ajingi, and Albasu Federal Constituency.
           </p>
         </div>
       </section>

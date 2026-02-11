@@ -27,7 +27,7 @@ export default function LegislativeWorkPage() {
     content: (
       <>
         <p>
-          Hon. HASH's legislative actions are defined by a pro-people agenda. He fearlessly voices the
+          Hon. Dr. Ghali Panda's legislative actions are defined by a pro-people agenda. He fearlessly voices the
           concerns of the common man, particularly regarding economic policies that impact rural
           livelihoods. His priorities include agricultural support, infrastructural development, and
           equitable tax policies.
@@ -48,7 +48,7 @@ export default function LegislativeWorkPage() {
       {
         name: 'Motion for Rural Electrification',
         status: 'In Committee',
-        description: 'Moved a motion for urgent federal intervention to connect Nasarawa Federal Constituency villages to the national grid.',
+        description: 'Moved a motion for urgent federal intervention to connect Gaya, Ajingi, and Albasu Federal Constituency villages to the national grid.',
         date: '2024',
       },
       {
@@ -80,7 +80,7 @@ export default function LegislativeWorkPage() {
       id: 2,
       title: 'Rural Development',
       description:
-        'Championing federal projects for rural roads, electrification, and water supply in Nasarawa Federal Constituency.',
+        'Championing federal projects for rural roads, electrification, and water supply in Gaya, Ajingi, and Albasu Federal Constituency.',
       icon: 'landscape',
     },
     {
@@ -128,7 +128,7 @@ export default function LegislativeWorkPage() {
               Policy Positions
             </h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Key policy areas Hon. Hassan Shehu Hussain championed in the House of Representatives
+              Key policy areas Hon. Dr. Ghali Panda championed in the House of Representatives
             </p>
           </div>
 
@@ -160,7 +160,7 @@ export default function LegislativeWorkPage() {
               Recent Legislative Actions
             </h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Current bills and initiatives Hon. Hassan Shehu Hussain worked on during
+              Current bills and initiatives Hon. Dr. Ghali Panda worked on during
               his time in the House of Representatives
             </p>
           </div>

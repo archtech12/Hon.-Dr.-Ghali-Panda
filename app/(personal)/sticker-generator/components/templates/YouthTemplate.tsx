@@ -37,7 +37,7 @@ export const YouthTemplate = ({ data }: TemplateProps) => {
       <div className="absolute bottom-0 left-0 w-full h-[35%] flex flex-col justify-center px-6 z-10">
          <h1 className="text-white font-black text-[clamp(2.5rem,8vw,5rem)] leading-[0.85] tracking-tighter uppercase italic drop-shadow-md">
             TEAM<br/>
-            <span className="text-green-300">Hon. HASH</span>
+            <span className="text-green-300">Hon. Dr. Ghali Panda</span>
          </h1>
          <p className="text-green-100 font-bold uppercase mt-2 tracking-widest text-[clamp(0.7rem,2vw,1.2rem)]">{customMessage}</p>
        </div>

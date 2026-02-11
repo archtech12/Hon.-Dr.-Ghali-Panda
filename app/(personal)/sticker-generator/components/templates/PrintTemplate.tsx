@@ -13,7 +13,7 @@ export const PrintTemplate = ({ data }: TemplateProps) => {
             <span className="text-green-600 font-bold text-[0.6rem] uppercase tracking-wider">All Progressives Congress</span>
          </div>
          <div className="text-right">
-             <span className="block text-black font-bold uppercase text-[0.7rem] leading-tight">Nasarawa • Federal • Constituency</span>
+             <span className="block text-black font-bold uppercase text-[0.7rem] leading-tight">Gaya • Ajingi • Albasu • Fed. Constituency</span>
          </div>
       </div>
 
@@ -42,7 +42,7 @@ export const PrintTemplate = ({ data }: TemplateProps) => {
                <CandidatePortrait className="w-full h-full" />
             </div>
              <h2 className="font-black text-[clamp(1.2rem,4vw,2rem)] leading-none uppercase mb-2">
-                Hon. HASH<br/>(Hassan Shehu)
+                Hon. Dr. Ghali Panda<br/>(Ghali Panda)
              </h2>
              <p className="text-green-100 italic font-medium text-[clamp(0.8rem,2vw,1rem)]">"{customMessage}"</p>
          </div>

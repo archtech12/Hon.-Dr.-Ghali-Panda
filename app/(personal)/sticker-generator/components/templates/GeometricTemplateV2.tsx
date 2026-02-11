@@ -25,7 +25,7 @@ export const GeometricTemplateV2 = ({ data }: TemplateProps) => {
                             <CandidatePortrait className="w-full h-full opacity-90 object-cover" />
                         </div>
                         <div className="absolute -bottom-3 -left-3 bg-yellow-400 text-black font-black text-xs px-2 py-1 uppercase tracking-widest shadow-md">
-                            Hon. HASH
+                            HON. DR. GHALI PANDA
                         </div>
                     </div>
                 </div>

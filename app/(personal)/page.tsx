@@ -53,7 +53,7 @@ export default function IndexRoute() {
 
 
   const mockData = {
-    title: 'Hon. Hassan Shehu Hussain (Hon. HASH)',
+    title: 'Hon. Dr. Ghali Panda',
   }
 
   // Transform projects for Media Gallery
@@ -83,7 +83,7 @@ export default function IndexRoute() {
               Transforming Communities
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              Empowering lives through dedicated projects and programs across our constituencies
+              Empowering lives through dedicated projects and programs across Gaya, Ajingi, and Albasu Federal Constituency.
             </p>
           </div>
 

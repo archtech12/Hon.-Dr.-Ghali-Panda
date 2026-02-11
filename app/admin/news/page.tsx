@@ -32,7 +32,7 @@ export default function NewsManager() {
   const [content, setContent] = useState('')
   const [imageUrl, setImageUrl] = useState('')
   const [category, setCategory] = useState<string>('Announcement')
-  const [author, setAuthor] = useState('Hon. Hassan Shehu Hussain (Hon. HASH)')
+  const [author, setAuthor] = useState('Hon. Dr. Ghali Panda')
   const [published, setPublished] = useState(false)
 
   const router = useRouter()
@@ -193,7 +193,7 @@ export default function NewsManager() {
     setContent('')
     setImageUrl('')
     setCategory('Announcement')
-    setAuthor('Hon. Hassan Shehu Hussain (Hon. HASH)')
+    setAuthor('Hon. Dr. Ghali Panda')
     setPublished(false)
   }
 

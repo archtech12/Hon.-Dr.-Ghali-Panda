@@ -34,7 +34,7 @@ export function MediaGallery({items}: MediaGalleryProps) {
       <div className="container mx-auto px-4 md:px-8">
         <h2 className="text-3xl font-bold text-center mb-4 text-green-800">Media Gallery</h2>
         <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-          Explore photos and moments from community events, programs, and initiatives in Nasarawa Federal Constituency.
+          Explore photos and moments from community events, programs, and initiatives in Gaya, Ajingi, and Albasu Federal Constituency.
         </p>
 
         {/* Filter Buttons */}
@@ -175,7 +175,7 @@ export const mediaData: MediaItem[] = [
     type: 'image',
     src: '/assets/solar construction.jpg',
     title: 'Solar Borehole Commissioning',
-    description: 'Providing free access to clean water in Gama, Tudun Wada, and Hotoro communities provided by Hon. HASH.',
+    description: 'Providing free access to clean water in Gama, Tudun Wada, and Hotoro communities provided by Hon. Dr. Ghali Panda.',
     date: 'December 5, 2024',
   },
   {
@@ -183,7 +183,7 @@ export const mediaData: MediaItem[] = [
     type: 'image',
     src: '/assets/motorcycles-21.jpg',
     title: 'Youth Empowerment',
-    description: 'Empowering 21 youths with motorcycles to start their own logistics businesses in Nasarawa.',
+    description: 'Empowering 21 youths with motorcycles to start their own logistics businesses in Gaya, Ajingi, and Albasu.',
     date: 'December 26, 2024',
   },
   {
@@ -215,7 +215,7 @@ export const mediaData: MediaItem[] = [
     type: 'image',
     src: '/assets/fertilizer-1800.jpg',
     title: 'Agricultural Support',
-    description: 'Flagging off the distribution of 1,800 bags of fertilizer to farmers in Nasarawa.',
+    description: 'Flagging off the distribution of 1,800 bags of fertilizer to farmers in Gaya, Ajingi, and Albasu.',
     date: 'August 10, 2025',
   },
 ]

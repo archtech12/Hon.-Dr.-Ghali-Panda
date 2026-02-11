@@ -161,14 +161,14 @@ export const timelineData: TimelineItem[] = [
   {
     id: 2,
     title: "Community Initiatives",
-    description: "Started grassroots development projects in Nasarawa, providing support for local education and healthcare.",
+    description: "Started grassroots development projects in Gaya, Ajingi, and Albasu, providing support for local education and healthcare.",
     date: "2010 - 2022",
     category: "philanthropic"
   },
   {
     id: 3,
     title: "Elected to House of Reps",
-    description: "Elected to represent the good people of Nasarawa Federal Constituency.",
+    description: "Elected to represent the good people of Gaya, Ajingi, and Albasu Federal Constituency.",
     date: "2023",
     category: "political"
   },

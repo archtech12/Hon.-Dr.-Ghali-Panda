@@ -6,14 +6,14 @@ import { projects } from '@/lib/projects' // Using local data
 import Link from 'next/link'
 
 interface Project {
-  _id: string
-  title: string
+  id: number
+  titleEN: string
   titleHA: string
-  description: string
+  desc: string
   category: string
-  images: string[]
+  photos: string[]
   date: string
-  status: string
+  status?: string
 }
 
 // ... (Imports)
@@ -84,7 +84,7 @@ export default function ProjectsPage() {
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
       const matchesCategory = activeCategory === 'All' || project.category === activeCategory
-      const searchContent = `${project.title} ${project.titleHA} ${project.description}`.toLowerCase()
+      const searchContent = `${project.titleEN} ${project.titleHA} ${project.desc}`.toLowerCase()
       const matchesSearch = searchContent.includes(searchQuery.toLowerCase())
       return matchesCategory && matchesSearch
     })
@@ -102,8 +102,8 @@ export default function ProjectsPage() {
           </h1>
           <p className="text-lg md:text-xl text-green-100 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
             {lang === 'en' 
-              ? 'Explore the impactful projects and initiatives delivering real change to Nasarawa Federal Constituency.' 
-              : 'Bincika muhimman ayyuka da tsare-tsaren da ke kawo sauyi na hakika ga Nasarawa.'}
+              ? 'Explore the impactful projects and initiatives delivering real change to Gaya, Ajingi, and Albasu Federal Constituency.' 
+              : 'Bincika muhimman ayyuka da tsare-tsaren da ke kawo sauyi na hakika ga Gaya, Ajingi, da Albasu.'}
           </p>
           
           <div className="inline-flex bg-white/10 backdrop-blur-md rounded-full p-1 border border-white/20">
@@ -180,26 +180,26 @@ export default function ProjectsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => (
               <div 
-                key={project._id}
+                key={project.id}
                 className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col transform hover:-translate-y-1"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 {/* Image Container */}
                 <div className="relative h-64 overflow-hidden bg-gray-100">
-                  {project.images && project.images.length > 0 ? (
-                    <div className={`grid h-full w-full ${project.images.length > 1 ? 'grid-rows-2 md:grid-rows-1 md:grid-cols-2' : 'grid-cols-1'}`}>
-                      {project.images.slice(0, 2).map((photo, pIndex) => (
+                  {project.photos && project.photos.length > 0 ? (
+                    <div className={`grid h-full w-full ${project.photos.length > 1 ? 'grid-rows-2 md:grid-rows-1 md:grid-cols-2' : 'grid-cols-1'}`}>
+                      {project.photos.slice(0, 2).map((photo, pIndex) => (
                         <div key={pIndex} className="relative h-full w-full border-b md:border-b-0 md:border-l first:border-0 border-white/20">
                            <Image
                             src={photo}
-                            alt={`${project.title} - Image ${pIndex + 1}`}
+                            alt={`${project.titleEN} - Image ${pIndex + 1}`}
                             fill
                             className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           />
-                          {pIndex === 1 && project.images.length > 2 && (
+                          {pIndex === 1 && project.photos.length > 2 && (
                              <div className="absolute inset-0 bg-black/50 flex items-center justify-center text-white font-bold text-xl">
-                               +{project.images.length - 2}
+                               +{project.photos.length - 2}
                              </div>
                           )}
                         </div>
@@ -231,13 +231,13 @@ export default function ProjectsPage() {
                   </div>
 
                   <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-green-700 transition-colors">
-                    {lang === 'en' ? project.title : project.titleHA}
+                    {lang === 'en' ? project.titleEN : project.titleHA}
                   </h3>
 
                   <div className="w-12 h-1 bg-green-100 rounded-full mb-4 group-hover:w-20 group-hover:bg-green-500 transition-all duration-300"></div>
 
                   <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow line-clamp-4">
-                    {project.description}
+                    {project.desc}
                   </p>
 
                   {/* Share Actions */}
@@ -246,7 +246,7 @@ export default function ProjectsPage() {
                     
                     <div className="flex items-center gap-2">
                        <a 
-                        href={`https://wa.me/?text=${encodeURIComponent(`Check out this project by Hon. HASH: ${lang === 'en' ? project.title : project.titleHA} - ${typeof window !== 'undefined' ? window.location.origin : ''}/projects/${project._id}`)}`}
+                        href={`https://wa.me/?text=${encodeURIComponent(`Check out this project by Hon. Dr. Ghali Panda: ${lang === 'en' ? project.titleEN : project.titleHA} - ${typeof window !== 'undefined' ? window.location.origin : ''}/projects/${project.id}`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-8 h-8 flex items-center justify-center rounded-full bg-green-50 text-green-600 hover:bg-green-500 hover:text-white transition-all duration-300 mx-1"
@@ -256,7 +256,7 @@ export default function ProjectsPage() {
                       </a>
                       
                       <a 
-                        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${lang === 'en' ? project.title : project.titleHA} via @HonHASH`)}&url=${encodeURIComponent(`${typeof window !== 'undefined' ? window.location.origin : ''}/projects/${project._id}`)}`}
+                        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${lang === 'en' ? project.titleEN : project.titleHA} via @ghalipanda`)}&url=${encodeURIComponent(`${typeof window !== 'undefined' ? window.location.origin : ''}/projects/${project.id}`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-50 text-blue-400 hover:bg-blue-400 hover:text-white transition-all duration-300 mx-1"
@@ -266,7 +266,7 @@ export default function ProjectsPage() {
                       </a>
 
                       <a 
-                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${typeof window !== 'undefined' ? window.location.origin : ''}/projects/${project._id}`)}`}
+                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${typeof window !== 'undefined' ? window.location.origin : ''}/projects/${project.id}`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 mx-1"
@@ -276,7 +276,7 @@ export default function ProjectsPage() {
                       </a>
                       
                       <button
-                        onClick={() => copyToClipboard(`${lang === 'en' ? project.title : project.titleHA}\n${project.description}\n${window.location.origin}/projects/${project._id}`)}
+                        onClick={() => copyToClipboard(`${lang === 'en' ? project.titleEN : project.titleHA}\n${project.desc}\n${window.location.origin}/projects/${project.id}`)}
                         className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-500 hover:bg-gray-700 hover:text-white transition-all duration-300 mx-1"
                         title="Copy Link"
                       >

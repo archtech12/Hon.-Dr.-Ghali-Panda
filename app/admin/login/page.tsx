@@ -95,7 +95,7 @@ export default function AdminLogin() {
               <span className="text-yellow-300">Administrator</span>
             </h1>
             <p className="text-xl text-green-100 leading-relaxed">
-              Access the Hon. Hassan Shehu Hussain Campaign Dashboard
+              Access the Hon. Dr. Ghali Panda Campaign Dashboard
             </p>
           </div>
 

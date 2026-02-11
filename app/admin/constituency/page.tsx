@@ -40,8 +40,8 @@ export default function ConstituencyEditor() {
         // In a real implementation, you would fetch from your API
         // For now, we'll use the default values
         setConstituencyData({
-          name: "Nasarawa Federal Constituency",
-          representative: "Hon. Hassan Shehu Hussain (Hon. HASH)",
+          name: "Gaya, Ajingi, and Albasu Federal Constituency",
+          representative: "Hon. Dr. Ghali Panda",
           party: "All Progressives Congress (APC)",
           electionYear: "2023",
           communities: "Gama, Tokarawa, Gawuna, Gwagwarwa, Tudun Wada, Hotoro North, Hotoro South, Kaura Goje, Giginyu, Dakata, Kawaji",
@@ -75,7 +75,7 @@ export default function ConstituencyEditor() {
           }
         ]);
         
-        setVisionContent("Hon. Hassan Shehu Hussain's vision for Nasarawa Federal Constituency is built on the pillars of accessible education, economic empowerment, and infrastructural development. By leveraging legislative tools and community engagement, he aims to transform the constituency into a hub of opportunity and sustainable growth, ensuring that every resident benefits from democratic dividends.");
+        setVisionContent("Hon. Dr. Ghali Panda's vision for Gaya, Ajingi, and Albasu Federal Constituency is built on the pillars of accessible education, economic empowerment, and infrastructural development. By leveraging legislative tools and community engagement, he aims to transform the constituency into a hub of opportunity and sustainable growth, ensuring that every resident benefits from democratic dividends.");
       } catch (err) {
         setError('Failed to load constituency content');
       } finally {

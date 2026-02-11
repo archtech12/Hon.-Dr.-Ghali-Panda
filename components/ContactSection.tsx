@@ -168,7 +168,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-800">Email</h4>
-                    <p className="text-gray-600">contact@honhashim.com</p>
+                    <p className="text-gray-600">info@ghalipanda.com</p>
                   </div>
                 </div>
                 
@@ -181,7 +181,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-800">Office</h4>
-                    <p className="text-gray-600">Constituency Office<br />Nasarawa Federal Constituency, Kano State</p>
+                    <p className="text-gray-600">Constituency Office<br />Gaya, Ajingi, and Albasu Federal Constituency, Kano State</p>
                   </div>
                 </div>
                 
